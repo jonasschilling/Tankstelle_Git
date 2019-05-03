@@ -1,0 +1,7 @@
+.checkoutButton:hover {
+	-fx-background-color: #00E684;
+}
+
+.checkoutButton:pressed {
+	-fx-background-color: #00663A;
+}
