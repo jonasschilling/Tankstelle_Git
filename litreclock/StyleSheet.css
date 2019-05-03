@@ -1,0 +1,26 @@
+#startTimerButton {
+	-fx-background-color: #008F51;
+	-fx-background-radius: 5;
+}
+
+#startTimerButton:hover {
+	-fx-background-color: rgb(0, 180, 114);
+}
+
+#startTimerButton:pressed {
+	-fx-background-color: rgb(0, 117, 67);
+}
+
+
+#stopTimerButton {
+	-fx-background-color: #DC0000;
+	-fx-background-radius: 5;
+}
+
+#stopTimerButton:hover {
+	-fx-background-color: #FF5151;
+}
+
+#stopTimerButton:pressed {
+	-fx-background-color: #C10000;
+}
