@@ -1,5 +1,5 @@
 package tanken_test;
 
-public class jjjjjjjjjjj {
+public class fdg {
 
 }
