@@ -23,7 +23,7 @@
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@printertest/ok.png" />
+												<Image url="@resources/ok.png" />
 											</image>
 										</ImageView>
 									</graphic>
@@ -35,7 +35,7 @@
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@printertest/stornieren.png" />
+												<Image url="@resources/stornieren.png" />
 											</image>
 										</ImageView>
 									</graphic>
@@ -47,7 +47,7 @@
 								</Label>
 								<ImageView fitHeight="63.0" fitWidth="56.0" layoutX="28.0" layoutY="15.0" preserveRatio="true">
 									<image>
-										<Image url="@printertest/warenkorb.png" />
+										<Image url="@resources/warenkorb.png" />
 									</image>
 								</ImageView>
 							</children>
@@ -59,7 +59,7 @@
 							<graphic>
 								<ImageView>
 									<image>
-										<Image url="@printertest/pump1.png" />
+										<Image url="@resources/pump1.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -71,7 +71,7 @@
 							<graphic>
 								<ImageView>
 									<image>
-										<Image url="@printertest/pump2.png" />
+										<Image url="@resources/pump2.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -83,7 +83,7 @@
 							<graphic>
 								<ImageView>
 									<image>
-										<Image url="@printertest/pump3.png" />
+										<Image url="@resources/pump3.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -95,7 +95,7 @@
 							<graphic>
 								<ImageView>
 									<image>
-										<Image url="@printertest/pump4.png" />
+										<Image url="@resources/pump4.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -107,7 +107,7 @@
 							<graphic>
 								<ImageView>
 									<image>
-										<Image url="@printertest/pump5.png" />
+										<Image url="@resources/pump5.png" />
 									</image>
 								</ImageView>
 							</graphic>
