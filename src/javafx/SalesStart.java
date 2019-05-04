@@ -7,20 +7,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class Test2 extends Application {
+public class SalesStart extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 	public void init() {
-		// Eingabeparameter verarbeiten
+		
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		//primaryStage.initStyle(StageStyle.UNDECORATED);
-		Parent root = FXMLLoader.load(getClass().getResource("ColorTestTab.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("SalesView.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
 		primaryStage.setTitle("Shell");
