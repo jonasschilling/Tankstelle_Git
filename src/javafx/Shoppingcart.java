@@ -13,7 +13,7 @@ public class Shoppingcart {
 	Product jupiter;
 	Product bull;
 	Product pizza;
-	
+
 	public Shoppingcart() {
 		wodka = new Product(421, "Wodka Jelzin", "Flasche", 30, 30, 2.99f, 9.99f);
 		filip = new Product(871, "Filip Maurice", "Packung", 100, 100, 2.77f, 6.99f);
@@ -32,24 +32,26 @@ public class Shoppingcart {
 		return numWodka;
 	}
 
-	public void addWodka(){
+	public void addWodka() {
 		numWodka++;
 		incTotal(wodka.getPriceSell());
 	}
-	public void removeWodka(){
+
+	public void removeWodka() {
 		numWodka--;
 		decTotal(wodka.getPriceSell());
 	}
 
-	public int getNumJup() {
+	public int getNumJupiter() {
 		return numJupiter;
 	}
 
-	public void addJupiter(){
+	public void addJupiter() {
 		numJupiter++;
 		incTotal(jupiter.getPriceSell());
 	}
-	public void removeJupiter(){
+
+	public void removeJupiter() {
 		numJupiter--;
 		decTotal(jupiter.getPriceSell());
 	}
@@ -58,11 +60,12 @@ public class Shoppingcart {
 		return numFilip;
 	}
 
-	public void addFilip(){
+	public void addFilip() {
 		numFilip++;
 		incTotal(filip.getPriceSell());
 	}
-	public void removeFilip(){
+
+	public void removeFilip() {
 		numFilip--;
 		decTotal(filip.getPriceSell());
 	}
@@ -71,11 +74,12 @@ public class Shoppingcart {
 		return numBull;
 	}
 
-	public void addBull(){
+	public void addBull() {
 		numBull++;
 		incTotal(bull.getPriceSell());
 	}
-	public void removeBull(){
+
+	public void removeBull() {
 		numBull--;
 		decTotal(bull.getPriceSell());
 	}
@@ -84,17 +88,18 @@ public class Shoppingcart {
 		return numPizza;
 	}
 
-	public void addPizza(){
+	public void addPizza() {
 		numPizza++;
 		incTotal(pizza.getPriceSell());
 	}
-	public void removePizza(){
+
+	public void removePizza() {
 		numPizza--;
 		decTotal(pizza.getPriceSell());
 	}
 
 	public float getTotal() {
-		return (float) ((float)Math.round(total * 100) / 100.0);
+		return (float) ((float) Math.round(total * 100) / 100.0);
 	}
 
 	public void incTotal(float price) {

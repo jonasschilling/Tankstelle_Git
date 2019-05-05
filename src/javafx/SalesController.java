@@ -78,12 +78,15 @@ public class SalesController implements Initializable {
 		switch (source.getId()) {
 
 		case "button6":
-			if (label1.isVisible() == false) {
+			
+			if(source.isSelected()) {
+				
 				scart.addWodka();
 				label1.setVisible(true);
 				label1amount.setVisible(true);
 				label1amount.setText("1");
 				prod1plus.setVisible(true);
+				prod1plus.setDisable(false);
 				prod1minus.setVisible(true);
 			} else {
 				label1.setVisible(false);
@@ -98,12 +101,13 @@ public class SalesController implements Initializable {
 			}
 			break;
 		case "button7":
-			if (label2.isVisible() == false) {
+			if(source.isSelected()) {
 				scart.addFilip();
 				label2.setVisible(true);
 				label2amount.setVisible(true);
 				label2amount.setText("1");
 				prod2plus.setVisible(true);
+				prod2plus.setDisable(false);
 				prod2minus.setVisible(true);
 			} else {
 				label2.setVisible(false);
@@ -118,12 +122,13 @@ public class SalesController implements Initializable {
 			}
 			break;
 		case "button8":
-			if (label3.isVisible() == false) {
+			if(source.isSelected()) {
 				scart.addJupiter();
 				label3.setVisible(true);
 				label3amount.setVisible(true);
 				label3amount.setText("1");
 				prod3plus.setVisible(true);
+				prod3plus.setDisable(false);
 				prod3minus.setVisible(true);
 			} else {
 				label3.setVisible(false);
@@ -134,16 +139,17 @@ public class SalesController implements Initializable {
 				label3amount.setVisible(false);
 				label3amount.setText("0");
 				prod3plus.setVisible(false);
-				prod3minus.setVisible(false);
+				prod3minus.setVisible(false);			
 			}
 			break;
 		case "button9":
-			if (label4.isVisible() == false) {
+			if(source.isSelected()) {
 				scart.addBull();
 				label4.setVisible(true);
 				label4amount.setVisible(true);
 				label4amount.setText("1");
 				prod4plus.setVisible(true);
+				prod4plus.setDisable(false);
 				prod4minus.setVisible(true);
 			} else {
 				label4.setVisible(false);
@@ -158,12 +164,13 @@ public class SalesController implements Initializable {
 			}
 			break;
 		case "button10":
-			if (label5.isVisible() == false) {
+			if(source.isSelected()) {
 				scart.addPizza();
 				label5.setVisible(true);
 				label5amount.setVisible(true);
 				label5amount.setText("1");
 				prod5plus.setVisible(true);
+				prod5plus.setDisable(false);
 				prod5minus.setVisible(true);
 			} else {
 				label5.setVisible(false);
@@ -187,34 +194,40 @@ public class SalesController implements Initializable {
 		switch (source.getId()) {
 
 		case ("prod1plus"):
+			
 			int amount1 = Integer.valueOf(label1amount.getText());
 			amount1++;
 			label1amount.setText(String.valueOf(amount1));
 			scart.addWodka();
+			prod1plus.setDisable(scart.getNumWodka() == (scart.wodka.getAmount())? true: false);
 			break;
 		case ("prod2plus"):
 			int amount2 = Integer.valueOf(label2amount.getText());
 			amount2++;
 			label2amount.setText(String.valueOf(amount2));
 			scart.addFilip();
+			prod2plus.setDisable(scart.getNumFilip() == (scart.filip.getAmount())? true: false);
 			break;
 		case ("prod3plus"):
 			int amount3 = Integer.valueOf(label3amount.getText());
 			amount3++;
 			label3amount.setText(String.valueOf(amount3));
 			scart.addJupiter();
+			prod3plus.setDisable(scart.getNumJupiter() == (scart.jupiter.getAmount())? true: false);
 			break;
 		case ("prod4plus"):
 			int amount4 = Integer.valueOf(label4amount.getText());
 			amount4++;
 			label4amount.setText(String.valueOf(amount4));
 			scart.addBull();
+			prod4plus.setDisable(scart.getNumBull() == (scart.bull.getAmount())? true: false);
 			break;
 		case ("prod5plus"):
 			int amount5 = Integer.valueOf(label5amount.getText());
 			amount5++;
 			label5amount.setText(String.valueOf(amount5));
 			scart.addPizza();
+			prod5plus.setDisable(scart.getNumPizza() == (scart.pizza.getAmount())? true: false);
 			break;
 		}
 		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " €");
@@ -231,6 +244,7 @@ public class SalesController implements Initializable {
 				amount1--;
 				label1amount.setText(String.valueOf(amount1));
 				scart.removeWodka();
+				prod1plus.setDisable(scart.getNumWodka() < (scart.wodka.getAmount())? false: true);
 			}
 			break;
 		case ("prod2minus"):
@@ -239,6 +253,7 @@ public class SalesController implements Initializable {
 				amount2--;
 				label2amount.setText(String.valueOf(amount2));
 				scart.removeFilip();
+				prod2plus.setDisable(scart.getNumFilip() < (scart.filip.getAmount())? false: true);
 			}
 			break;
 		case ("prod3minus"):
@@ -247,6 +262,7 @@ public class SalesController implements Initializable {
 				amount3--;
 				label3amount.setText(String.valueOf(amount3));
 				scart.removeJupiter();
+				prod3plus.setDisable(scart.getNumJupiter() < (scart.jupiter.getAmount())? false: true);
 			}
 			break;
 		case ("prod4minus"):
@@ -255,6 +271,7 @@ public class SalesController implements Initializable {
 				amount4--;
 				label4amount.setText(String.valueOf(amount4));
 				scart.removeBull();
+				prod4plus.setDisable(scart.getNumBull() < (scart.bull.getAmount())? false: true);
 			}
 			break;
 		case ("prod5minus"):
@@ -263,6 +280,7 @@ public class SalesController implements Initializable {
 				amount5--;
 				label5amount.setText(String.valueOf(amount5));
 				scart.removePizza();
+				prod5plus.setDisable(scart.getNumPizza() < (scart.pizza.getAmount())? false: true);
 			}
 			break;
 		}

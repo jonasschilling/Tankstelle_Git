@@ -65,7 +65,7 @@ public class Product {
 		this.amount += amount;
 	}
 
-	public void decAmount(int amount) {
+	public void decAmount() {
 		this.amount -= amount;
 	}
 
