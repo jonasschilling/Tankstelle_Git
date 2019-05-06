@@ -7,38 +7,25 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane xmlns="http://javafx.com/javafx/8"
-	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="javafx.SalesController">
+<TabPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.SalesController">
 	<tabs>
 		<Tab closable="false" text="Verkaufssystem">
 			<content>
-				<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
-					minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-					prefWidth="1200.0" style="-fx-background-color: #DF0024;">
+				<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #DF0024">
 					<children>
-						<AnchorPane layoutX="820.0" layoutY="24.0"
-							prefHeight="755.0" prefWidth="330.0"
-							style="-fx-background-color: #F6E000;">
+						<AnchorPane layoutX="820.0" layoutY="24.0" prefHeight="755.0" prefWidth="330.0" style="-fx-background-color: #F6E000;">
 							<children>
-								<Label fx:id="label1" text="Wodka Jelzin" layoutX="20.0"
-									layoutY="75.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="200">
+								<Label fx:id="label1" layoutX="20.0" layoutY="75.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200" text="Wodka Jelzin">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label id="label1amount" fx:id="label1amount"
-									layoutX="240.0" layoutY="100.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="50.0" text ="0">
+								<Label id="label1amount" fx:id="label1amount" layoutX="240.0" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="0">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Button id="prod1minus" fx:id="prod1minus"
-									layoutX="175.0" layoutY="100.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="50"
-									onAction="#removeButtonClicked">
+								<Button id="prod1minus" fx:id="prod1minus" layoutX="175.0" layoutY="100.0" mnemonicParsing="false" onAction="#removeButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -50,9 +37,7 @@
 										</ImageView>
 									</graphic>
 								</Button>
-								<Button id="prod1plus" fx:id="prod1plus" layoutX="270.0"
-									layoutY="100.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50" onAction="#addButtonClicked">
+								<Button id="prod1plus" fx:id="prod1plus" layoutX="270.0" layoutY="100.0" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -66,24 +51,17 @@
 								</Button>
 
 
-								<Label fx:id="label2" text="Filip Maurice" layoutX="20.0"
-									layoutY="175.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="200">
+								<Label fx:id="label2" layoutX="20.0" layoutY="175.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200" text="Filip Maurice">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label id="label2amount" fx:id="label2amount"
-									layoutX="240.0" layoutY="200.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="50.0" text ="0">
+								<Label id="label2amount" fx:id="label2amount" layoutX="240.0" layoutY="200.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="0">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Button id="prod2minus" fx:id="prod2minus"
-									layoutX="175.0" layoutY="200.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="50"
-									onAction="#removeButtonClicked">
+								<Button id="prod2minus" fx:id="prod2minus" layoutX="175.0" layoutY="200.0" mnemonicParsing="false" onAction="#removeButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -95,9 +73,7 @@
 										</ImageView>
 									</graphic>
 								</Button>
-								<Button id="prod2plus" fx:id="prod2plus" layoutX="270.0"
-									layoutY="200.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50" onAction="#addButtonClicked">
+								<Button id="prod2plus" fx:id="prod2plus" layoutX="270.0" layoutY="200.0" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -109,24 +85,17 @@
 										</ImageView>
 									</graphic>
 								</Button>
-								<Label fx:id="label3" text="Jupiter" layoutX="20.0"
-									layoutY="275.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="200">
+								<Label fx:id="label3" layoutX="20.0" layoutY="275.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200" text="Jupiter">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label id="label3amount" fx:id="label3amount"
-									layoutX="240.0" layoutY="300.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="50.0" text ="0">
+								<Label id="label3amount" fx:id="label3amount" layoutX="240.0" layoutY="300.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="0">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Button id="prod3minus" fx:id="prod3minus"
-									layoutX="175.0" layoutY="300.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="50"
-									onAction="#removeButtonClicked">
+								<Button id="prod3minus" fx:id="prod3minus" layoutX="175.0" layoutY="300.0" mnemonicParsing="false" onAction="#removeButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -138,9 +107,7 @@
 										</ImageView>
 									</graphic>
 								</Button>
-								<Button id="prod3plus" fx:id="prod3plus" layoutX="270.0"
-									layoutY="300.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50" onAction="#addButtonClicked">
+								<Button id="prod3plus" fx:id="prod3plus" layoutX="270.0" layoutY="300.0" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -152,24 +119,17 @@
 										</ImageView>
 									</graphic>
 								</Button>
-								<Label fx:id="label4" text="Sitting Bull" layoutX="20.0"
-									layoutY="375.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="200">
+								<Label fx:id="label4" layoutX="20.0" layoutY="375.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200" text="Sitting Bull">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label id="label4amount" fx:id="label4amount"
-									layoutX="240.0" layoutY="400.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="50.0" text ="0">
+								<Label id="label4amount" fx:id="label4amount" layoutX="240.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="0">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Button id="prod4minus" fx:id="prod4minus"
-									layoutX="175.0" layoutY="400.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="50"
-									onAction="#removeButtonClicked">
+								<Button id="prod4minus" fx:id="prod4minus" layoutX="175.0" layoutY="400.0" mnemonicParsing="false" onAction="#removeButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -181,9 +141,7 @@
 										</ImageView>
 									</graphic>
 								</Button>
-								<Button id="prod4plus" fx:id="prod4plus" layoutX="270.0"
-									layoutY="400.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50" onAction="#addButtonClicked">
+								<Button id="prod4plus" fx:id="prod4plus" layoutX="270.0" layoutY="400.0" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -195,24 +153,17 @@
 										</ImageView>
 									</graphic>
 								</Button>
-								<Label fx:id="label5" text="Pizza" layoutX="20.0"
-									layoutY="475.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="200">
+								<Label fx:id="label5" layoutX="20.0" layoutY="475.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200" text="Pizza">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label id="label5amount" fx:id="label5amount"
-									layoutX="240.0" layoutY="500.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="50.0" text ="0">
+								<Label id="label5amount" fx:id="label5amount" layoutX="240.0" layoutY="500.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="0">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Button id="prod5minus" fx:id="prod5minus"
-									layoutX="175.0" layoutY="500.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="50"
-									onAction="#removeButtonClicked">
+								<Button id="prod5minus" fx:id="prod5minus" layoutX="175.0" layoutY="500.0" mnemonicParsing="false" onAction="#removeButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -224,9 +175,7 @@
 										</ImageView>
 									</graphic>
 								</Button>
-								<Button id="prod5plus" fx:id="prod5plus" layoutX="270.0"
-									layoutY="500.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50" onAction="#addButtonClicked">
+								<Button id="prod5plus" fx:id="prod5plus" layoutX="270.0" layoutY="500.0" mnemonicParsing="false" onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -238,15 +187,12 @@
 										</ImageView>
 									</graphic>
 								</Button>
-								<Label id="labelTotal" fx:id="labelTotal" layoutX="25.0"
-									layoutY="625.0" mnemonicParsing="false" text="Gesamtpreis: 0.00 €">
+								<Label id="labelTotal" fx:id="labelTotal" layoutX="25.0" layoutY="625.0" mnemonicParsing="false" text="Gesamtpreis: 0.00 €">
 									<font>
 										<Font size="28.0" />
 									</font>
 								</Label>
-								<Button id="checkoutButton" fx:id="checkoutButton"
-									layoutX="7.5" layoutY="697.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="152.5" text="Checkout" onAction="#checkout">
+								<Button id="checkoutButton" fx:id="checkoutButton" layoutX="7.5" layoutY="697.0" mnemonicParsing="false" onAction="#checkout" prefHeight="50.0" prefWidth="152.5" text="Checkout">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -258,9 +204,7 @@
 										</ImageView>
 									</graphic>
 								</Button>
-								<Button id="cancelButton" fx:id="cancelButton"
-									layoutX="170.0" layoutY="697.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="152.5" text="Cancel">
+								<Button id="cancelButton" fx:id="cancelButton" layoutX="170.0" layoutY="697.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="152.5" text="Cancel">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -272,24 +216,19 @@
 										</ImageView>
 									</graphic>
 								</Button>
-								<Label alignment="CENTER" contentDisplay="CENTER"
-									layoutX="7.5" layoutY="7.5" prefHeight="70.0" prefWidth="315.0"
-									text="      Warenkorb" textAlignment="CENTER">
+								<Label alignment="CENTER" contentDisplay="CENTER" layoutX="7.5" layoutY="7.5" prefHeight="70.0" prefWidth="315.0" text="      Warenkorb" textAlignment="CENTER">
 									<font>
 										<Font name="System Bold" size="32.0" />
 									</font>
 								</Label>
-								<ImageView fitHeight="63.0" fitWidth="56.0"
-									layoutX="28.0" layoutY="15.0" preserveRatio="true">
+								<ImageView fitHeight="63.0" fitWidth="56.0" layoutX="28.0" layoutY="15.0" preserveRatio="true">
 									<image>
 										<Image url="@resources/warenkorb.png" />
 									</image>
 								</ImageView>
 							</children>
 						</AnchorPane>
-						<Button id="button1" fx:id="button1" layoutX="50.0"
-							layoutY="148.0" mnemonicParsing="false" prefHeight="90.0"
-							prefWidth="66.0">
+						<Button id="button1" fx:id="button1" layoutX="50.0" layoutY="148.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="66.0">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
@@ -301,9 +240,7 @@
 								</ImageView>
 							</graphic>
 						</Button>
-						<Button id="button2" fx:id="button2" layoutX="200.0"
-							layoutY="148.0" mnemonicParsing="false" prefHeight="90.0"
-							prefWidth="66.0">
+						<Button id="button2" fx:id="button2" layoutX="200.0" layoutY="148.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="66.0">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
@@ -315,9 +252,7 @@
 								</ImageView>
 							</graphic>
 						</Button>
-						<Button id="button3" fx:id="button3" layoutX="350.0"
-							layoutY="148.0" mnemonicParsing="false" prefHeight="90.0"
-							prefWidth="66.0">
+						<Button id="button3" fx:id="button3" layoutX="350.0" layoutY="148.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="66.0">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
@@ -329,9 +264,7 @@
 								</ImageView>
 							</graphic>
 						</Button>
-						<Button id="button4" fx:id="button4" layoutX="500.0"
-							layoutY="148.0" mnemonicParsing="false" prefHeight="90.0"
-							prefWidth="66.0">
+						<Button id="button4" fx:id="button4" layoutX="500.0" layoutY="148.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="66.0">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
@@ -343,9 +276,7 @@
 								</ImageView>
 							</graphic>
 						</Button>
-						<Button id="button5" fx:id="button5" layoutX="650.0"
-							layoutY="148.0" mnemonicParsing="false" prefHeight="110.0"
-							prefWidth="120.0">
+						<Button id="button5" fx:id="button5" layoutX="650.0" layoutY="148.0" mnemonicParsing="false" prefHeight="110.0" prefWidth="120.0">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
@@ -357,48 +288,32 @@
 								</ImageView>
 							</graphic>
 						</Button>
-						<ToggleButton id="button6" fx:id="button6" text = "Wodka"
-							layoutX="75.0" layoutY="400.0" mnemonicParsing="false"
-							prefHeight="90.0" prefWidth="200.0"
-							onAction="#productButtonClicked">
+						<ToggleButton id="button6" fx:id="button6" layoutX="75.0" layoutY="400.0" mnemonicParsing="false" onAction="#productButtonClicked" prefHeight="90.0" prefWidth="200.0" text="Wodka">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
 						</ToggleButton>
-						<ToggleButton id="button7" fx:id="button7" text = "Filip Maurice"
-							layoutX="325.0" layoutY="400.0" mnemonicParsing="false"
-							prefHeight="90.0" prefWidth="200.0"
-							onAction="#productButtonClicked">
+						<ToggleButton id="button7" fx:id="button7" layoutX="325.0" layoutY="400.0" mnemonicParsing="false" onAction="#productButtonClicked" prefHeight="90.0" prefWidth="200.0" text="Filip Maurice">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
 						</ToggleButton>
-						<ToggleButton id="button8" fx:id="button8" text = "Jupiter"
-							layoutX="575.0" layoutY="400.0" mnemonicParsing="false"
-							prefHeight="90.0" prefWidth="200.0"
-							onAction="#productButtonClicked">
+						<ToggleButton id="button8" fx:id="button8" layoutX="575.0" layoutY="400.0" mnemonicParsing="false" onAction="#productButtonClicked" prefHeight="90.0" prefWidth="200.0" text="Jupiter">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
 						</ToggleButton>
-						<ToggleButton id="button9" fx:id="button9" text = "Sitting Bull"
-							layoutX="190.0" layoutY="550.0" mnemonicParsing="false"
-							prefHeight="90.0" prefWidth="200.0"
-							onAction="#productButtonClicked">
+						<ToggleButton id="button9" fx:id="button9" layoutX="190.0" layoutY="550.0" mnemonicParsing="false" onAction="#productButtonClicked" prefHeight="90.0" prefWidth="200.0" text="Sitting Bull">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
 						</ToggleButton>
-						<ToggleButton id="button10" fx:id="button10" text = "Pizza"
-							layoutX="440.0" layoutY="550.0" mnemonicParsing="false"
-							prefHeight="90.0" prefWidth="200.0"
-							onAction="#productButtonClicked">
+						<ToggleButton id="button10" fx:id="button10" layoutX="440.0" layoutY="550.0" mnemonicParsing="false" onAction="#productButtonClicked" prefHeight="90.0" prefWidth="200.0" text="Pizza">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
 						</ToggleButton>
-						<Label layoutX="50.0" layoutY="52.0" prefHeight="70.0"
-							prefWidth="722.0" text="Zapfsäule auswählen">
+						<Label layoutX="50.0" layoutY="52.0" prefHeight="70.0" prefWidth="722.0" text="Zapfsäule auswählen">
 							<font>
 								<Font name="System Bold" size="36.0" />
 							</font>
@@ -407,5 +322,60 @@
 				</AnchorPane>
 			</content>
 		</Tab>
+      <Tab text="Bestellung/Verwaltung">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Pane prefHeight="400.0" prefWidth="950.0">
+                     <children>
+                        <ProgressBar fx:id="superBar" layoutX="63.0" layoutY="148.0" prefHeight="120.0" prefWidth="250.0" progress="0.0" rotate="-90.0" />
+                        <Label alignment="CENTER" layoutX="150.0" layoutY="34.0" prefWidth="75.0" text="Super">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="superPriceLabel" layoutX="275.0" layoutY="217.0" prefWidth="200.0" text="Label">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <ProgressBar fx:id="dieselBar" layoutX="513.0" layoutY="148.0" prefHeight="120.0" prefWidth="250.0" progress="0.0" rotate="-90.0" />
+                        <Label alignment="CENTER" layoutX="600.0" layoutY="34.0" prefWidth="75.0" text="Diesel">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="superCapLabel" layoutX="275.0" layoutY="170.0" prefWidth="200.0" text="Label">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dieselCapLabel" layoutX="727.0" layoutY="170.0" prefWidth="200.0" text="Label">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dieselPriceLabel" layoutX="727.0" layoutY="217.0" prefWidth="200.0" text="Label">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="950.0" prefHeight="400.0" prefWidth="250.0">
+                     <children>
+                        <Button fx:id="changePricesButton" layoutX="50.0" layoutY="120.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Preise ändern">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <Pane layoutY="400.0" prefHeight="400.0" prefWidth="600.0" />
+                  <Pane layoutX="600.0" layoutY="400.0" prefHeight="400.0" prefWidth="600.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
 	</tabs>
 </TabPane>
