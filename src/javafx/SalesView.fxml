@@ -246,7 +246,7 @@
 								</Label>
 								<Button id="checkoutButton" fx:id="checkoutButton"
 									layoutX="7.5" layoutY="697.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="152.5" text="Checkout">
+									prefHeight="50.0" prefWidth="152.5" text="Checkout" onAction="#checkout">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>

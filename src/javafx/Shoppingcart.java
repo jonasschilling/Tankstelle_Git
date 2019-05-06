@@ -20,9 +20,9 @@ public class Shoppingcart {
 		jupiter = new Product(358, "Jupiter Schokoriegel", "Stück", 150, 150, 0.19f, 0.90f);
 		bull = new Product(992, "Sitting Bull", "Dose", 50, 50, 0.29f, 1.99f);
 		pizza = new Product(101, "TK-Pizza Deluxe", "Stück", 20, 20, 0.89f, 2.49f);
-		numWodka = 0;
-		numJupiter = 0;
+		numWodka = 0;	
 		numFilip = 0;
+		numJupiter = 0;
 		numBull = 0;
 		numPizza = 0;
 		total = 0;
@@ -108,5 +108,19 @@ public class Shoppingcart {
 
 	public void decTotal(float price) {
 		this.total -= price;
+	}
+	public void checkout() {
+		wodka.decAmount(numWodka);
+		filip.decAmount(numFilip);
+		jupiter.decAmount(numJupiter);
+		bull.decAmount(numBull);
+		pizza.decAmount(numPizza);
+		numWodka = 0;
+		numFilip = 0;
+		numJupiter = 0;
+		numBull = 0;
+		numPizza = 0;
+		total = 0;
+		
 	}
 }

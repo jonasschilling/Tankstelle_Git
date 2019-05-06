@@ -49,6 +49,11 @@ public class SalesController implements Initializable {
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		scart = new Shoppingcart();
+		hideAll();
+		
+	}
+
+	public void hideAll() {
 		label1.setVisible(false);
 		label2.setVisible(false);
 		label3.setVisible(false);
@@ -69,8 +74,15 @@ public class SalesController implements Initializable {
 		prod4plus.setVisible(false);
 		prod5minus.setVisible(false);
 		prod5plus.setVisible(false);
+		labelTotal.setText("Gesamtpreis: 0.00 €");
 	}
-
+	public void unToggleAll() {
+		button6.setSelected(false);
+		button7.setSelected(false);
+		button8.setSelected(false);
+		button9.setSelected(false);
+		button10.setSelected(false);
+	}
 	public void productButtonClicked(ActionEvent actionEvent) {
 
 		ToggleButton source = (ToggleButton) actionEvent.getSource();
@@ -286,4 +298,11 @@ public class SalesController implements Initializable {
 		}
 		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " €");
 	}
+	
+	public void checkout(ActionEvent actionEvent) {
+		scart.checkout();
+		hideAll();
+		unToggleAll();
+	}
 }
+
