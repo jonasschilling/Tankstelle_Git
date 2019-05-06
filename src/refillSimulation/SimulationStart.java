@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class SimulationStart extends Application {
@@ -19,6 +20,7 @@ public class SimulationStart extends Application {
 		Scene scene = new Scene(root, 400, 330);
 		scene.getStylesheets().add(getClass().getResource("SimulationStylesheet.css").toExternalForm());
 		primaryStage.setTitle("Tanksimulation");
+		primaryStage.getIcons().add(new Image("javafx/resources/gasPump.png"));
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
