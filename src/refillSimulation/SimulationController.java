@@ -1,4 +1,4 @@
-package litreclock;
+package refillSimulation;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
-public class Controller implements Initializable {
+public class SimulationController implements Initializable {
 
 	int milliLitres = 1;
 	int litres = 0;
