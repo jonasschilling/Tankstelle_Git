@@ -17,7 +17,7 @@ public class SimulationStart extends Application {
 
 	public void start(Stage primaryStage) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("SimulationView.fxml"));
-		Scene scene = new Scene(root, 400, 330);
+		Scene scene = new Scene(root, 400, 570);
 		scene.getStylesheets().add(getClass().getResource("SimulationStylesheet.css").toExternalForm());
 		primaryStage.setTitle("Tanksimulation");
 		primaryStage.getIcons().add(new Image("javafx/resources/gasPump.png"));
