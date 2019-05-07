@@ -1,14 +1,14 @@
 .button {
-	-fx-background-color: #F6E000;
+	-fx-background-color: #FFFFFF;
 	-fx-background-radius: 15;
 }
 
 .button:hover {
-	-fx-background-color: #FFED4A;
+	-fx-background-color: #F7F9FA;
 }
 
 .button:pressed {
-	-fx-background-color: rgb(223, 201, 0);
+	-fx-background-color: rgb(238, 241, 244);
 }
 
 /**
@@ -79,15 +79,15 @@
 */
 
 .tab {
-	-fx-background-color: #F6E000;
+	-fx-background-color: #FFFFFF;
 }
 
 .tab:hover {
-	-fx-background-color: #FFED4A;
+	-fx-background-color: #F7F9FA;
 }
 
 .tab:pressed {
-	-fx-background-color: rgb(223, 201, 0);
+	-fx-background-color: rgb(238, 241, 244);
 }
 
 #checkoutButton {

@@ -11,9 +11,9 @@
 	<tabs>
 		<Tab closable="false" text="Verkaufssystem">
 			<content>
-				<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #DF0024">
+				<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #C0D4E6">
 					<children>
-						<AnchorPane layoutX="820.0" layoutY="24.0" prefHeight="755.0" prefWidth="330.0" style="-fx-background-color: #F6E000;">
+						<AnchorPane layoutX="820.0" layoutY="24.0" prefHeight="755.0" prefWidth="330.0" style="-fx-background-color: #FFFFFF">
 							<children>
 								<Label fx:id="label1" layoutX="20.0" layoutY="75.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="200" text="Wodka Jelzin">
 									<font>
@@ -329,7 +329,7 @@
                   <Pane prefHeight="400.0" prefWidth="950.0">
                      <children>
                         <ProgressBar fx:id="superBar" layoutX="63.0" layoutY="148.0" prefHeight="120.0" prefWidth="250.0" progress="0.0" rotate="-90.0" />
-                        <Label alignment="CENTER" layoutX="150.0" layoutY="34.0" prefWidth="75.0" text="Super">
+                        <Label fx:id="tankNameLabel1" alignment="CENTER" layoutX="150.0" layoutY="34.0" prefWidth="75.0">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -340,7 +340,7 @@
                            </font>
                         </Label>
                         <ProgressBar fx:id="dieselBar" layoutX="513.0" layoutY="148.0" prefHeight="120.0" prefWidth="250.0" progress="0.0" rotate="-90.0" />
-                        <Label alignment="CENTER" layoutX="600.0" layoutY="34.0" prefWidth="75.0" text="Diesel">
+                        <Label fx:id="tankNameLabel2" alignment="CENTER" layoutX="600.0" layoutY="34.0" prefWidth="75.0">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -364,7 +364,7 @@
                   </Pane>
                   <Pane layoutX="950.0" prefHeight="400.0" prefWidth="250.0">
                      <children>
-                        <Button fx:id="changePricesButton" layoutX="50.0" layoutY="120.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Preise ändern">
+                        <Button fx:id="changePriceButton" layoutX="50.0" layoutY="120.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" onAction="#showChangePriceDialog" text="Preise ändern">
                            <font>
                               <Font size="20.0" />
                            </font>
