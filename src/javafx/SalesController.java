@@ -304,5 +304,10 @@ public class SalesController implements Initializable {
 		hideAll();
 		unToggleAll();
 	}
+	public void cancel(ActionEvent actionEvent) {
+		scart.cancel();
+		hideAll();
+		unToggleAll();	
+	}
 }
 

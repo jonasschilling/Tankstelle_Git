@@ -15,11 +15,11 @@
 			<content>
 				<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
 					minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-					prefWidth="1200.0" style="-fx-background-color: #DF0024;">
+					prefWidth="1200.0" style="-fx-background-color: #316c9f">
 					<children>
 						<AnchorPane layoutX="820.0" layoutY="24.0"
 							prefHeight="755.0" prefWidth="330.0"
-							style="-fx-background-color: #F6E000;">
+							style="-fx-background-color: #f3f3f3">
 							<children>
 								<Label fx:id="label1" text="Wodka Jelzin" layoutX="20.0"
 									layoutY="75.0" mnemonicParsing="false" prefHeight="100.0"
@@ -260,7 +260,7 @@
 								</Button>
 								<Button id="cancelButton" fx:id="cancelButton"
 									layoutX="170.0" layoutY="697.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="152.5" text="Cancel">
+									prefHeight="50.0" prefWidth="152.5" text="Cancel" onAction="#cancel">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>

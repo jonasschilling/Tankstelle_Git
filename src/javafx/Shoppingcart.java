@@ -123,4 +123,13 @@ public class Shoppingcart {
 		total = 0;
 		
 	}
+	public void cancel() {
+		numWodka = 0;
+		numFilip = 0;
+		numJupiter = 0;
+		numBull = 0;
+		numPizza = 0;
+		total = 0;
+		
+	}
 }
