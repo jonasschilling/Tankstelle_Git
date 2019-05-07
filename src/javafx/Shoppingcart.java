@@ -13,7 +13,7 @@ public class Shoppingcart {
 	Product jupiter;
 	Product bull;
 	Product pizza;
-
+//Konstruktor
 	public Shoppingcart() {
 		wodka = new Product(421, "Wodka Jelzin", "Flasche", 30, 30, 2.99f, 9.99f);
 		filip = new Product(871, "Filip Maurice", "Packung", 100, 100, 2.77f, 6.99f);
