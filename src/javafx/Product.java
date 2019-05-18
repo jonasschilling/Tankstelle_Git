@@ -34,7 +34,7 @@ public class Product {
 	}
 
 	public float getPriceSell() {
-		return priceSell;
+		return (float) Math.round(priceSell * 100) / 100;
 	}
 
 	public void setPriceSell(float priceSell) {
