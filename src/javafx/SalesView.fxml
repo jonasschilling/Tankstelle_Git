@@ -21,44 +21,37 @@
 							prefHeight="755.0" prefWidth="330.0"
 							style="-fx-background-color: #f3f3f3">
 							<children>
-								<Label fx:id="label1" text="Wodka Jelzin" layoutX="20.0"
+								<Label fx:id="label1" text="" layoutX="20.0"
 									layoutY="75.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="200">
+									prefWidth="300">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label fx:id="label1price" text="" layoutX="20.0"
-									layoutY="75.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="200">
-									<font>
-										<Font size="25.0" />
-									</font>
-								</Label>
-								<Label fx:id="label2" text="Filip Maurice" layoutX="20.0"
+								<Label fx:id="label2" text="" layoutX="20.0"
 									layoutY="175.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="200">
+									prefWidth="300">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label fx:id="label3" text="Jupiter" layoutX="20.0"
+								<Label fx:id="label3" text="" layoutX="20.0"
 									layoutY="275.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="200">
+									prefWidth="300">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label fx:id="label4" text="Sitting Bull" layoutX="20.0"
+								<Label fx:id="label4" text="" layoutX="20.0"
 									layoutY="375.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="200">
+									prefWidth="300">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label fx:id="label5" text="Pizza" layoutX="20.0"
+								<Label fx:id="label5" text="" layoutX="20.0"
 									layoutY="475.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="200">
+									prefWidth="300">
 									<font>
 										<Font size="25.0" />
 									</font>
