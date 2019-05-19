@@ -2,6 +2,8 @@ package tanken_test;
 
 import java.util.Scanner;
 
+import javafx.Tank;
+
 public class FuelPump {
 	
 	Tank tank1 = new Tank("Super", 12000.0f);

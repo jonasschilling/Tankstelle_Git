@@ -1,6 +1,4 @@
-package tanken_test;
-
-import java.util.Scanner;
+package javafx;
 
 public class Tank {
 
@@ -16,8 +14,6 @@ public class Tank {
 	public void setPricePerLitre(float pricePerLitre) {
 		this.pricePerLitre = pricePerLitre;
 	}
-
-	Scanner scanner = new Scanner(System.in);
 
 	public Tank(String description, float capacity) {
 		this.description = description;

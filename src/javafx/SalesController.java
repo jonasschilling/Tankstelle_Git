@@ -15,8 +15,6 @@ import javafx.scene.control.ToggleButton;
 
 import javafx.scene.layout.AnchorPane;
 
-import tanken_test.Tank;
-
 
 public class SalesController implements Initializable {
 
@@ -65,8 +63,8 @@ public class SalesController implements Initializable {
 	@FXML
 	Button changePriceButton;
 	
-	tanken_test.Tank superTank = new Tank("Super", 12000.0f);
-	tanken_test.Tank dieselTank = new Tank("Diesel", 8000.0f);
+	javafx.Tank superTank = new Tank("Super", 12000.0f);
+	javafx.Tank dieselTank = new Tank("Diesel", 8000.0f);
 
 
 	public void initialize(URL arg0, ResourceBundle arg1) {

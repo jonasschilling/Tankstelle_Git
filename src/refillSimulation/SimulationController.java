@@ -13,7 +13,7 @@ import javafx.scene.control.Label;
 import javafx.util.Duration;
 
 public class SimulationController implements Initializable {
-
+	
 	int milliLitres = 1;
 	int litres = 0;
 
@@ -23,7 +23,10 @@ public class SimulationController implements Initializable {
 	String milliLitresText;
 	String litresText;
 	String milliLitresText0;
-
+	
+	Timeline timer;
+	
+	
 	@FXML
 	Label pricePerLitreLabel;
 	@FXML
@@ -36,11 +39,10 @@ public class SimulationController implements Initializable {
 	Button startTimerButton;
 	@FXML
 	Button stopTimerButton;
-
-	Timeline timer;
-
+	
+	
 	public void initialize(URL location, ResourceBundle resources) {
-
+		
 		pricePerLitreLabel.setText(String.valueOf(getPricePerLitre()) + " €");
 
 		timer = new Timeline(new KeyFrame(Duration.millis(10), (actionEvent) -> {
@@ -84,6 +86,7 @@ public class SimulationController implements Initializable {
 
 		}));
 		timer.setCycleCount(Timeline.INDEFINITE);
+		
 	}
 
 	public float getPricePerLitre() {
@@ -171,5 +174,5 @@ public class SimulationController implements Initializable {
 		milliLitresLabel.setText("00");
 		priceCompLabel.setText("0.00 €");
 	}
-
+	
 }
