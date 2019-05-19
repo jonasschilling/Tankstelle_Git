@@ -1,6 +1,7 @@
 package javafx;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -9,8 +10,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ToggleButton;
+
 import javafx.scene.layout.AnchorPane;
+
+import tanken_test.Tank;
+
 
 public class SalesController implements Initializable {
 
@@ -48,19 +54,37 @@ public class SalesController implements Initializable {
 	@FXML
 	Label labelTotal;
 	@FXML
-	AnchorPane anchor1;
+
+	AnchorPane anchor1, anchor2, anchor3, anchor4, anchor5;
 	@FXML
-	AnchorPane anchor2;
+	Label tankNameLabel1, tankNameLabel2;
 	@FXML
-	AnchorPane anchor3;
+	Label superPriceLabel, dieselPriceLabel;
 	@FXML
-	AnchorPane anchor4;
+	Label superCapLabel, dieselCapLabel;
 	@FXML
-	AnchorPane anchor5;
+	Button changePriceButton;
+	
+	tanken_test.Tank superTank = new Tank("Super", 12000.0f);
+	tanken_test.Tank dieselTank = new Tank("Diesel", 8000.0f);
+
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		scart = new Shoppingcart();
 		hideAll();
+
+		
+		tankNameLabel1.setText(superTank.getDescription());
+		tankNameLabel2.setText(dieselTank.getDescription());
+		
+		superTank.setPricePerLitre(1.539f);
+		dieselTank.setPricePerLitre(1.289f);
+		superPriceLabel.setText(String.valueOf(superTank.getPricePerLitre()) + " €/L");
+		dieselPriceLabel.setText(String.valueOf(dieselTank.getPricePerLitre()) + " €/L");
+		
+		superCapLabel.setText(String.valueOf(superTank.getAbsFuelLevel() + "/" + superTank.getCapacity()) + " L");
+		dieselCapLabel.setText(String.valueOf(dieselTank.getAbsFuelLevel() + "/" + dieselTank.getCapacity()) + " L");
+		
 
 	}
 
@@ -269,12 +293,25 @@ public class SalesController implements Initializable {
 		hideAll();
 		unToggleAll();
 	}
+
 //Cancelbutton wird gedrückt
 	public void cancel(ActionEvent actionEvent) {
 		scart.cancel();
 		hideAll();
 		unToggleAll();
 	}
+
+	
+	public void showChangePriceDialog(ActionEvent actionEvent) {
+		TextInputDialog newSuperPrice = new TextInputDialog();
+		newSuperPrice.setTitle("Preise ändern");
+		newSuperPrice.setHeaderText("Preise ändern");
+		newSuperPrice.setContentText("Neuer Preis für Super eingeben: ");
+		Optional<String> input = newSuperPrice.showAndWait();
+		input.ifPresent(text -> superTank.setPricePerLitre(Float.parseFloat(text)));
+	}
+
+
 
 // die Pressed und Released-Methoden führen Operationen aus, die bei Auswählen
 // bzw. Abwählen eines Produktes wichtig sind.

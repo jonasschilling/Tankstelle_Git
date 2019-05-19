@@ -1,26 +1,104 @@
 .button {
+
 	
+
+	-fx-background-color: #FFFFFF;
+
 	-fx-background-radius: 15;
 }
 
 .button:hover {
+
 	
+
+	-fx-background-color: #F7F9FA;
+
 }
 
 .button:pressed {
+
 	
+
+	-fx-background-color: rgb(238, 241, 244);
 }
 
-.tab {
+
+#button1 {
 	-fx-background-color: #F6E000;
+	-fx-background-radius: 15;
 }
 
-.tab:hover {
+#button1:hover {
 	-fx-background-color: #FFED4A;
 }
 
-.tab:pressed {
+#button1:pressed {
 	-fx-background-color: rgb(223, 201, 0);
+}
+
+#button2 {
+	-fx-background-color: #F6E000;
+	-fx-background-radius: 15;
+}
+
+#button2:hover {
+	-fx-background-color: #FFED4A;
+}
+
+#button2:pressed {
+	-fx-background-color: rgb(223, 201, 0);
+}
+
+#button3 {
+	-fx-background-color: #F6E000;
+	-fx-background-radius: 15;
+}
+
+#button3:hover {
+	-fx-background-color: #FFED4A;
+}
+
+#button3:pressed {
+	-fx-background-color: rgb(223, 201, 0);
+}
+
+#button4 {
+	-fx-background-color: #F6E000;
+	-fx-background-radius: 15;
+}
+
+#button4:hover {
+	-fx-background-color: #FFED4A;
+}
+
+#button4:pressed {
+	-fx-background-color: rgb(223, 201, 0);
+}
+
+#button5 {
+	-fx-background-color: #F6E000;
+	-fx-background-radius: 15;
+}
+
+#button5:hover {
+	-fx-background-color: #FFED4A;
+}
+
+#button5:pressed {
+	-fx-background-color: rgb(223, 201, 0);
+}
+
+
+.tab {
+	-fx-background-color: #FFFFFF;
+}
+
+.tab:hover {
+	-fx-background-color: #F7F9FA;
+}
+
+.tab:pressed {
+	-fx-background-color: rgb(238, 241, 244);
 }
 
 #checkoutButton {
@@ -49,3 +127,4 @@
 #cancelButton:pressed {
 	-fx-background-color: #C10000;
 }
+

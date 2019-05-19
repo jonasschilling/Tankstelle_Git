@@ -7,7 +7,16 @@ public class Tank {
 	private String description;
 	private float capacity;
 	private float fuelLevel;
+	private float pricePerLitre;
 	
+	public float getPricePerLitre() {
+		return pricePerLitre;
+	}
+
+	public void setPricePerLitre(float pricePerLitre) {
+		this.pricePerLitre = pricePerLitre;
+	}
+
 	Scanner scanner = new Scanner(System.in);
 
 	public Tank(String description, float capacity) {

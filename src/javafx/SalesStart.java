@@ -20,7 +20,7 @@ public class SalesStart extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		//primaryStage.initStyle(StageStyle.UNDECORATED);
-		Parent root = FXMLLoader.load(getClass().getResource("SalesView.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("EmployeeView.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
 		primaryStage.setTitle("Shell");
