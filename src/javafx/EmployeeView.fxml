@@ -9,23 +9,23 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
 	minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
 	prefWidth="1200.0" style="-fx-background-color: #316c9f"
-	xmlns:fx="http://javafx.com/fxml">
+	xmlns:fx="http://javafx.com/fxml" fx:controller="javafx.EmployeeController">
 	<children>
 		<TableView fx:id="tableView" layoutX="35.0" layoutY="28.0"
 			prefHeight="750.0" prefWidth="800.0">
 			<columns>
 				<TableColumn prefWidth="200.0" text="MitarbeiterNummer"
-					fx:id="EmployeeId" />
-				<TableColumn prefWidth="200.0" text="Name" fx:id="Name" />
+					fx:id="employeeId" />
+				<TableColumn prefWidth="200.0" text="Name" fx:id="lastName" />
 				<TableColumn prefWidth="200.0" text="Vorname"
-					fx:id="firstname" />
+					fx:id="firstName" />
 				<TableColumn prefWidth="200.0" text="Einstellungsdatum"
-					fx:id="Employmentdate" />
+					fx:id="employmentDate" />
 			</columns>
 		</TableView>
 		<Button id="addEmployee" fx:id="addEmployee" layoutX="950"
 			layoutY="75.0" mnemonicParsing="false" prefHeight="150.0"
-			prefWidth="150">
+			prefWidth="150" onAction="#addEmployee">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>

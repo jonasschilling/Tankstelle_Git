@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class SalesStart extends Application {
+public class Start extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
@@ -26,6 +26,7 @@ public class SalesStart extends Application {
 		primaryStage.setTitle("Shell");
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		
 	}
 
 	public void stop() {
