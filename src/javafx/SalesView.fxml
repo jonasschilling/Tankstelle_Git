@@ -24,7 +24,6 @@
 								<Label fx:id="label1" text="" layoutX="20.0"
 									layoutY="75.0" mnemonicParsing="false" prefHeight="100.0"
 									prefWidth="300">
-
 									<font>
 										<Font size="25.0" />
 									</font>

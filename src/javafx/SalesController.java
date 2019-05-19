@@ -63,25 +63,24 @@ public class SalesController implements Initializable {
 	@FXML
 	Button changePriceButton;
 	
-	javafx.Tank superTank = new Tank("Super", 12000.0f);
-	javafx.Tank dieselTank = new Tank("Diesel", 8000.0f);
-
+	Model model = Model.getInstance();
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		scart = new Shoppingcart();
 		hideAll();
 
 		
-		tankNameLabel1.setText(superTank.getDescription());
-		tankNameLabel2.setText(dieselTank.getDescription());
+		tankNameLabel1.setText(model.getTank("Super").getDescription());
+		tankNameLabel2.setText(model.getTank("Diesel").getDescription());
 		
-		superTank.setPricePerLitre(1.539f);
-		dieselTank.setPricePerLitre(1.289f);
-		superPriceLabel.setText(String.valueOf(superTank.getPricePerLitre()) + " €/L");
-		dieselPriceLabel.setText(String.valueOf(dieselTank.getPricePerLitre()) + " €/L");
+		model.readSuperPrice();
+		model.getTank("Diesel").setPricePerLitre(1.289f);
 		
-		superCapLabel.setText(String.valueOf(superTank.getAbsFuelLevel() + "/" + superTank.getCapacity()) + " L");
-		dieselCapLabel.setText(String.valueOf(dieselTank.getAbsFuelLevel() + "/" + dieselTank.getCapacity()) + " L");
+		superPriceLabel.setText(model.readSuperPrice() + " €/L");
+		dieselPriceLabel.setText(String.valueOf(model.getTank("Diesel").getPricePerLitre()) + " €/L");
+		
+		superCapLabel.setText(String.valueOf(model.readFuelLevel("Super") + "/" + model.getTank("Super").getCapacity()) + " L");
+		dieselCapLabel.setText(String.valueOf(model.getTank("Diesel").getAbsFuelLevel() + "/" + model.getTank("Diesel").getCapacity()) + " L");
 		
 
 	}
@@ -306,7 +305,8 @@ public class SalesController implements Initializable {
 		newSuperPrice.setHeaderText("Preise ändern");
 		newSuperPrice.setContentText("Neuer Preis für Super eingeben: ");
 		Optional<String> input = newSuperPrice.showAndWait();
-		input.ifPresent(text -> superTank.setPricePerLitre(Float.parseFloat(text)));
+		input.ifPresent(text -> model.writeSuperPrice(text));
+		superPriceLabel.setText(model.readSuperPrice());
 	}
 
 

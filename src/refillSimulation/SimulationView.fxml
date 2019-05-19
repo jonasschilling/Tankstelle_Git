@@ -108,12 +108,12 @@
             <Font name="Consolas Bold" size="34.0" />
          </font>
       </Button>
-      <ToggleButton layoutX="65.0" layoutY="215.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Super">
+      <ToggleButton fx:id="superButton" layoutX="65.0" layoutY="215.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" onAction="#readSuperPrice" text="Super">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton layoutX="210.0" layoutY="215.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Diesel">
+      <ToggleButton fx:id="dieselButton" layoutX="210.0" layoutY="215.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Diesel">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

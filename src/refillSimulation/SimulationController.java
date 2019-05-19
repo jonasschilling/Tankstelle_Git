@@ -3,6 +3,7 @@ package refillSimulation;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.Model;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.util.Duration;
 
 public class SimulationController implements Initializable {
@@ -17,8 +19,10 @@ public class SimulationController implements Initializable {
 	int milliLitres = 1;
 	int litres = 0;
 
-	float amountRefilled, pricePerLitre = 1.339f, priceComp, priceCompRound;
-
+	float amountRefilled, priceComp, priceCompRound; 
+	
+	String newPrice, newFuelLevel;
+	 
 	
 	String milliLitresText;
 	String litresText;
@@ -39,12 +43,18 @@ public class SimulationController implements Initializable {
 	Button startTimerButton;
 	@FXML
 	Button stopTimerButton;
+	@FXML
+	ToggleButton superButton, dieselButton;
 	
+	
+	Model model = Model.getInstance();	
 	
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		pricePerLitreLabel.setText(String.valueOf(getPricePerLitre()) + " €");
-
+		float pricePerLitre = model.getTank("Super").getPricePerLitre();
+		
+		readSuperPrice();		
+		
 		timer = new Timeline(new KeyFrame(Duration.millis(10), (actionEvent) -> {
 			milliLitresText = String.valueOf(milliLitres);
 			if (milliLitres < 10) {
@@ -75,11 +85,17 @@ public class SimulationController implements Initializable {
 
 			if (milliLitres < 9) {
 				setAmountRefilled(litres, milliLitresText0);
+				if(getAmountRefilled() > Float.valueOf(model.readFuelLevel("Super"))) {
+					stopTimer(actionEvent);
+				}
 			} else if (milliLitres > 9) {
 				setAmountRefilled(litres, milliLitresText);
+				if(getAmountRefilled() > Float.valueOf(model.readFuelLevel("Super"))) {
+					stopTimer(actionEvent);
+				}
 			}
 
-			priceComp = getAmountRefilled() * pricePerLitre;
+			priceComp = getAmountRefilled() * Float.parseFloat(model.readSuperPrice());
 
 			setPriceCompRound(Math.round(priceComp * 100) / 100.0f);
 			priceCompLabel.setText(String.valueOf(getPriceCompRound()) + " €");
@@ -88,14 +104,18 @@ public class SimulationController implements Initializable {
 		timer.setCycleCount(Timeline.INDEFINITE);
 		
 	}
-
-	public float getPricePerLitre() {
-		return pricePerLitre;
+	
+	public void readSuperPrice() {
+		pricePerLitreLabel.setText(model.readSuperPrice() + " €");
 	}
 
-	public void setPricePerLitre(float pricePerLitre) {
-		this.pricePerLitre = pricePerLitre;
-	}
+//	public float getPricePerLitre() {
+//		return pricePerLitre;
+//	}
+//
+//	public void setPricePerLitre(float pricePerLitre) {
+//		this.pricePerLitre = pricePerLitre;
+//	}
 
 	public float getPriceCompRound() {
 		return priceCompRound;
@@ -161,6 +181,8 @@ public class SimulationController implements Initializable {
 	public void stopTimer(ActionEvent actionEvent) {
 		timer.stop();
 		System.out.println(amountRefilled + " Liter für " + priceCompRound + " € getankt.");
+		decreaseTank("Super");
+		model.getSuperProgress();
 	}
 
 	public void resetTimer(ActionEvent actionEvent) {	
@@ -173,6 +195,12 @@ public class SimulationController implements Initializable {
 		litresLabel.setText("0");
 		milliLitresLabel.setText("00");
 		priceCompLabel.setText("0.00 €");
+	}
+	
+	public void decreaseTank(String tankDescription) {
+		Float actualFuelLevel = Float.valueOf(model.readFuelLevel(tankDescription));
+		newFuelLevel = String.valueOf(actualFuelLevel - amountRefilled);
+		model.writeFuelLevel(tankDescription, newFuelLevel);
 	}
 	
 }
