@@ -7,17 +7,17 @@ import java.util.*;
 public class Employee {
 	private static int employees = 0;
 	private int employeeId;
-	private String lastName;
-	private String firstName;
+	private String firstname;
+	private String lastname;
 	private Date employmentDate;
 	DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
 	private String stringDate = df.format(now.getTime());
 	static GregorianCalendar now = new GregorianCalendar();
 	
-	public Employee(String lastName, String firstName) {
+	public Employee(String firstname, String lastname) {
 		employeeId = ++employees;
-		this.lastName = lastName;
-		this.firstName = firstName;
+		this.firstname = firstname;
+		this.lastname = lastname;
 		employmentDate = now.getTime();
 	}
 
@@ -29,12 +29,12 @@ public class Employee {
 		this.employeeId = employeeId;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastName(String lastname) {
+		this.lastname = lastname;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstName(String firstname) {
+		this.firstname = firstname;
 	}
 
 	public static int getEmployees() {
@@ -46,11 +46,11 @@ public class Employee {
 	}
 
 	public String getLastName() {
-		return lastName;
+		return lastname;
 	}
 
 	public String getFirstName() {
-		return firstName;
+		return firstname;
 	}
 
 	public Date getEmploymentDate() {
