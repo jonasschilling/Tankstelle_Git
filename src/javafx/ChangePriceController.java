@@ -28,6 +28,7 @@ public class ChangePriceController implements Initializable {
 	TextField newPizzaPrice;
 	
 	TankModel tankModel = TankModel.getInstance();
+	SalesModel salesModel = SalesModel.getInstance();
 	
 	
 	@Override
@@ -49,6 +50,26 @@ public class ChangePriceController implements Initializable {
 		if(newDieselPrice != null) {
 			tankModel.getTank("Diesel").setPricePerLitre(Float.valueOf(newDieselPrice.getText()));
 			tankModel.writePrice("Diesel", newDieselPrice.getText());
+		}
+		if(newWodkaPrice != null) {
+			salesModel.getProduct("Wodka").setPriceSell(Float.valueOf(newWodkaPrice.getText()));
+			salesModel.writePrice("Wodka", newWodkaPrice.getText());
+		}
+		if(newFilipPrice != null) {
+			salesModel.getProduct("Filip").setPriceSell(Float.valueOf(newFilipPrice.getText()));
+			salesModel.writePrice("Filip", newFilipPrice.getText());
+		}
+		if(newJupiterPrice != null) {
+			salesModel.getProduct("Jupiter").setPriceSell(Float.valueOf(newJupiterPrice.getText()));
+			salesModel.writePrice("Jupiter", newJupiterPrice.getText());
+		}
+		if(newBullPrice != null) {
+			salesModel.getProduct("Bull").setPriceSell(Float.valueOf(newBullPrice.getText()));
+			salesModel.writePrice("Bull", newBullPrice.getText());
+		}
+		if(newPizzaPrice != null) {
+			salesModel.getProduct("Pizza").setPriceSell(Float.valueOf(newPizzaPrice.getText()));
+			salesModel.writePrice("Pizza", newPizzaPrice.getText());
 		}
 		Stage popup = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
 		popup.hide();

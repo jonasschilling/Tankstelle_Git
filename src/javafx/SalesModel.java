@@ -33,13 +33,13 @@ public class SalesModel {
 		if(productDescription.equals("Wodka")) {
 			return wodka;
 		} else if(productDescription.equals("Filip")) {
-			return wodka;
+			return filip;
 		} else if(productDescription.equals("Jupiter")) {
-			return wodka;
+			return jupiter;
 		} else if(productDescription.equals("Bull")) {
-			return wodka;
+			return bull;
 		} else if(productDescription.equals("Pizza")) {
-			return wodka;
+			return pizza;
 		} else {
 			return null;
 		}
