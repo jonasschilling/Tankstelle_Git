@@ -95,7 +95,7 @@ public class SimulationController implements Initializable {
 				}
 			}
 
-			priceComp = getAmountRefilled() * Float.parseFloat(model.readSuperPrice());
+			priceComp = getAmountRefilled() * Float.parseFloat(model.readPrice("Super"));
 
 			setPriceCompRound(Math.round(priceComp * 100) / 100.0f);
 			priceCompLabel.setText(String.valueOf(getPriceCompRound()) + " €");
@@ -106,7 +106,7 @@ public class SimulationController implements Initializable {
 	}
 	
 	public void readSuperPrice() {
-		pricePerLitreLabel.setText(model.readSuperPrice() + " €");
+		pricePerLitreLabel.setText(model.readPrice("Super") + " €");
 	}
 
 //	public float getPricePerLitre() {
@@ -192,8 +192,8 @@ public class SimulationController implements Initializable {
 		setMilliLitresText("00");
 		setMilliLitresText0("00");
 		
-		litresLabel.setText("0");
-		milliLitresLabel.setText("00");
+		litresLabel.setText(String.valueOf(getLitres()));
+		milliLitresLabel.setText(getMilliLitresText());
 		priceCompLabel.setText("0.00 €");
 	}
 	

@@ -14,9 +14,8 @@ public class Model {
 	Tank superTank = new Tank("Super", 1200.0f);
 	Tank dieselTank = new Tank("Diesel", 800.0f);
 
-	private float superPrice, dieselPrice, superProgress;
-	private String newSuperPrice;
 	private String newFuelLevel;
+	private float superProgress;
 	
 
 	public Model() {
@@ -60,17 +59,18 @@ public class Model {
 		}
 	}
 	
-	public String readSuperPrice() {
-		File file = new File("C:/Users/d074024/Desktop/resources/PrinterTest/SuperPreis.txt");
+	public String readPrice(String tankDescription) {
+		File file = new File("C:/Users/d074024/Desktop/resources/PrinterTest/" + tankDescription + "Preis.txt");
+		String newPrice = null;
 		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
 			String line;
 			while ((line = br.readLine()) != null) {
-				newSuperPrice = line;
+				newPrice = line;
 			}
 		} catch (IOException e) {
 		e.printStackTrace();
 		}
-		return newSuperPrice;
+		return newPrice;
 	}
 	
 	public void writeFuelLevel(String tankDescription, String newFuelLevel) {

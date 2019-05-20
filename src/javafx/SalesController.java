@@ -52,36 +52,13 @@ public class SalesController implements Initializable {
 	@FXML
 	Label labelTotal;
 	@FXML
-
 	AnchorPane anchor1, anchor2, anchor3, anchor4, anchor5;
-	@FXML
-	Label tankNameLabel1, tankNameLabel2;
-	@FXML
-	Label superPriceLabel, dieselPriceLabel;
-	@FXML
-	Label superCapLabel, dieselCapLabel;
-	@FXML
-	Button changePriceButton;
 	
 	Model model = Model.getInstance();
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		scart = new Shoppingcart();
 		hideAll();
-
-		
-		tankNameLabel1.setText(model.getTank("Super").getDescription());
-		tankNameLabel2.setText(model.getTank("Diesel").getDescription());
-		
-		model.readSuperPrice();
-		model.getTank("Diesel").setPricePerLitre(1.289f);
-		
-		superPriceLabel.setText(model.readSuperPrice() + " €/L");
-		dieselPriceLabel.setText(String.valueOf(model.getTank("Diesel").getPricePerLitre()) + " €/L");
-		
-		superCapLabel.setText(String.valueOf(model.readFuelLevel("Super") + "/" + model.getTank("Super").getCapacity()) + " L");
-		dieselCapLabel.setText(String.valueOf(model.getTank("Diesel").getAbsFuelLevel() + "/" + model.getTank("Diesel").getCapacity()) + " L");
-		
 
 	}
 
@@ -297,18 +274,6 @@ public class SalesController implements Initializable {
 		hideAll();
 		unToggleAll();
 	}
-
-	
-	public void showChangePriceDialog(ActionEvent actionEvent) {
-		TextInputDialog newSuperPrice = new TextInputDialog();
-		newSuperPrice.setTitle("Preise ändern");
-		newSuperPrice.setHeaderText("Preise ändern");
-		newSuperPrice.setContentText("Neuer Preis für Super eingeben: ");
-		Optional<String> input = newSuperPrice.showAndWait();
-		input.ifPresent(text -> model.writeSuperPrice(text));
-		superPriceLabel.setText(model.readSuperPrice());
-	}
-
 
 
 // die Pressed und Released-Methoden führen Operationen aus, die bei Auswählen
