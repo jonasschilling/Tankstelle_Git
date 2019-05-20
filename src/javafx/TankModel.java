@@ -7,9 +7,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Model {
+public class TankModel {
 
-	private static Model instance;
+	private static TankModel instance;
 
 	Tank superTank = new Tank("Super", 1200.0f);
 	Tank dieselTank = new Tank("Diesel", 800.0f);
@@ -17,15 +17,15 @@ public class Model {
 	private String newFuelLevel;
 	
 
-	public Model() {
+	public TankModel() {
 
 	}
 
-	public static Model getInstance() {
-		if (Model.instance == null) {
-			Model.instance = new Model();
+	public static TankModel getInstance() {
+		if (TankModel.instance == null) {
+			TankModel.instance = new TankModel();
 		}
-		return Model.instance;
+		return TankModel.instance;
 	}
 	
 	public Tank getTank(String description) {
@@ -37,7 +37,7 @@ public class Model {
 	}
 
 	public void writePrice(String tankDescription, String newPrice) {
-		File file = new File("src/javafx/resources/" + tankDescription + "Preis.txt");
+		File file = new File("src/javafx/resources/Preise/" + tankDescription + "Preis.txt");
 		FileWriter fw = null;
 		BufferedWriter bw = null;
 
@@ -59,7 +59,7 @@ public class Model {
 	}
 	
 	public String readPrice(String tankDescription) {
-		File file = new File("src/javafx/resources/" + tankDescription + "Preis.txt");
+		File file = new File("src/javafx/resources/Preise/" + tankDescription + "Preis.txt");
 		String newPrice = null;
 		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
 			String line;
@@ -112,5 +112,6 @@ public class Model {
 		return progress;
 	}
 	
-
+	
+	
 }

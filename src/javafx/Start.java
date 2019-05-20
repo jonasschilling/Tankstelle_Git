@@ -22,8 +22,8 @@ public class Start extends Application {
 		//primaryStage.initStyle(StageStyle.UNDECORATED);
 		Parent root = FXMLLoader.load(getClass().getResource("AdministrationView.fxml"));
 		Scene scene = new Scene(root);
-//		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
-		primaryStage.setTitle("Shell");
+		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
+		primaryStage.setTitle("Tankstelle");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		

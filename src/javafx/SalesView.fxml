@@ -15,44 +15,45 @@
 			<content>
 				<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
 					minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-					prefWidth="1200.0" style="-fx-background-color: #316c9f">
+					prefWidth="1200.0"
+					style="-fx-background-color: rgb(211, 224, 235);">
 					<children>
 						<AnchorPane layoutX="820.0" layoutY="24.0"
 							prefHeight="755.0" prefWidth="330.0"
 							style="-fx-background-color: #FFFFFF">
 							<children>
-								<Label fx:id="label1" text="" layoutX="20.0"
-									layoutY="75.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="300">
+								<Label fx:id="label1" layoutX="20.0" layoutY="75.0"
+									mnemonicParsing="false" prefHeight="100.0" prefWidth="300"
+									text="">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label fx:id="label2" text="" layoutX="20.0"
-									layoutY="175.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="300">
+								<Label fx:id="label2" layoutX="20.0" layoutY="175.0"
+									mnemonicParsing="false" prefHeight="100.0" prefWidth="300"
+									text="">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label fx:id="label3" text="" layoutX="20.0"
-									layoutY="275.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="300">
+								<Label fx:id="label3" layoutX="20.0" layoutY="275.0"
+									mnemonicParsing="false" prefHeight="100.0" prefWidth="300"
+									text="">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label fx:id="label4" text="" layoutX="20.0"
-									layoutY="375.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="300">
+								<Label fx:id="label4" layoutX="20.0" layoutY="375.0"
+									mnemonicParsing="false" prefHeight="100.0" prefWidth="300"
+									text="">
 
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Label fx:id="label5" text="" layoutX="20.0"
-									layoutY="475.0" mnemonicParsing="false" prefHeight="100.0"
-									prefWidth="300">
+								<Label fx:id="label5" layoutX="20.0" layoutY="475.0"
+									mnemonicParsing="false" prefHeight="100.0" prefWidth="300"
+									text="">
 
 									<font>
 										<Font size="25.0" />
@@ -113,7 +114,6 @@
 						<Button id="button1" fx:id="button1" layoutX="50.0"
 							layoutY="148.0" mnemonicParsing="false" prefHeight="90.0"
 							prefWidth="66.0">
-
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
@@ -189,14 +189,14 @@
 								<Cursor fx:constant="HAND" />
 							</cursor>
 						</ToggleButton>
-						<AnchorPane layoutX="85.0" layoutY="500.0"
-							prefHeight="50.0" prefWidth="175.0"
-							style="-fx-background-color: #316c9f" id="anchor1"
-							fx:id="anchor1">
+						<AnchorPane id="anchor1" fx:id="anchor1" layoutX="85.0"
+							layoutY="500.0" prefHeight="50.0" prefWidth="175.0"
+							style="-fx-background-color: rgb(211, 224, 235);">
 							<children>
 								<Button id="prod1minus" fx:id="prod1minus" layoutX="10.0"
-									layoutY="5.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50.0" onAction="#removeButtonClicked">
+									layoutY="5.0" mnemonicParsing="false"
+									onAction="#removeButtonClicked" prefHeight="50.0"
+									prefWidth="50.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -216,8 +216,8 @@
 									</font>
 								</Label>
 								<Button id="prod1plus" fx:id="prod1plus" layoutX="120"
-									layoutY="5.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50" onAction="#addButtonClicked">
+									layoutY="5.0" mnemonicParsing="false"
+									onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -232,21 +232,22 @@
 							</children>
 						</AnchorPane>
 						<ToggleButton id="button7" fx:id="button7"
-							text="Filip Maurice" layoutX="325.0" layoutY="400.0"
-							mnemonicParsing="false" prefHeight="90.0" prefWidth="200.0"
-							onAction="#productButtonClicked">
+							layoutX="325.0" layoutY="400.0" mnemonicParsing="false"
+							onAction="#productButtonClicked" prefHeight="90.0"
+							prefWidth="200.0" text="Filip Maurice">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
 						</ToggleButton>
-						<AnchorPane layoutX="335.0" layoutY="500.0"
-							prefHeight="50.0" prefWidth="175.0"
-							style="-fx-background-color: #316c9f" id="anchor2"
-							fx:id="anchor2">
+						<AnchorPane id="anchor2" fx:id="anchor2"
+							layoutX="335.0" layoutY="500.0" prefHeight="50.0"
+							prefWidth="175.0"
+							style="-fx-background-color: rgb(211, 224, 235);">
 							<children>
 								<Button id="prod2minus" fx:id="prod2minus" layoutX="10.0"
-									layoutY="5.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50.0" onAction="#removeButtonClicked">
+									layoutY="5.0" mnemonicParsing="false"
+									onAction="#removeButtonClicked" prefHeight="50.0"
+									prefWidth="50.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -266,8 +267,8 @@
 									</font>
 								</Label>
 								<Button id="prod2plus" fx:id="prod2plus" layoutX="120"
-									layoutY="5.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50" onAction="#addButtonClicked">
+									layoutY="5.0" mnemonicParsing="false"
+									onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -282,21 +283,22 @@
 							</children>
 						</AnchorPane>
 						<ToggleButton id="button8" fx:id="button8"
-							text="Jupiter" layoutX="575.0" layoutY="400.0"
-							mnemonicParsing="false" prefHeight="90.0" prefWidth="200.0"
-							onAction="#productButtonClicked">
+							layoutX="575.0" layoutY="400.0" mnemonicParsing="false"
+							onAction="#productButtonClicked" prefHeight="90.0"
+							prefWidth="200.0" text="Jupiter">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
 						</ToggleButton>
-						<AnchorPane layoutX="585.0" layoutY="500.0"
-							prefHeight="50.0" prefWidth="175.0"
-							style="-fx-background-color: #316c9f" id="anchor3"
-							fx:id="anchor3">
+						<AnchorPane id="anchor3" fx:id="anchor3"
+							layoutX="585.0" layoutY="500.0" prefHeight="50.0"
+							prefWidth="175.0"
+							style="-fx-background-color: rgb(211, 224, 235);">
 							<children>
 								<Button id="prod3minus" fx:id="prod3minus" layoutX="10.0"
-									layoutY="5.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50.0" onAction="#removeButtonClicked">
+									layoutY="5.0" mnemonicParsing="false"
+									onAction="#removeButtonClicked" prefHeight="50.0"
+									prefWidth="50.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -316,8 +318,8 @@
 									</font>
 								</Label>
 								<Button id="prod3plus" fx:id="prod3plus" layoutX="120"
-									layoutY="5.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50" onAction="#addButtonClicked">
+									layoutY="5.0" mnemonicParsing="false"
+									onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -332,21 +334,22 @@
 							</children>
 						</AnchorPane>
 						<ToggleButton id="button9" fx:id="button9"
-							text="Sitting Bull" layoutX="190.0" layoutY="600.0"
-							mnemonicParsing="false" prefHeight="90.0" prefWidth="200.0"
-							onAction="#productButtonClicked">
+							layoutX="190.0" layoutY="600.0" mnemonicParsing="false"
+							onAction="#productButtonClicked" prefHeight="90.0"
+							prefWidth="200.0" text="Sitting Bull">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
 						</ToggleButton>
-						<AnchorPane layoutX="200.0" layoutY="700.0"
-							prefHeight="50.0" prefWidth="175.0"
-							style="-fx-background-color: #316c9f" id="anchor4"
-							fx:id="anchor4">
+						<AnchorPane id="anchor4" fx:id="anchor4"
+							layoutX="200.0" layoutY="700.0" prefHeight="50.0"
+							prefWidth="175.0"
+							style="-fx-background-color: rgb(211, 224, 235);">
 							<children>
 								<Button id="prod4minus" fx:id="prod4minus" layoutX="10.0"
-									layoutY="5.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50.0" onAction="#removeButtonClicked">
+									layoutY="5.0" mnemonicParsing="false"
+									onAction="#removeButtonClicked" prefHeight="50.0"
+									prefWidth="50.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -366,8 +369,8 @@
 									</font>
 								</Label>
 								<Button id="prod4plus" fx:id="prod4plus" layoutX="120"
-									layoutY="5.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50" onAction="#addButtonClicked">
+									layoutY="5.0" mnemonicParsing="false"
+									onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -382,21 +385,22 @@
 							</children>
 						</AnchorPane>
 						<ToggleButton id="button10" fx:id="button10"
-							text="Pizza" layoutX="440.0" layoutY="600.0"
-							mnemonicParsing="false" prefHeight="90.0" prefWidth="200.0"
-							onAction="#productButtonClicked">
+							layoutX="440.0" layoutY="600.0" mnemonicParsing="false"
+							onAction="#productButtonClicked" prefHeight="90.0"
+							prefWidth="200.0" text="Pizza">
 							<cursor>
 								<Cursor fx:constant="HAND" />
 							</cursor>
 						</ToggleButton>
-						<AnchorPane layoutX="450.0" layoutY="700.0"
-							prefHeight="50.0" prefWidth="175.0"
-							style="-fx-background-color: #316c9f" id="anchor5"
-							fx:id="anchor5">
+						<AnchorPane id="anchor5" fx:id="anchor5"
+							layoutX="450.0" layoutY="700.0" prefHeight="50.0"
+							prefWidth="175.0"
+							style="-fx-background-color: rgb(211, 224, 235)316c9f;">
 							<children>
 								<Button id="prod5minus" fx:id="prod5minus" layoutX="10.0"
-									layoutY="5.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50.0" onAction="#removeButtonClicked">
+									layoutY="5.0" mnemonicParsing="false"
+									onAction="#removeButtonClicked" prefHeight="50.0"
+									prefWidth="50.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -416,8 +420,8 @@
 									</font>
 								</Label>
 								<Button id="prod5plus" fx:id="prod5plus" layoutX="120"
-									layoutY="5.0" mnemonicParsing="false" prefHeight="50.0"
-									prefWidth="50" onAction="#addButtonClicked">
+									layoutY="5.0" mnemonicParsing="false"
+									onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -440,6 +444,8 @@
 					</children>
 				</AnchorPane>
 			</content>
+		</Tab>
+		<Tab closable="false" text="Bestellung/Verwaltung">
 		</Tab>
 	</tabs>
 </TabPane>

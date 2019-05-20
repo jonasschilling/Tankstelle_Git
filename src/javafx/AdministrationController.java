@@ -1,16 +1,22 @@
 package javafx;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextInputDialog;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class AdministrationController implements Initializable {
 	
@@ -28,45 +34,47 @@ public class AdministrationController implements Initializable {
 	ProgressBar superBar, dieselBar;
 	
 	
-	Model model = Model.getInstance();
+	TankModel tankModel = TankModel.getInstance();
+	
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 //		superLevelLabel.textProperty().bind(model.getDescription());
 //		label.textProperty().bind(model.getText());
 
-		tankNameLabel1.setText(model.getTank("Super").getDescription());
-		tankNameLabel2.setText(model.getTank("Diesel").getDescription());
+		tankNameLabel1.setText(tankModel.getTank("Super").getDescription());
+		tankNameLabel2.setText(tankModel.getTank("Diesel").getDescription());
 
-		superPriceLabel.setText(model.readPrice("Super") + " €/L");
-		dieselPriceLabel.setText(model.readPrice("Diesel") + " €/L");
+		superPriceLabel.setText(tankModel.readPrice("Super") + " €/L");
+		dieselPriceLabel.setText(tankModel.readPrice("Diesel") + " €/L");
 
-		superCapLabel.setText(String.valueOf(model.readFuelLevel("Super") + "/" + model.getTank("Super").getCapacity()) + " L");
-		dieselCapLabel.setText(String.valueOf(model.readFuelLevel("Diesel") + "/" + model.getTank("Diesel").getCapacity()) + " L");
+		superCapLabel.setText(String.valueOf(tankModel.readFuelLevel("Super") + "/" + tankModel.getTank("Super").getCapacity()) + " L");
+		dieselCapLabel.setText(String.valueOf(tankModel.readFuelLevel("Diesel") + "/" + tankModel.getTank("Diesel").getCapacity()) + " L");
 		
-		superBar.setProgress((double)(Float.valueOf(model.readFuelLevel("Super")) / model.getTank("Super").getCapacity()));
-		dieselBar.setProgress((double)(Float.valueOf(model.readFuelLevel("Diesel")) / model.getTank("Diesel").getCapacity()));
-			
-	}
-	
-	public void showChangePriceDialog(ActionEvent actionEvent) {
-		TextInputDialog newSuperPrice = new TextInputDialog();
-		newSuperPrice.setTitle("Preise ändern");
-		newSuperPrice.setHeaderText("Preise ändern");
-		newSuperPrice.setContentText("Neuer Preis für Super eingeben: ");
-		Optional<String> input = newSuperPrice.showAndWait();
-		input.ifPresent(text -> model.writePrice("Super", text));
-		superPriceLabel.setText(model.readPrice("Super") + " €/L");
-//		simModel.readNewPricePerLitre();
-//		simModel.setSuperPrice(Float.parseFloat(text))
+		superBar.setProgress((double)(Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity()));
+		dieselBar.setProgress((double)(Float.valueOf(tankModel.readFuelLevel("Diesel")) / tankModel.getTank("Diesel").getCapacity()));
+		
 	}
 
 	public void refresh() {
-		superBar.setProgress((double) Float.valueOf(model.readFuelLevel("Super")) / model.getTank("Super").getCapacity());
-		dieselBar.setProgress((double) Float.valueOf(model.readFuelLevel("Diesel")) / model.getTank("Diesel").getCapacity());
+		superBar.setProgress((double) Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity());
+		dieselBar.setProgress((double) Float.valueOf(tankModel.readFuelLevel("Diesel")) / tankModel.getTank("Diesel").getCapacity());
 		
-		superCapLabel.setText(String.valueOf(model.readFuelLevel("Super") + "/" + model.getTank("Super").getCapacity()) + " L");
-		dieselCapLabel.setText(String.valueOf(model.readFuelLevel("Diesel") + "/" + model.getTank("Diesel").getCapacity()) + " L");
+		superPriceLabel.setText(tankModel.readPrice("Super") + " €/L");
+		dieselPriceLabel.setText(tankModel.readPrice("Diesel") + " €/L");
+		
+		superCapLabel.setText(String.valueOf(tankModel.readFuelLevel("Super") + "/" + tankModel.getTank("Super").getCapacity()) + " L");
+		dieselCapLabel.setText(String.valueOf(tankModel.readFuelLevel("Diesel") + "/" + tankModel.getTank("Diesel").getCapacity()) + " L");
+	}
+	
+	public void showPriceChangePopup (ActionEvent actionEvent) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("ChangePricePopup.fxml"));
+		Scene scene = new Scene(root);
+		Stage popup = new Stage();
+		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
+		popup.setTitle("Preise ändern");
+		popup.setScene(scene);
+		popup.show();
 	}
 
 }

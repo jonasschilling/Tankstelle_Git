@@ -3,7 +3,7 @@ package refillSimulation;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.Model;
+import javafx.TankModel;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -47,7 +47,7 @@ public class SimulationController implements Initializable {
 	ToggleButton superButton, dieselButton;
 	
 	
-	Model model = Model.getInstance();	
+	TankModel model = TankModel.getInstance();	
 	
 	public void initialize(URL location, ResourceBundle resources) {
 		

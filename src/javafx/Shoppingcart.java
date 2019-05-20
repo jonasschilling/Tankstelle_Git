@@ -1,6 +1,8 @@
 package javafx;
 
 public class Shoppingcart {
+	
+	SalesModel salesModel = SalesModel.getInstance();
 
 	private int numWodka;
 	private int numJupiter;
@@ -13,14 +15,16 @@ public class Shoppingcart {
 	Product jupiter;
 	Product bull;
 	Product pizza;
-//Konstruktor
+
+	//Konstruktor
 	//test
 	public Shoppingcart() {
-		wodka = new Product(421, "Wodka Jelzin", "Flasche", 30, 30, 2.99f, 9.99f);
-		filip = new Product(871, "Filip Maurice", "Packung", 100, 100, 2.77f, 6.99f);
-		jupiter = new Product(358, "Jupiter Schokoriegel", "Stück", 150, 150, 0.19f, 0.90f);
-		bull = new Product(992, "Sitting Bull", "Dose", 50, 50, 0.29f, 1.99f);
-		pizza = new Product(101, "TK-Pizza Deluxe", "Stück", 20, 20, 0.89f, 2.49f);
+		
+		wodka = salesModel.getProduct("Wodka");
+		filip = salesModel.getProduct("Filip");
+		jupiter = salesModel.getProduct("Jupiter");
+		bull = salesModel.getProduct("Bull");
+		pizza = salesModel.getProduct("Pizza");
 		numWodka = 0;	
 		numFilip = 0;
 		numJupiter = 0;
