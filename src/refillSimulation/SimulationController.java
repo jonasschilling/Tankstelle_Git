@@ -182,7 +182,7 @@ public class SimulationController implements Initializable {
 		timer.stop();
 		System.out.println(amountRefilled + " Liter für " + priceCompRound + " € getankt.");
 		decreaseTank("Super");
-		model.getSuperProgress();
+		model.getProgress(model.getTank("Super"));
 	}
 
 	public void resetTimer(ActionEvent actionEvent) {	

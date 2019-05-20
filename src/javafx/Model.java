@@ -15,7 +15,6 @@ public class Model {
 	Tank dieselTank = new Tank("Diesel", 800.0f);
 
 	private String newFuelLevel;
-	private float superProgress;
 	
 
 	public Model() {
@@ -37,8 +36,8 @@ public class Model {
 		}
 	}
 
-	public void writeSuperPrice(String newPrice) {
-		File file = new File("C:/Users/d074024/Desktop/resources/PrinterTest/SuperPreis.txt");
+	public void writePrice(String tankDescription, String newPrice) {
+		File file = new File("src/javafx/resources/" + tankDescription + "Preis.txt");
 		FileWriter fw = null;
 		BufferedWriter bw = null;
 
@@ -60,7 +59,7 @@ public class Model {
 	}
 	
 	public String readPrice(String tankDescription) {
-		File file = new File("C:/Users/d074024/Desktop/resources/PrinterTest/" + tankDescription + "Preis.txt");
+		File file = new File("src/javafx/resources/" + tankDescription + "Preis.txt");
 		String newPrice = null;
 		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
 			String line;
@@ -74,7 +73,7 @@ public class Model {
 	}
 	
 	public void writeFuelLevel(String tankDescription, String newFuelLevel) {
-		File file = new File("C:/Users/d074024/Desktop/resources/PrinterTest/FuelLevels/" + tankDescription + "Level.txt");
+		File file = new File("src/javafx/resources/" + tankDescription + "Level.txt");
 		FileWriter fw = null;
 		BufferedWriter bw = null;
 
@@ -96,7 +95,7 @@ public class Model {
 	}
 	
 	public String readFuelLevel(String tankDescription) {
-		File file = new File("C:/Users/d074024/Desktop/resources/PrinterTest/FuelLevels/" + tankDescription + "Level.txt");
+		File file = new File("src/javafx/resources/" + tankDescription + "Level.txt");
 		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
 			String line;
 			while ((line = br.readLine()) != null) {
@@ -108,9 +107,9 @@ public class Model {
 		return newFuelLevel;
 	}
 	
-	public float getSuperProgress() {
-		superProgress = Float.valueOf(readFuelLevel("Super")) / superTank.getCapacity();
-		return superProgress;
+	public float getProgress(Tank tank) {
+		float progress = Float.valueOf(readFuelLevel(tank.getDescription())) / tank.getCapacity();
+		return progress;
 	}
 	
 

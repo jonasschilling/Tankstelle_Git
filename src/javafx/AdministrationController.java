@@ -55,7 +55,7 @@ public class AdministrationController implements Initializable {
 		newSuperPrice.setHeaderText("Preise ändern");
 		newSuperPrice.setContentText("Neuer Preis für Super eingeben: ");
 		Optional<String> input = newSuperPrice.showAndWait();
-		input.ifPresent(text -> model.writeSuperPrice(text));
+		input.ifPresent(text -> model.writePrice("Super", text));
 		superPriceLabel.setText(model.readPrice("Super") + " €/L");
 //		simModel.readNewPricePerLitre();
 //		simModel.setSuperPrice(Float.parseFloat(text))
