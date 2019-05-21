@@ -22,7 +22,7 @@
 				<Font size="18.0" />
 			</font>
 		</Label>
-		<Label fx:id="pricePerLitreLabel" layoutX="206.0" layoutY="285.0" prefHeight="27.0" prefWidth="85.0">
+		<Label fx:id="pricePerLitreLabel" layoutX="206.0" layoutY="285.0" prefHeight="27.0" prefWidth="100.0">
 			<font>
 				<Font name="Consolas" size="18.0" />
 			</font>
@@ -83,37 +83,37 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button layoutX="8.33" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="1">
+      <ToggleButton fx:id="pumpButton1" layoutX="8.33" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="1">
          <font>
             <Font name="Consolas Bold" size="34.0" />
          </font>
-      </Button>
-      <Button layoutX="86.66" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="2">
+      </ToggleButton>
+      <ToggleButton fx:id="pumpButton2" layoutX="86.66" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="2">
          <font>
             <Font name="Consolas Bold" size="34.0" />
          </font>
-      </Button>
-      <Button layoutX="164.99" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="3">
+      </ToggleButton>
+      <ToggleButton fx:id="pumpButton3" layoutX="164.99" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="3">
          <font>
             <Font name="Consolas Bold" size="34.0" />
          </font>
-      </Button>
-      <Button layoutX="243.32" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="4">
+      </ToggleButton>
+      <ToggleButton fx:id="pumpButton4" layoutX="243.32" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="4">
          <font>
             <Font name="Consolas Bold" size="34.0" />
          </font>
-      </Button>
-      <Button layoutX="321.56" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="5">
+      </ToggleButton>
+      <ToggleButton fx:id="pumpButton5" layoutX="321.56" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="5">
          <font>
             <Font name="Consolas Bold" size="34.0" />
          </font>
-      </Button>
-      <ToggleButton fx:id="superButton" layoutX="65.0" layoutY="215.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" onAction="#readSuperPrice" text="Super">
+      </ToggleButton>
+      <ToggleButton fx:id="superButton" layoutX="65.0" layoutY="215.0" mnemonicParsing="false" onAction="#setSuperPrice" prefHeight="50.0" prefWidth="130.0" text="Super">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="dieselButton" layoutX="210.0" layoutY="215.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="Diesel">
+      <ToggleButton fx:id="dieselButton" layoutX="210.0" layoutY="215.0" mnemonicParsing="false" onAction="#setDieselPrice" prefHeight="50.0" prefWidth="130.0" text="Diesel">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

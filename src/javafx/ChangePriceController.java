@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Control;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -43,31 +45,31 @@ public class ChangePriceController implements Initializable {
 	}
 	
 	public void changePrices(ActionEvent actionEvent){
-		if(newSuperPrice != null) {
+		if(!newSuperPrice.getText().equals("")) {
 			tankModel.getTank("Super").setPricePerLitre(Float.valueOf(newSuperPrice.getText()));
 			tankModel.writePrice("Super", newSuperPrice.getText());
 		}
-		if(newDieselPrice != null) {
+		if(!newDieselPrice.getText().equals("")) {
 			tankModel.getTank("Diesel").setPricePerLitre(Float.valueOf(newDieselPrice.getText()));
 			tankModel.writePrice("Diesel", newDieselPrice.getText());
 		}
-		if(newWodkaPrice != null) {
+		if(!newWodkaPrice.getText().equals("")) {
 			salesModel.getProduct("Wodka").setPriceSell(Float.valueOf(newWodkaPrice.getText()));
 			salesModel.writePrice("Wodka", newWodkaPrice.getText());
 		}
-		if(newFilipPrice != null) {
+		if(!newFilipPrice.getText().equals("")) {
 			salesModel.getProduct("Filip").setPriceSell(Float.valueOf(newFilipPrice.getText()));
 			salesModel.writePrice("Filip", newFilipPrice.getText());
 		}
-		if(newJupiterPrice != null) {
+		if(!newJupiterPrice.getText().equals("")) {
 			salesModel.getProduct("Jupiter").setPriceSell(Float.valueOf(newJupiterPrice.getText()));
 			salesModel.writePrice("Jupiter", newJupiterPrice.getText());
 		}
-		if(newBullPrice != null) {
+		if(!newBullPrice.getText().equals("")) {
 			salesModel.getProduct("Bull").setPriceSell(Float.valueOf(newBullPrice.getText()));
 			salesModel.writePrice("Bull", newBullPrice.getText());
 		}
-		if(newPizzaPrice != null) {
+		if(!newPizzaPrice.getText().equals("")) {
 			salesModel.getProduct("Pizza").setPriceSell(Float.valueOf(newPizzaPrice.getText()));
 			salesModel.writePrice("Pizza", newPizzaPrice.getText());
 		}

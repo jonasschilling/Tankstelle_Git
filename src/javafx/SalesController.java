@@ -9,22 +9,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
-
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
 public class SalesController implements Initializable {
 
 	Shoppingcart scart;
 	@FXML
-	ToggleButton button6;
-	@FXML
-	ToggleButton button7;
-	@FXML
-	ToggleButton button8;
-	@FXML
-	ToggleButton button9;
-	@FXML
-	ToggleButton button10;
+	ToggleButton pumpButton1, pumpButton2, pumpButton3, pumpButton4, pumpButton5, button6, button7, button8, button9, button10;
 	@FXML
 	Button prod1plus, prod1minus;
 	@FXML
@@ -56,6 +48,12 @@ public class SalesController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		scart = new Shoppingcart();
 		hideAll();
+		ToggleGroup toggleGroup = new ToggleGroup();
+		toggleGroup.getToggles().add(pumpButton1);
+		toggleGroup.getToggles().add(pumpButton2);
+		toggleGroup.getToggles().add(pumpButton3);
+		toggleGroup.getToggles().add(pumpButton4);
+		toggleGroup.getToggles().add(pumpButton5);
 	}
 
 	public void hideAll() {

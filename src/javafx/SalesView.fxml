@@ -111,7 +111,7 @@
 								</ImageView>
 							</children>
 						</AnchorPane>
-						<Button id="button1" fx:id="button1" layoutX="50.0"
+						<ToggleButton fx:id="pumpButton1" layoutX="50.0"
 							layoutY="148.0" mnemonicParsing="false" prefHeight="90.0"
 							prefWidth="66.0">
 							<cursor>
@@ -124,8 +124,8 @@
 									</image>
 								</ImageView>
 							</graphic>
-						</Button>
-						<Button id="button2" fx:id="button2" layoutX="200.0"
+						</ToggleButton>
+						<ToggleButton fx:id="pumpButton2" layoutX="200.0"
 							layoutY="148.0" mnemonicParsing="false" prefHeight="90.0"
 							prefWidth="66.0">
 							<cursor>
@@ -138,8 +138,8 @@
 									</image>
 								</ImageView>
 							</graphic>
-						</Button>
-						<Button id="button3" fx:id="button3" layoutX="350.0"
+						</ToggleButton>
+						<ToggleButton fx:id="pumpButton3" layoutX="350.0"
 							layoutY="148.0" mnemonicParsing="false" prefHeight="90.0"
 							prefWidth="66.0">
 							<cursor>
@@ -152,8 +152,8 @@
 									</image>
 								</ImageView>
 							</graphic>
-						</Button>
-						<Button id="button4" fx:id="button4" layoutX="500.0"
+						</ToggleButton>
+						<ToggleButton fx:id="pumpButton4" layoutX="500.0"
 							layoutY="148.0" mnemonicParsing="false" prefHeight="90.0"
 							prefWidth="66.0">
 							<cursor>
@@ -166,8 +166,8 @@
 									</image>
 								</ImageView>
 							</graphic>
-						</Button>
-						<Button id="button5" fx:id="button5" layoutX="650.0"
+						</ToggleButton>
+						<ToggleButton fx:id="pumpButton5" layoutX="650.0"
 							layoutY="148.0" mnemonicParsing="false" prefHeight="110.0"
 							prefWidth="120.0">
 							<cursor>
@@ -180,7 +180,7 @@
 									</image>
 								</ImageView>
 							</graphic>
-						</Button>
+						</ToggleButton>
 						<ToggleButton id="button6" fx:id="button6"
 							layoutX="75.0" layoutY="400.0" mnemonicParsing="false"
 							onAction="#productButtonClicked" prefHeight="90.0"
