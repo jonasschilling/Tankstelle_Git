@@ -15,8 +15,7 @@
 			<content>
 				<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
 					minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-					prefWidth="1200.0"
-					style="-fx-background-color: rgb(211, 224, 235);">
+					prefWidth="1200.0" style="-fx-background-color: rgb(211, 224, 235)">
 					<children>
 						<AnchorPane layoutX="820.0" layoutY="24.0"
 							prefHeight="755.0" prefWidth="330.0"
@@ -84,7 +83,6 @@
 								<Button id="cancelButton" fx:id="cancelButton"
 									layoutX="170.0" layoutY="697.0" mnemonicParsing="false"
 									prefHeight="50.0" prefWidth="152.5" text="Cancel">
-
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
@@ -193,38 +191,39 @@
 							layoutY="500.0" prefHeight="50.0" prefWidth="175.0"
 							style="-fx-background-color: rgb(211, 224, 235);">
 							<children>
-								<Button id="prod1minus" fx:id="prod1minus" layoutX="10.0"
-									layoutY="5.0" mnemonicParsing="false"
-									onAction="#removeButtonClicked" prefHeight="50.0"
-									prefWidth="50.0">
+								<Button fx:id="prod1minus" layoutX="10.0"
+									layoutY="10.0" mnemonicParsing="false"
+									onAction="#removeButtonClicked"
+									prefHeight="30.0" prefWidth="30.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@resources/button-.png" />
+												<Image url="@resources/buttonMinus.png" />
 											</image>
 										</ImageView>
 									</graphic>
 								</Button>
 								<Label id="label1amount" fx:id="label1amount"
 									layoutX="80.0" layoutY="5.0" mnemonicParsing="false"
-									prefHeight="50.0" prefWidth="50.0" text="0">
+									prefHeight="30.0" prefWidth="30.0" text="0">
 									<font>
 										<Font size="25.0" />
 									</font>
 								</Label>
-								<Button id="prod1plus" fx:id="prod1plus" layoutX="120"
-									layoutY="5.0" mnemonicParsing="false"
-									onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
+								<Button fx:id="prod1plus" layoutX="120"
+									layoutY="10.0" mnemonicParsing="false"
+									onAction="#addButtonClicked"
+									prefHeight="30.0" prefWidth="30">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@resources/button+.png" />
+												<Image url="@resources/buttonPlus.png" />
 											</image>
 										</ImageView>
 									</graphic>
@@ -246,15 +245,14 @@
 							<children>
 								<Button id="prod2minus" fx:id="prod2minus" layoutX="10.0"
 									layoutY="5.0" mnemonicParsing="false"
-									onAction="#removeButtonClicked" prefHeight="50.0"
-									prefWidth="50.0">
+									onAction="#removeButtonClicked" prefHeight="30.0" prefWidth="30.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@resources/button-.png" />
+												<Image url="@resources/buttonMinus.png" />
 											</image>
 										</ImageView>
 									</graphic>
@@ -268,14 +266,14 @@
 								</Label>
 								<Button id="prod2plus" fx:id="prod2plus" layoutX="120"
 									layoutY="5.0" mnemonicParsing="false"
-									onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
+									onAction="#addButtonClicked" prefHeight="30.0" prefWidth="30.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@resources/button+.png" />
+												<Image url="@resources/buttonPlus.png" />
 											</image>
 										</ImageView>
 									</graphic>
@@ -297,15 +295,14 @@
 							<children>
 								<Button id="prod3minus" fx:id="prod3minus" layoutX="10.0"
 									layoutY="5.0" mnemonicParsing="false"
-									onAction="#removeButtonClicked" prefHeight="50.0"
-									prefWidth="50.0">
+									onAction="#removeButtonClicked" prefHeight="30.0" prefWidth="30.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@resources/button-.png" />
+												<Image url="@resources/buttonMinus.png" />
 											</image>
 										</ImageView>
 									</graphic>
@@ -319,14 +316,14 @@
 								</Label>
 								<Button id="prod3plus" fx:id="prod3plus" layoutX="120"
 									layoutY="5.0" mnemonicParsing="false"
-									onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
+									onAction="#addButtonClicked" prefHeight="30.0" prefWidth="30.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@resources/button+.png" />
+												<Image url="@resources/buttonPlus.png" />
 											</image>
 										</ImageView>
 									</graphic>
@@ -348,15 +345,14 @@
 							<children>
 								<Button id="prod4minus" fx:id="prod4minus" layoutX="10.0"
 									layoutY="5.0" mnemonicParsing="false"
-									onAction="#removeButtonClicked" prefHeight="50.0"
-									prefWidth="50.0">
+									onAction="#removeButtonClicked" prefHeight="30.0" prefWidth="30.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@resources/button-.png" />
+												<Image url="@resources/buttonMinus.png" />
 											</image>
 										</ImageView>
 									</graphic>
@@ -370,14 +366,14 @@
 								</Label>
 								<Button id="prod4plus" fx:id="prod4plus" layoutX="120"
 									layoutY="5.0" mnemonicParsing="false"
-									onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
+									onAction="#addButtonClicked" prefHeight="30.0" prefWidth="30.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@resources/button+.png" />
+												<Image url="@resources/buttonPlus.png" />
 											</image>
 										</ImageView>
 									</graphic>
@@ -399,15 +395,14 @@
 							<children>
 								<Button id="prod5minus" fx:id="prod5minus" layoutX="10.0"
 									layoutY="5.0" mnemonicParsing="false"
-									onAction="#removeButtonClicked" prefHeight="50.0"
-									prefWidth="50.0">
+									onAction="#removeButtonClicked" prefHeight="30.0" prefWidth="30.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@resources/button-.png" />
+												<Image url="@resources/buttonMinus.png" />
 											</image>
 										</ImageView>
 									</graphic>
@@ -421,14 +416,14 @@
 								</Label>
 								<Button id="prod5plus" fx:id="prod5plus" layoutX="120"
 									layoutY="5.0" mnemonicParsing="false"
-									onAction="#addButtonClicked" prefHeight="50.0" prefWidth="50">
+									onAction="#addButtonClicked" prefHeight="30.0" prefWidth="30.0">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 									<graphic>
 										<ImageView>
 											<image>
-												<Image url="@resources/button+.png" />
+												<Image url="@resources/buttonPlus.png" />
 											</image>
 										</ImageView>
 									</graphic>

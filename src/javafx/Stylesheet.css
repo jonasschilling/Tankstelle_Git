@@ -50,3 +50,234 @@
 	-fx-background-color: #C10000;
 }
 
+#prod1minus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod1minus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod1minus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod1plus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod1plus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod1plus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2minus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2minus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2minus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2plus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2plus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2plus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3minus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3minus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3minus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3plus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3plus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3plus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4minus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4minus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4minus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4plus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4plus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4plus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5minus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5minus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5minus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5plus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5plus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5plus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+.toggle-button {
+	-fx-base: rgb(231, 238, 243);
+	-fx-background-radius: 20;
+	-fx-border-color: rgb(86, 138, 177);
+	-fx-border-radius: 20;
+}
+
+.toggle-button:hover {
+	-fx-base: #FFFFFF;
+	-fx-background-radius: 20;
+	-fx-border-color: rgb(86, 138, 177);
+	-fx-border-radius: 20;
+}
+
+.toggle-button:pressed {
+	-fx-base: rgb(158, 188, 211);
+	-fx-background-radius: 20;
+	-fx-border-color: rgb(86, 138, 177);
+	-fx-border-radius: 20;
+}
+
