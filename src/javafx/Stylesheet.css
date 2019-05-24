@@ -30,10 +30,12 @@
 
 #checkoutButton:hover {
 	-fx-background-color: rgb(0, 180, 114);
+	-fx-background-radius: 5;
 }
 
 #checkoutButton:pressed {
 	-fx-background-color: rgb(0, 117, 67);
+	-fx-background-radius: 5;
 }
 
 
@@ -44,10 +46,12 @@
 
 #cancelButton:hover {
 	-fx-background-color: #FF5151;
+	-fx-background-radius: 5;
 }
 
 #cancelButton:pressed {
 	-fx-background-color: #C10000;
+	-fx-background-radius: 5;
 }
 
 #prod1minus {
@@ -281,3 +285,32 @@
 	-fx-border-radius: 20;
 }
 
+#okButton {
+	-fx-background-color: #008F51;
+	-fx-background-radius: 5;
+}
+
+#okButton:hover {
+	-fx-background-color: rgb(0, 180, 114);
+	-fx-background-radius: 5;
+}
+
+#okButton:pressed {
+	-fx-background-color: rgb(0, 117, 67);
+	-fx-background-radius: 5;
+}
+
+#exitButton {
+	-fx-background-color: #DC0000;
+	-fx-background-radius: 5;
+}
+
+#exitButton:hover {
+	-fx-background-color: #FF5151;
+	-fx-background-radius: 5;
+}
+
+#exitButton:pressed {
+	-fx-background-color: #C10000;
+	-fx-background-radius: 5;
+}
