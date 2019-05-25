@@ -14,17 +14,26 @@
 	fx:controller="javafx.FinancesController">
 	<children>
 		<Label fx:id="balance" text="Bilanz:             €"
-			layoutX="250.0" layoutY="50.0" mnemonicParsing="false"
+			layoutX="900.0" layoutY="10.0" mnemonicParsing="false"
 			prefHeight="100.0" prefWidth="300">
 			<font>
 				<Font size="30.0" />
 			</font>
 		</Label>
+		 <DatePicker fx:id="datepickerFrom" GridPane.columnIndex="1" GridPane.rowIndex="2" layoutX="50.0" layoutY="125.0"/>
+		 <DatePicker fx:id="datepickerTo" GridPane.columnIndex="1" GridPane.rowIndex="2" layoutX="300.0" layoutY="125.0"/>
+		 <Button id="filter" fx:id="filter" layoutX="600"
+			layoutY="125.0" mnemonicParsing="false" prefHeight="50.0"
+			prefWidth="150" onAction="#filter" text="Filtern">
+			<cursor>
+				<Cursor fx:constant="HAND" />
+			</cursor>
+		</Button>
 		<Label fx:id="receipts" text="Belege" layoutX="100.0"
-			layoutY="100.0" mnemonicParsing="false" prefHeight="100.0"
+			layoutY="25.0" mnemonicParsing="false" prefHeight="100.0"
 			prefWidth="300">
 			<font>
-				<Font size="30.0" />
+				<Font size="50.0" />
 			</font>
 		</Label>
 		<TableView fx:id="tableView" layoutX="35.0" layoutY="200.0"

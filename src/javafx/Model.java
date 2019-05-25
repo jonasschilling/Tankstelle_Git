@@ -16,6 +16,7 @@ public class Model {
 
 	private String newFuelLevel;
 	private float superProgress;
+	private float balance;
 	
 
 	public Model() {
@@ -112,6 +113,12 @@ public class Model {
 		superProgress = Float.valueOf(readFuelLevel("Super")) / superTank.getCapacity();
 		return superProgress;
 	}
-	
+	public void setBalance(float balance) {
+		this.balance = balance;
+		
+	}
+	public float getBalance() {
+		return balance;
+	}
 
 }
