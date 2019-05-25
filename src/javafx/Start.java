@@ -1,3 +1,4 @@
+
 package javafx;
 
 import javafx.application.Application;
@@ -20,9 +21,9 @@ public class Start extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		//primaryStage.initStyle(StageStyle.UNDECORATED);
-		Parent root = FXMLLoader.load(getClass().getResource("FinancesView.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("SalesView.fxml"));
 		Scene scene = new Scene(root);
-//		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
 		primaryStage.setTitle("Shell");
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -34,3 +35,4 @@ public class Start extends Application {
 	}
 
 }
+

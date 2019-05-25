@@ -10,10 +10,9 @@ public class Product {
 	private int amount;
 	private int maxAmount;
 
-	public Product(int prodNumber, String name, String type, int amount, int maxAmount, float priceBuy, float priceSell) {
+	public Product(int prodNumber, String name, String type, int amount, int maxAmount, float priceBuy) {
 		this.name = name;
 		this.priceBuy = priceBuy;
-		this.priceSell = priceSell;
 		this.prodNumber = prodNumber;
 		this.type = type;
 		this.amount = amount;
@@ -40,11 +39,11 @@ public class Product {
 	public void setPriceSell(float priceSell) {
 		this.priceSell = priceSell;
 	}
-
+	
 	public int getProdNumber() {
 		return prodNumber;
 	}
-
+	
 	public String getType() {
 		return type;
 	}

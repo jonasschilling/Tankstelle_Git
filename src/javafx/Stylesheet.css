@@ -1,93 +1,15 @@
 .button {
-
-	
-
 	-fx-background-color: #FFFFFF;
-
 	-fx-background-radius: 15;
 }
 
 .button:hover {
-
-	
-
 	-fx-background-color: #F7F9FA;
-
 }
 
 .button:pressed {
-
-	
-
-	-fx-background-color: rgb(238, 241, 244);
+	-fx-background-color: rgb(238, 241, 244);	
 }
-
-
-#button1 {
-	-fx-background-color: #F6E000;
-	-fx-background-radius: 15;
-}
-
-#button1:hover {
-	-fx-background-color: #FFED4A;
-}
-
-#button1:pressed {
-	-fx-background-color: rgb(223, 201, 0);
-}
-
-#button2 {
-	-fx-background-color: #F6E000;
-	-fx-background-radius: 15;
-}
-
-#button2:hover {
-	-fx-background-color: #FFED4A;
-}
-
-#button2:pressed {
-	-fx-background-color: rgb(223, 201, 0);
-}
-
-#button3 {
-	-fx-background-color: #F6E000;
-	-fx-background-radius: 15;
-}
-
-#button3:hover {
-	-fx-background-color: #FFED4A;
-}
-
-#button3:pressed {
-	-fx-background-color: rgb(223, 201, 0);
-}
-
-#button4 {
-	-fx-background-color: #F6E000;
-	-fx-background-radius: 15;
-}
-
-#button4:hover {
-	-fx-background-color: #FFED4A;
-}
-
-#button4:pressed {
-	-fx-background-color: rgb(223, 201, 0);
-}
-
-#button5 {
-	-fx-background-color: #F6E000;
-	-fx-background-radius: 15;
-}
-
-#button5:hover {
-	-fx-background-color: #FFED4A;
-}
-
-#button5:pressed {
-	-fx-background-color: rgb(223, 201, 0);
-}
-
 
 .tab {
 	-fx-background-color: #FFFFFF;
@@ -126,5 +48,236 @@
 
 #cancelButton:pressed {
 	-fx-background-color: #C10000;
+}
+
+#prod1minus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod1minus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod1minus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod1plus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod1plus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod1plus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2minus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2minus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2minus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2plus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2plus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod2plus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3minus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3minus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3minus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3plus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3plus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod3plus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4minus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4minus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4minus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4plus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4plus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod4plus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5minus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5minus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5minus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5plus {
+	-fx-background-color: rgb(211, 224, 235);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5plus:hover {
+	-fx-background-color: rgb(231, 238, 243);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+#prod5plus:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+	-fx-background-radius: 15;
+	-fx-border-color: #000000;
+	-fx-border-radius: 15;
+}
+
+.toggle-button {
+	-fx-base: rgb(231, 238, 243);
+	-fx-background-radius: 20;
+	-fx-border-color: rgb(86, 138, 177);
+	-fx-border-radius: 20;
+}
+
+.toggle-button:hover {
+	-fx-base: #FFFFFF;
+	-fx-background-radius: 20;
+	-fx-border-color: rgb(86, 138, 177);
+	-fx-border-radius: 20;
+}
+
+.toggle-button:pressed {
+	-fx-base: rgb(158, 188, 211);
+	-fx-background-radius: 20;
+	-fx-border-color: rgb(86, 138, 177);
+	-fx-border-radius: 20;
 }
 

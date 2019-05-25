@@ -3,7 +3,7 @@ package refillSimulation;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.Model;
+import javafx.TankModel;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -11,26 +11,26 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.util.Duration;
 
 public class SimulationController implements Initializable {
-	
+
 	int milliLitres = 1;
 	int litres = 0;
 
-	float amountRefilled, priceComp, priceCompRound; 
-	
+	float amountRefilled, priceComp, priceCompRound;
+
 	String newPrice, newFuelLevel;
-	 
-	
+
 	String milliLitresText;
 	String litresText;
 	String milliLitresText0;
-	
+
 	Timeline timer;
-	
-	
+
 	@FXML
 	Label pricePerLitreLabel;
 	@FXML
@@ -44,19 +44,30 @@ public class SimulationController implements Initializable {
 	@FXML
 	Button stopTimerButton;
 	@FXML
-	ToggleButton superButton, dieselButton;
-	
-	
-	Model model = Model.getInstance();	
-	
+	ToggleButton superButton, dieselButton, pumpButton1, pumpButton2, pumpButton3, pumpButton4, pumpButton5;
+
+	TankModel tankModel = TankModel.getInstance();
+
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		float pricePerLitre = model.getTank("Super").getPricePerLitre();
-		
-		readSuperPrice();		
-		
+		ToggleGroup pumpToggleGroup = new ToggleGroup();
+		pumpToggleGroup.getToggles().add(pumpButton1);
+		pumpToggleGroup.getToggles().add(pumpButton2);
+		pumpToggleGroup.getToggles().add(pumpButton3);
+		pumpToggleGroup.getToggles().add(pumpButton4);
+		pumpToggleGroup.getToggles().add(pumpButton5);
+
+		pricePerLitreLabel.setText("-.--- €/L");
+
+		ToggleGroup tankToggleGroup = new ToggleGroup();
+		tankToggleGroup.getToggles().add(superButton);
+		tankToggleGroup.getToggles().add(dieselButton);
+
 		timer = new Timeline(new KeyFrame(Duration.millis(10), (actionEvent) -> {
 			milliLitresText = String.valueOf(milliLitres);
+			if (getAmountRefilled() > Float.valueOf(tankModel.readFuelLevel("Super"))) {
+				stopTimer(actionEvent);
+			}
 			if (milliLitres < 10) {
 				milliLitresText0 = ("0" + getMilliLitresText());
 				milliLitresLabel.setText(getMilliLitresText0());
@@ -85,28 +96,33 @@ public class SimulationController implements Initializable {
 
 			if (milliLitres < 9) {
 				setAmountRefilled(litres, milliLitresText0);
-				if(getAmountRefilled() > Float.valueOf(model.readFuelLevel("Super"))) {
-					stopTimer(actionEvent);
-				}
 			} else if (milliLitres > 9) {
 				setAmountRefilled(litres, milliLitresText);
-				if(getAmountRefilled() > Float.valueOf(model.readFuelLevel("Super"))) {
-					stopTimer(actionEvent);
-				}
 			}
-
-			priceComp = getAmountRefilled() * Float.parseFloat(model.readPrice("Super"));
-
+			
+			
+			pricePerLitreLabel.setText(tankModel.readPrice("Super") + " €/L");
+			priceComp = getAmountRefilled() * Float.valueOf(tankModel.readPrice("Super"));
 			setPriceCompRound(Math.round(priceComp * 100) / 100.0f);
 			priceCompLabel.setText(String.valueOf(getPriceCompRound()) + " €");
 
 		}));
 		timer.setCycleCount(Timeline.INDEFINITE);
-		
+
+	}
+
+	public void setPrice() {
+	
 	}
 	
-	public void readSuperPrice() {
-		pricePerLitreLabel.setText(model.readPrice("Super") + " €");
+	public void setSuperPrice() {
+		pricePerLitreLabel.setText(tankModel.readPrice("Super") + " €/L");
+		priceComp = getAmountRefilled() * Float.valueOf(tankModel.readPrice("Super"));
+	}
+	
+	public void setDieselPrice() {
+		pricePerLitreLabel.setText(tankModel.readPrice("Diesel") + " €/L");
+		priceComp = getAmountRefilled() * Float.valueOf(tankModel.readPrice("Super"));
 	}
 
 //	public float getPricePerLitre() {
@@ -182,25 +198,25 @@ public class SimulationController implements Initializable {
 		timer.stop();
 		System.out.println(amountRefilled + " Liter für " + priceCompRound + " € getankt.");
 		decreaseTank("Super");
-		model.getSuperProgress();
+		tankModel.getProgress(tankModel.getTank("Super"));
 	}
 
-	public void resetTimer(ActionEvent actionEvent) {	
+	public void resetTimer(ActionEvent actionEvent) {
 		setLitres(0);
 		setLitresText("0");
 		setMilliLitres(1);
 		setMilliLitresText("00");
 		setMilliLitresText0("00");
-		
+
 		litresLabel.setText(String.valueOf(getLitres()));
 		milliLitresLabel.setText(getMilliLitresText());
 		priceCompLabel.setText("0.00 €");
 	}
-	
+
 	public void decreaseTank(String tankDescription) {
-		Float actualFuelLevel = Float.valueOf(model.readFuelLevel(tankDescription));
+		Float actualFuelLevel = Float.valueOf(tankModel.readFuelLevel(tankDescription));
 		newFuelLevel = String.valueOf(actualFuelLevel - amountRefilled);
-		model.writeFuelLevel(tankDescription, newFuelLevel);
+		tankModel.writeFuelLevel(tankDescription, newFuelLevel);
 	}
-	
+
 }
