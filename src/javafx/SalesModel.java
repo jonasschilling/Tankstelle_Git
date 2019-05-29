@@ -22,7 +22,7 @@ public class SalesModel {
 //	Shoppingcart shoppingCart = new Shoppingcart();
 	
 	public SalesModel() {
-
+		
 	}
 	
 //	public Shoppingcart getShoppingcart() {
