@@ -286,14 +286,8 @@ public class SalesController implements Initializable {
 		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " €");
 	}
 
-//Checkout Button wird gedr€ckt
+//Checkout Button wird gedrückt
 	public void checkout(ActionEvent actionEvent) {
-<<<<<<< HEAD
-		receiptModel.getAmount(scart.getNumWodka(), scart.getNumFilip(), scart.getNumJupiter(), scart.getNumBull(),
-				scart.getNumPizza(), scart.getTotal());
-=======
-		receiptModel.getAmount(scart.getNumWodka(), scart.getNumFilip(), scart.getNumJupiter(), scart.getNumBull(), scart.getNumPizza(), scart.getTotal());
->>>>>>> branch 'master' of https://github.com/jonasschilling/Tankstelle_Git
 		receiptModel.writeReceipt();
 		scart.checkout();
 		hideAll();
@@ -582,7 +576,6 @@ public class SalesController implements Initializable {
 		}
 	}
 
-<<<<<<< HEAD
 	public void getPumpData(ActionEvent actionEvent) throws IOException {
 		ToggleButton t = (ToggleButton) actionEvent.getSource();
 		if (t.isSelected() == true) {
@@ -611,7 +604,5 @@ public class SalesController implements Initializable {
 			pumpPane.setVisible(false);
 		}
 	}
-=======
->>>>>>> branch 'master' of https://github.com/jonasschilling/Tankstelle_Git
 
 }
