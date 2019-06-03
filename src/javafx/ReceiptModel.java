@@ -97,7 +97,11 @@ public class ReceiptModel {
 						+ current.getType() + " - " + price + " EUR" + "\n");
 			}
 			String stringTotal = String.valueOf(total);
+<<<<<<< HEAD
 			bw.write("Gesamtmenge: " + stringTotal);
+=======
+			bw.write(stringTotal);
+>>>>>>> branch 'master' of https://github.com/jonasschilling/Tankstelle_Git
 
 		} catch (IOException e) {
 			e.printStackTrace();
