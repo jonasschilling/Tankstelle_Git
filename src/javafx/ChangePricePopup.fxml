@@ -11,11 +11,19 @@
 		<Button fx:id="okButton" layoutX="100.0" layoutY="380.0" mnemonicParsing="false" onAction="#changePrices" prefHeight="40.0" prefWidth="150.0" text="Bestätigen">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         </Button>
 		<Button fx:id="exitButton" cancelButton="true" layoutX="350.0" layoutY="380.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="150.0" text="Abbrechen">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         </Button>
 		<Pane prefHeight="365.0" prefWidth="300.0">
 			<children>
 				<TextField fx:id="newSuperPrice" layoutX="110.0" layoutY="100.0" prefHeight="30.0" prefWidth="110.0" />

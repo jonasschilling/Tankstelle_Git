@@ -62,7 +62,7 @@ public class SalesController implements Initializable {
 		anchor3.setVisible(false);
 		anchor4.setVisible(false);
 		anchor5.setVisible(false);
-		labelTotal.setText("Gesamtpreis: 0.00 €");
+		labelTotal.setText("Gesamtpreis: 0.00 â‚¬");
 	}
 
 	public void unToggleAll() {
@@ -73,7 +73,7 @@ public class SalesController implements Initializable {
 		button10.setSelected(false);
 	}
 
-//Ein Produkt wird ausgewählt
+//Ein Produkt wird ausgewâ‚¬hlt
 	public void productButtonClicked(ActionEvent actionEvent) {
 
 		ToggleButton source = (ToggleButton) actionEvent.getSource();
@@ -119,10 +119,10 @@ public class SalesController implements Initializable {
 			}
 			break;
 		}
-		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " €");
+		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " â‚¬");
 	}
 
-//der - Button eines Produkts wird gedrückt
+//der - Button eines Produkts wird gedrâ‚¬ckt
 	public void addButtonClicked(ActionEvent actionEvent) {
 
 		Button source = (Button) actionEvent.getSource();
@@ -139,7 +139,7 @@ public class SalesController implements Initializable {
 			prod1plus.setDisable(scart.getNumWodka() == (scart.wodka.getAmount()) ? true : false);
 			currentlabel = getCurrentLabel("Wodka");
 			price = (float) Math.round(scart.getNumWodka() * Float.valueOf(salesModel.readPrice("Wodka")) * 100) / 100;
-			currentlabel.setText("Wodka                 " + price + "€");
+			currentlabel.setText("Wodka                 " + price + "â‚¬");
 			break;
 		case ("prod2plus"):
 			int amount2 = Integer.valueOf(label2amount.getText());
@@ -149,7 +149,7 @@ public class SalesController implements Initializable {
 			prod2plus.setDisable(scart.getNumFilip() == (scart.filip.getAmount()) ? true : false);
 			currentlabel = getCurrentLabel("Filip");
 			price = (float) Math.round(scart.getNumFilip() * Float.valueOf(salesModel.readPrice("Filip")) * 100) / 100;
-			currentlabel.setText("Filip Maurice        " + price + "€");
+			currentlabel.setText("Filip Maurice        " + price + "â‚¬");
 			break;
 		case ("prod3plus"):
 			int amount3 = Integer.valueOf(label3amount.getText());
@@ -159,7 +159,7 @@ public class SalesController implements Initializable {
 			prod3plus.setDisable(scart.getNumJupiter() == (scart.jupiter.getAmount()) ? true : false);
 			currentlabel = getCurrentLabel("Jupiter");
 			price = (float) Math.round(scart.getNumJupiter() * Float.valueOf(salesModel.readPrice("Jupiter")) * 100) / 100;
-			currentlabel.setText("Jupiter Riegel         " + price + "€");
+			currentlabel.setText("Jupiter Riegel         " + price + "â‚¬");
 			break;
 		case ("prod4plus"):
 			int amount4 = Integer.valueOf(label4amount.getText());
@@ -169,7 +169,7 @@ public class SalesController implements Initializable {
 			prod4plus.setDisable(scart.getNumBull() == (scart.bull.getAmount()) ? true : false);
 			currentlabel = getCurrentLabel("Bull");
 			price = (float) Math.round(scart.getNumBull() * Float.valueOf(salesModel.readPrice("Bull")) * 100) / 100;
-			currentlabel.setText("Sitting Bull           " + price + "€");
+			currentlabel.setText("Sitting Bull           " + price + "â‚¬");
 			break;
 		case ("prod5plus"):
 			int amount5 = Integer.valueOf(label5amount.getText());
@@ -179,13 +179,13 @@ public class SalesController implements Initializable {
 			prod5plus.setDisable(scart.getNumPizza() == (scart.pizza.getAmount()) ? true : false);
 			currentlabel = getCurrentLabel("Pizza");
 			price = (float) Math.round(scart.getNumPizza() * Float.valueOf(salesModel.readPrice("Pizza")) * 100) / 100;
-			currentlabel.setText("Pizza                    " + price + "€");
+			currentlabel.setText("Pizza                    " + price + "â‚¬");
 			break;
 		}
-		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " €");
+		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " â‚¬");
 	}
 
-//Der + Button eines Produkts wird gedrückt
+//Der + Button eines Produkts wird gedrâ‚¬ckt
 	public void removeButtonClicked(ActionEvent actionEvent) {
 		Button source = (Button) actionEvent.getSource();
 		Label currentlabel;
@@ -204,7 +204,7 @@ public class SalesController implements Initializable {
 
 			currentlabel = getCurrentLabel("Wodka");
 			price = (float) Math.round(scart.getNumWodka() * Float.valueOf(salesModel.readPrice("Wodka")) * 100) / 100;
-			currentlabel.setText("Wodka                 " + price + "€");
+			currentlabel.setText("Wodka                 " + price + "â‚¬");
 			break;
 		case ("prod2minus"):
 			int amount2 = Integer.valueOf(label2amount.getText());
@@ -216,7 +216,7 @@ public class SalesController implements Initializable {
 			}
 			currentlabel = getCurrentLabel("Filip");
 			price = (float) Math.round(scart.getNumFilip() * Float.valueOf(salesModel.readPrice("Filip")) * 100) / 100;
-			currentlabel.setText("Filip Maurice        " + price + "€");
+			currentlabel.setText("Filip Maurice        " + price + "â‚¬");
 			break;
 		case ("prod3minus"):
 			int amount3 = Integer.valueOf(label3amount.getText());
@@ -228,7 +228,7 @@ public class SalesController implements Initializable {
 			}
 			currentlabel = getCurrentLabel("Jupiter");
 			price = (float) Math.round(scart.getNumJupiter() * Float.valueOf(salesModel.readPrice("Jupiter")) * 100) / 100;
-			currentlabel.setText("Jupiter Riegel         " + price + "€");
+			currentlabel.setText("Jupiter Riegel         " + price + "â‚¬");
 			break;
 		case ("prod4minus"):
 			int amount4 = Integer.valueOf(label4amount.getText());
@@ -240,7 +240,7 @@ public class SalesController implements Initializable {
 			}
 			currentlabel = getCurrentLabel("Bull");
 			price = (float) Math.round(scart.getNumBull() * Float.valueOf(salesModel.readPrice("Bull")) * 100) / 100;
-			currentlabel.setText("Sitting Bull           " + price + "€");
+			currentlabel.setText("Sitting Bull           " + price + "â‚¬");
 			break;
 		case ("prod5minus"):
 			int amount5 = Integer.valueOf(label5amount.getText());
@@ -253,28 +253,28 @@ public class SalesController implements Initializable {
 			}
 			currentlabel = getCurrentLabel("Pizza");
 			price = (float) Math.round(scart.getNumPizza() * Float.valueOf(salesModel.readPrice("Pizza")) * 100) / 100;
-			currentlabel.setText("Pizza                    " + price + "€");
+			currentlabel.setText("Pizza                    " + price + "â‚¬");
 			break;
 		}
-		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " €");
+		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " â‚¬");
 	}
 
-//Checkout Button wird gedrückt
+//Checkout Button wird gedrâ‚¬ckt
 	public void checkout(ActionEvent actionEvent) {
 		scart.checkout();
 		hideAll();
 		unToggleAll();
 	}
 
-//Cancelbutton wird gedrückt
+//Cancelbutton wird gedrâ‚¬ckt
 	public void cancel(ActionEvent actionEvent) {
 		scart.cancel();
 		hideAll();
 		unToggleAll();
 	}
 
-// die Pressed und Released-Methoden führen Operationen aus, die bei Auswählen
-// bzw. Abwählen eines Produktes wichtig sind.
+// die Pressed und Released-Methoden fâ‚¬hren Operationen aus, die bei Auswâ‚¬hlen
+// bzw. Abwâ‚¬hlen eines Produktes wichtig sind.
 	public void wodkaPressed() {
 		scart.addWodka();
 		anchor1.setVisible(true);
@@ -283,7 +283,7 @@ public class SalesController implements Initializable {
 		Label freelabel = freeLabel();
 		float price = (float) Math.round(scart.getNumWodka() * Float.valueOf(salesModel.readPrice("Wodka")) * 100)
 				/ 100;
-		freelabel.setText("Wodka                 " + price + "€");
+		freelabel.setText("Wodka                 " + price + "â‚¬");
 	}
 
 	public void wodkaReleased() {
@@ -304,7 +304,7 @@ public class SalesController implements Initializable {
 		Label freelabel = freeLabel();
 		float price = (float) Math.round(scart.getNumFilip() * Float.valueOf(salesModel.readPrice("Filip")) * 100)
 				/ 100;
-		freelabel.setText("Filip Maurice        " + price + "€");
+		freelabel.setText("Filip Maurice        " + price + "â‚¬");
 
 	}
 
@@ -327,7 +327,7 @@ public class SalesController implements Initializable {
 		Label freelabel = freeLabel();
 		float price = (float) Math.round(scart.getNumJupiter() * Float.valueOf(salesModel.readPrice("Jupiter")) * 100)
 				/ 100;
-		freelabel.setText("Jupiter Riegel         " + price + "€");
+		freelabel.setText("Jupiter Riegel         " + price + "â‚¬");
 	}
 
 	public void jupiterReleased() {
@@ -348,7 +348,7 @@ public class SalesController implements Initializable {
 		prod4plus.setDisable(false);
 		Label freelabel = freeLabel();
 		float price = (float) Math.round(scart.getNumBull() * Float.valueOf(salesModel.readPrice("Bull")) * 100) / 100;
-		freelabel.setText("Sitting Bull           " + price + "€");
+		freelabel.setText("Sitting Bull           " + price + "â‚¬");
 	}
 
 	public void bullReleased() {
@@ -369,7 +369,7 @@ public class SalesController implements Initializable {
 		Label freelabel = freeLabel();
 		float price = (float) Math.round(scart.getNumPizza() * Float.valueOf(salesModel.readPrice("Pizza")) * 100)
 				/ 100;
-		freelabel.setText("Pizza                    " + price + "€");
+		freelabel.setText("Pizza                    " + price + "â‚¬");
 
 	}
 
@@ -384,7 +384,7 @@ public class SalesController implements Initializable {
 	}
 
 // Die Remove-methoden lassen die Schriftzug des Produkts verschwinden und die
-// anderen Schriftzüge weiter hoch rücken in der Anzeige
+// anderen Schriftzâ‚¬ge weiter hoch rÃ¼cken in der Anzeige
 	public void removeWodka() {
 		if (label1.getText().contains("Wodka")) {
 			label1.setText(label2.getText());

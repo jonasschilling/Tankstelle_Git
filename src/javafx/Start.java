@@ -30,7 +30,7 @@ public class Start extends Application {
 	}
 
 	public void stop() {
-		// Aufr�umarbeiten durchf�hren
+		// Aufräumarbeiten durchf�hren
 	}
 
 }

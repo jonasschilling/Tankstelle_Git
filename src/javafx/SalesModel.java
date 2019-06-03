@@ -15,9 +15,9 @@ public class SalesModel {
 	
 	Product wodka = new Product(421, "Wodka Jelzin", "Flasche", 30, 30, 2.99f);
 	Product filip = new Product(871, "Filip Maurice", "Packung", 100, 100, 2.77f);
-	Product jupiter = new Product(358, "Jupiter Schokoriegel", "Stück", 150, 150, 0.19f);
+	Product jupiter = new Product(358, "Jupiter Schokoriegel", "Stï¿½ck", 150, 150, 0.19f);
 	Product bull = new Product(992, "Sitting Bull", "Dose", 50, 50, 0.29f);
-	Product pizza = new Product(101, "TK-Pizza Deluxe", "Stück", 20, 20, 0.89f);
+	Product pizza = new Product(101, "TK-Pizza Deluxe", "StÃ¼ck", 20, 20, 0.89f);
 	
 //	Shoppingcart shoppingCart = new Shoppingcart();
 	

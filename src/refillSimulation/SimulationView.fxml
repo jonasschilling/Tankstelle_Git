@@ -118,5 +118,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </ToggleButton>
+      <Button fx:id="resetButtons" layoutX="340.0" layoutY="541.0" mnemonicParsing="false" text="reset" onAction="#resetButtons" />
 	</children>
 </Pane>

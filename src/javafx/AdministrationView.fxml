@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
@@ -66,9 +67,79 @@
                            </graphic></Button>
 							</children>
 						</Pane>
-						<Pane layoutY="400.0" prefHeight="400.0" prefWidth="600.0" />
-						<Pane layoutX="600.0" layoutY="400.0" prefHeight="400.0" prefWidth="600.0" />
+						<Pane layoutY="400.0" prefHeight="360.0" prefWidth="600.0">
+                     <children>
+                        <Slider fx:id="superSlider" layoutX="50.0" layoutY="60.0" majorTickUnit="100.0" prefWidth="400.0" showTickLabels="true" snapToTicks="true" />
+                        <Label layoutX="50.0" layoutY="30.0" text="Super">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="superOrder" layoutX="479.0" layoutY="56.0" prefWidth="70.0" text="0.0">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font></Label>
+                        <Label layoutX="555.0" layoutY="60.0" text="L">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Label>
+                        <RadioButton fx:id="wodkaOrder" layoutX="50.0" layoutY="190.0" mnemonicParsing="false">
+                           <font>
+                              <Font size="20.0" />
+                           </font></RadioButton>
+                        <RadioButton fx:id="jupiterOrder" layoutX="496.0" layoutY="190.0" mnemonicParsing="false">
+                           <font>
+                              <Font size="20.0" />
+                           </font></RadioButton>
+                        <RadioButton fx:id="filipOrder" layoutX="264.0" layoutY="190.0" mnemonicParsing="false">
+                           <font>
+                              <Font size="20.0" />
+                           </font></RadioButton>
+                     </children></Pane>
+						<Pane layoutX="600.0" layoutY="400.0" prefHeight="360.0" prefWidth="600.0">
+                     <children>
+                        <Label layoutX="50.0" layoutY="30.0" text="Diesel">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Slider fx:id="dieselSlider" layoutX="50.0" layoutY="60.0" majorTickUnit="100.0" prefWidth="400.0" showTickLabels="true" snapToTicks="true" />
+                        <Label fx:id="dieselOrder" layoutX="479.0" layoutY="56.0" prefWidth="70.0" text="0.0">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font></Label>
+                        <Label layoutX="555.0" layoutY="60.0" text="L">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font></Label>
+                        <RadioButton fx:id="pizzaOrder" layoutX="364.0" layoutY="190.0" mnemonicParsing="false">
+                           <font>
+                              <Font size="20.0" />
+                           </font></RadioButton>
+                        <RadioButton fx:id="bullOrder" layoutX="157.0" layoutY="190.0" mnemonicParsing="false">
+                           <font>
+                              <Font size="20.0" />
+                           </font></RadioButton>
+                     </children></Pane>
+                  <Label layoutX="450.0" layoutY="370.0" prefWidth="300.0" text="Kraftstoffbestellung">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="470.0" layoutY="520.0" prefWidth="250.0" text="Warenbestellung">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="490.0" layoutY="680.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Bestellen">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
 					</children>
+               <rotationAxis>
+                  <Point3D />
+               </rotationAxis>
 				</AnchorPane>
 			</content>
 		</Tab>

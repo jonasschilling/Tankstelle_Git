@@ -314,3 +314,15 @@
 	-fx-background-color: #C10000;
 	-fx-background-radius: 5;
 }
+
+#exit {
+	-fx-background-color: rgb(211, 224, 235);
+}
+
+#exit:hover {
+	-fx-background-color: rgb(231, 238, 243);
+}
+
+#exit:pressed {
+	-fx-background-color: rgb(158, 188, 211);
+}
