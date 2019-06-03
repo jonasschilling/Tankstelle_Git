@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-1050
-=======
-729.5
->>>>>>> branch 'master' of https://github.com/jonasschilling/Tankstelle_Git.git
+728.13

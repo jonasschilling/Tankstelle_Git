@@ -24,15 +24,14 @@ public class SimulationModel {
 		
 	}
 	
-	public void writePumpData(String pumpNr, float amountRefilled) {
+	public void writePumpData(String pumpNr, String gasKind, float amountRefilled) {
 		File file = new File("src/javafx/resources/PumpData/pumpData" + pumpNr + ".txt");
 		FileWriter fw = null;
 		BufferedWriter bw = null;
-
 		try {
 			fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
-			bw.write(String.valueOf(amountRefilled));
+			bw.write(gasKind + "; " + String.valueOf(amountRefilled));
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
