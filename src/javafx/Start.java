@@ -1,12 +1,15 @@
-
 package javafx;
 
+import java.io.File;
+
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 
 public class Start extends Application {
 
@@ -15,20 +18,27 @@ public class Start extends Application {
 	}
 
 	public void init() {
-		
+
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		//primaryStage.initStyle(StageStyle.UNDECORATED);
-		
-		Parent root = FXMLLoader.load(getClass().getResource("FinancesView.fxml"));
+		// primaryStage.initStyle(StageStyle.UNDECORATED);
+		Parent root = FXMLLoader.load(getClass().getResource("AdministrationView.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
-		primaryStage.setTitle("Shell");
+		primaryStage.setTitle("Tankstelle");
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		
+		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+
+			@Override
+			public void handle(WindowEvent event) {
+				SalesModel.writeStock();
+
+			}
+		});
+
 	}
 
 	public void stop() {
@@ -36,4 +46,3 @@ public class Start extends Application {
 	}
 
 }
-
