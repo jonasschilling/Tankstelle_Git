@@ -50,7 +50,6 @@ public class EmployeeModel {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("Employee is closing");
 		}
 		
 	}

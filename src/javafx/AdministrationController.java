@@ -20,8 +20,18 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import refillSimulation.SimulationModel;
 
 public class AdministrationController implements Initializable {
+	
+	private static AdministrationController instance;
+	
+	public static AdministrationController getInstance() {
+		if (AdministrationController.instance == null) {
+			AdministrationController.instance = new AdministrationController();
+		}
+		return AdministrationController.instance;
+	}
 	
 	@FXML
 	Label tankNameLabel1, tankNameLabel2, superOrder, dieselOrder;
@@ -113,7 +123,7 @@ public class AdministrationController implements Initializable {
 		dieselCapLabel.setText(String.valueOf(tankModel.readFuelLevel("Diesel") + "/" + tankModel.getTank("Diesel").getCapacity()) + " L");
 		
 		superSlider.setMax((double)tankModel.getTank("Super").getCapacity() - Double.valueOf(tankModel.readFuelLevel("Super")));
-//		dieselSlider.setMax((double)tankModel.getTank("Diesel").getCapacity() - Double.valueOf(tankModel.readFuelLevel("Diesel")));
+		dieselSlider.setMax((double)tankModel.getTank("Diesel").getCapacity() - Double.valueOf(tankModel.readFuelLevel("Diesel")));
 		superSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
 			superOrder.setText(String.valueOf(superSlider.getValue()));
 		});
@@ -127,6 +137,14 @@ public class AdministrationController implements Initializable {
 		popup.setTitle("Preise ändern");
 		popup.setScene(scene);
 		popup.show();
+	}
+	
+	public ProgressBar getSuperBar() {
+		return superBar;
+	}
+	
+	public ProgressBar getDieselBar() {
+		return dieselBar;
 	}
 
 }

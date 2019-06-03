@@ -77,8 +77,8 @@ public class Product {
 		String type = getType();
 		String amount = Integer.toString(getAmount());
 		String maxAmount = Integer.toString(getMaxAmount());
-		
-		String attributes = prodNumber + ";" + name + ";" + type + ";" + amount + ";" + maxAmount;
+		String priceBuy = Float.toString(getPriceBuy());
+		String attributes = prodNumber + ";" + name + ";" + type + ";" + amount + ";" + maxAmount + ";" + priceBuy;
 		
 		return attributes;
 	}

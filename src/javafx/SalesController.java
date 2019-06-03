@@ -1,5 +1,6 @@
 package javafx;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -12,12 +13,14 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import refillSimulation.SimulationModel;
 
 public class SalesController implements Initializable {
 
 	Shoppingcart scart;
 	@FXML
-	ToggleButton pumpButton1, pumpButton2, pumpButton3, pumpButton4, pumpButton5, button6, button7, button8, button9, button10;
+	ToggleButton pumpButton1, pumpButton2, pumpButton3, pumpButton4, pumpButton5, button6, button7, button8, button9,
+			button10;
 	@FXML
 	Button prod1plus, prod1minus;
 	@FXML
@@ -29,32 +32,43 @@ public class SalesController implements Initializable {
 	@FXML
 	Button prod5plus, prod5minus;
 	@FXML
-	Label label1, label1amount, label2, label2amount, label3, label3amount, label4, label4amount, label5, label5amount, labelTotal;
+	Label label1, label1amount, label2, label2amount, label3, label3amount, label4, label4amount, label5, label5amount,
+			labelTotal;
 	@FXML
-	Label pumpNumber, gasKind, pricePerLitre, amountRefilled, priceCompleteLabel;
+	Label pumpNumber, gasKindLabel, pricePerLitreLabel, amountRefilledLabel, priceCompleteLabel;
 	@FXML
 	Pane pumpPane;
 	@FXML
 	AnchorPane anchor1, anchor2, anchor3, anchor4, anchor5;
 
 	TankModel tankModel = TankModel.getInstance();
+	ReceiptModel receiptModel = ReceiptModel.getInstance();
 	SalesModel salesModel = SalesModel.getInstance();
 	FilesModel filesmodel = FilesModel.getInstance();
+	SimulationModel simulationModel = SimulationModel.getInstance();
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		scart = new Shoppingcart();
 		hideAll();
+		if (salesModel.products.size() < 1) {
+			salesModel.addProducts();
+		}
 		ToggleGroup toggleGroup = new ToggleGroup();
 		toggleGroup.getToggles().add(pumpButton1);
 		toggleGroup.getToggles().add(pumpButton2);
 		toggleGroup.getToggles().add(pumpButton3);
 		toggleGroup.getToggles().add(pumpButton4);
 		toggleGroup.getToggles().add(pumpButton5);
-		salesModel.addProducts();
-		
+
+		pumpNumber.setText("---");
+		gasKindLabel.setText("---");
+		pricePerLitreLabel.setText("---");
+		amountRefilledLabel.setText("---");
+
 		pumpPane.setVisible(false);
-		
+
 	}
+
 //Alle + und - Kn�pfe werden versteckt
 	public void hideAll() {
 		anchor1.setVisible(false);
@@ -64,6 +78,7 @@ public class SalesController implements Initializable {
 		anchor5.setVisible(false);
 		labelTotal.setText("Gesamtpreis: 0.00 €");
 	}
+
 //Falls Kn�pfe gedr�ckt sind, werden sie nun "losgelassen"
 	public void unToggleAll() {
 		button6.setSelected(false);
@@ -72,6 +87,7 @@ public class SalesController implements Initializable {
 		button9.setSelected(false);
 		button10.setSelected(false);
 	}
+
 //Entfernt alle Texte aus der Warenkorbanzeige
 	public void clearLabels() {
 		label1.setText("");
@@ -79,7 +95,7 @@ public class SalesController implements Initializable {
 		label3.setText("");
 		label4.setText("");
 		label5.setText("");
-	
+
 	}
 
 //Ein Produkt wird ausgew€hlt
@@ -167,7 +183,8 @@ public class SalesController implements Initializable {
 			scart.addJupiter();
 			prod3plus.setDisable(scart.getNumJupiter() == (scart.jupiter.getAmount()) ? true : false);
 			currentlabel = getCurrentLabel("Jupiter");
-			price = (float) Math.round(scart.getNumJupiter() * Float.valueOf(salesModel.readPrice("Jupiter")) * 100) / 100;
+			price = (float) Math.round(scart.getNumJupiter() * Float.valueOf(salesModel.readPrice("Jupiter")) * 100)
+					/ 100;
 			currentlabel.setText("Jupiter Riegel         " + price + "€");
 			break;
 		case ("prod4plus"):
@@ -236,7 +253,8 @@ public class SalesController implements Initializable {
 				prod3plus.setDisable(scart.getNumJupiter() < (scart.jupiter.getAmount()) ? false : true);
 			}
 			currentlabel = getCurrentLabel("Jupiter");
-			price = (float) Math.round(scart.getNumJupiter() * Float.valueOf(salesModel.readPrice("Jupiter")) * 100) / 100;
+			price = (float) Math.round(scart.getNumJupiter() * Float.valueOf(salesModel.readPrice("Jupiter")) * 100)
+					/ 100;
 			currentlabel.setText("Jupiter Riegel         " + price + "€");
 			break;
 		case ("prod4minus"):
@@ -270,6 +288,9 @@ public class SalesController implements Initializable {
 
 //Checkout Button wird gedr€ckt
 	public void checkout(ActionEvent actionEvent) {
+		receiptModel.getAmount(scart.getNumWodka(), scart.getNumFilip(), scart.getNumJupiter(), scart.getNumBull(),
+				scart.getNumPizza(), scart.getTotal());
+		receiptModel.writeReceipt();
 		scart.checkout();
 		hideAll();
 		clearLabels();
@@ -342,7 +363,8 @@ public class SalesController implements Initializable {
 		label3amount.setText("1");
 		prod3plus.setDisable(false);
 		Label freelabel = freeLabel();
-		float price = (float) Math.round(scart.getNumJupiter() * Float.valueOf(salesModel.readPrice("Jupiter")) * 100)/ 100;
+		float price = (float) Math.round(scart.getNumJupiter() * Float.valueOf(salesModel.readPrice("Jupiter")) * 100)
+				/ 100;
 		freelabel.setText("Jupiter Riegel         " + price + "€");
 	}
 
@@ -521,6 +543,7 @@ public class SalesController implements Initializable {
 			label5.setText("");
 		}
 	}
+
 //�berp�ft, welches Label in der Warenkorbanzeige frei ist
 	public Label freeLabel() {
 		if (label1.getText().equals("")) {
@@ -537,6 +560,7 @@ public class SalesController implements Initializable {
 			return null;
 		}
 	}
+
 //�berpr�ft, in welchem Label der �bergebene String angezeigt wird
 	public Label getCurrentLabel(String s) {
 		if (label1.getText().contains(s)) {
@@ -553,6 +577,34 @@ public class SalesController implements Initializable {
 			return null;
 		}
 	}
-	
+
+	public void getPumpData(ActionEvent actionEvent) throws IOException {
+		ToggleButton t = (ToggleButton) actionEvent.getSource();
+		if (t.isSelected() == true) {
+			if (actionEvent.getSource() == pumpButton1) {
+				simulationModel.readPumpData(1);
+				pumpNumber.setText("1");
+			} else if (actionEvent.getSource() == pumpButton2) {
+				simulationModel.readPumpData(2);
+				pumpNumber.setText("2");
+			} else if (actionEvent.getSource() == pumpButton3) {
+				simulationModel.readPumpData(3);
+				pumpNumber.setText("3");
+			} else if (actionEvent.getSource() == pumpButton4) {
+				simulationModel.readPumpData(4);
+				pumpNumber.setText("4");
+			} else if (actionEvent.getSource() == pumpButton5) {
+				simulationModel.readPumpData(5);
+				pumpNumber.setText("5");
+			}
+			pumpPane.setVisible(true);
+			gasKindLabel.setText(simulationModel.getGasKind());
+			pricePerLitreLabel.setText(tankModel.readPrice(simulationModel.getGasKind()) + " €");
+			amountRefilledLabel.setText(simulationModel.getReadAmount() + " L");
+			priceCompleteLabel.setText(simulationModel.getReadPriceComp() + " €");
+		} else if (t.isSelected() == false) {
+			pumpPane.setVisible(false);
+		}
+	}
 
 }

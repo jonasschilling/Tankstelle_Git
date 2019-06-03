@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -31,6 +32,8 @@ public class ChangePriceController implements Initializable {
 	
 	TankModel tankModel = TankModel.getInstance();
 	SalesModel salesModel = SalesModel.getInstance();
+	
+	public AdministrationController aministrationController = AdministrationController.getInstance();
 	
 	
 	@Override
@@ -74,6 +77,7 @@ public class ChangePriceController implements Initializable {
 			salesModel.writePrice("Pizza", newPizzaPrice.getText());
 		}
 		Stage popup = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+//		refresh();
 		popup.hide();
 	}
 	
@@ -81,5 +85,29 @@ public class ChangePriceController implements Initializable {
 		Stage popup = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
 		popup.hide();
 	}
+	
+//	public void refresh() {
+//		administrationController.getSuperBar().setProgress((double) Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity());
+//		if ((Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity()) > 0.5) {
+//			superBar.setStyle("-fx-accent: #1ae204");
+//		} else if ((Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity()) > 0.25) {
+//			superBar.setStyle("-fx-accent: yellow");
+//		} else if ((Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity()) <= 0.25) {
+//			superBar.setStyle("-fx-accent: red");
+//		}
+//		dieselBar.setProgress((double) Float.valueOf(tankModel.readFuelLevel("Diesel")) / tankModel.getTank("Diesel").getCapacity());
+//		
+//		superPriceLabel.setText(tankModel.readPrice("Super") + " €/L");
+//		dieselPriceLabel.setText(tankModel.readPrice("Diesel") + " €/L");
+//		
+//		superCapLabel.setText(String.valueOf(tankModel.readFuelLevel("Super") + "/" + tankModel.getTank("Super").getCapacity()) + " L");
+//		dieselCapLabel.setText(String.valueOf(tankModel.readFuelLevel("Diesel") + "/" + tankModel.getTank("Diesel").getCapacity()) + " L");
+//		
+//		superSlider.setMax((double)tankModel.getTank("Super").getCapacity() - Double.valueOf(tankModel.readFuelLevel("Super")));
+//		dieselSlider.setMax((double)tankModel.getTank("Diesel").getCapacity() - Double.valueOf(tankModel.readFuelLevel("Diesel")));
+//		superSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+//			superOrder.setText(String.valueOf(superSlider.getValue()));
+//		});
+//	}
 	
 }

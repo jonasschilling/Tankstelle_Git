@@ -26,7 +26,8 @@ public class Start extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// primaryStage.initStyle(StageStyle.UNDECORATED);
+		employeeModel.readEmployees();
+		salesModel.readStock(); 
 		Parent root = FXMLLoader.load(getClass().getResource("MainView.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
@@ -47,7 +48,7 @@ public class Start extends Application {
 
 	public void stop() {
 
-		// Aufr�umarbeiten durchf�hren
+		// Aufräumarbeiten durchführen
 
 	}
 

@@ -284,7 +284,7 @@ public class SimulationController implements Initializable {
 
 	public void stopTimer(ActionEvent actionEvent) {
 		timer.stop();
-		simulationModel.writePumpData(pump.getText(), gas.getText(), getAmountRefilled());
+		simulationModel.writePumpData(pump.getText(), gas.getText(), getAmountRefilled(), getPriceCompRound());
 		decreaseTank(gas.getText());
 		tankModel.getProgress(tankModel.getTank(gas.getText()));
 	}

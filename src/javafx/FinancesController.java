@@ -59,7 +59,7 @@ public class FinancesController implements Initializable {
 		datepickerFrom.setPromptText("von");
 		datepickerTo.setPromptText("bis");
 		tableView.setItems(receiptlist);
-		balance.setText("Bilanz:         " + Float.toString(filesmodel.getBalance()) + " €");
+		balance.setText("Bilanz:         " + Float.toString(filesmodel.getBalance()) + " â‚¬");
 
 	}
 
