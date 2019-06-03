@@ -42,11 +42,9 @@ public class Start extends Application {
 	}
 
 	public void stop() {
-<<<<<<< HEAD
-		// AufrÃ¤umarbeiten durchfï¿½hren
-=======
+
 		// Aufräumarbeiten durchführen
->>>>>>> branch 'master' of https://github.com/jonasschilling/Tankstelle_Git.git
+
 	}
 
 }

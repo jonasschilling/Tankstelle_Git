@@ -44,7 +44,7 @@ public class SalesController implements Initializable {
 
 	TankModel tankModel = TankModel.getInstance();
 	SalesModel salesModel = SalesModel.getInstance();
-	Model model = Model.getInstance();
+	FilesModel filesmodel = FilesModel.getInstance();
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		scart = new Shoppingcart();
@@ -280,7 +280,7 @@ public class SalesController implements Initializable {
 		button8.setDisable((scart.jupiter.getAmount() == 0) ? true : false);
 		button9.setDisable((scart.bull.getAmount() == 0) ? true : false);
 		button10.setDisable((scart.pizza.getAmount() == 0) ? true : false);
-		model.setBalance(model.getBalance() + scart.getTotal());
+		filesmodel.setBalance(filesmodel.getBalance() + scart.getTotal());
 	}
 
 //Cancelbutton wird gedr€ckt

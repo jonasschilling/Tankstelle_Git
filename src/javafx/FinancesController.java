@@ -41,7 +41,7 @@ public class FinancesController implements Initializable {
 	Stage popup = new Stage();
 	private ObservableList<Receipt> receiptlist = FXCollections.observableArrayList();
 	ReceiptModel receiptmodel = ReceiptModel.getInstance();
-	Model model = Model.getInstance();
+	FilesModel filesmodel = FilesModel.getInstance();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -59,7 +59,7 @@ public class FinancesController implements Initializable {
 		datepickerFrom.setPromptText("von");
 		datepickerTo.setPromptText("bis");
 		tableView.setItems(receiptlist);
-		balance.setText("Bilanz:         " + Float.toString(model.getBalance()) + " €");
+		balance.setText("Bilanz:         " + Float.toString(filesmodel.getBalance()) + " €");
 
 	}
 
