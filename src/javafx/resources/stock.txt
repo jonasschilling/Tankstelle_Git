@@ -1,6 +1,0 @@
-Nummer;Name;Lagereinheit;Menge;MaxMenge
-421;Wodka Jelzin;Flasche;30;30
-871;Filip Maurice;Packung;100;100
-358;Jupiter Schokoriegel;Stück;150;150
-992;Sitting Bull;Dose;50;50
-101;TK-Pizza Deluxe;Stück;20;20
