@@ -41,7 +41,9 @@ public class EmployeeController implements Initializable {
 	@FXML
 	TextField firstNameField, lastNameField;
 
-	private ObservableList<Employee> employees = FXCollections.observableArrayList();
+	EmployeeModel employeeModel = EmployeeModel.getInstance();
+	
+	private static ObservableList<Employee> employees = FXCollections.observableArrayList();
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		firstNameField.setPromptText("Vorname eingeben");
@@ -101,5 +103,11 @@ public class EmployeeController implements Initializable {
 		alert.setContentText("");
 		Optional<ButtonType> option = alert.showAndWait();
 		System.out.println(option.get().getText());
+	}
+	
+	public static ObservableList<Employee> getEmployees(){
+		
+		return employees;
+		
 	}
 }

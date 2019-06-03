@@ -50,6 +50,7 @@ public class SalesController implements Initializable {
 		toggleGroup.getToggles().add(pumpButton3);
 		toggleGroup.getToggles().add(pumpButton4);
 		toggleGroup.getToggles().add(pumpButton5);
+		salesModel.addProducts();
 		
 		pumpPane.setVisible(false);
 		

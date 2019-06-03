@@ -1,6 +1,7 @@
 package javafx;
 
-import java.text.DateFormat;
+
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.util.*;
 
@@ -10,7 +11,7 @@ public class Employee {
 	private String firstname;
 	private String lastname;
 	private Date employmentDate;
-	DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
+	SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
 	private String stringDate = df.format(now.getTime());
 	static GregorianCalendar now = new GregorianCalendar();
 	
@@ -63,6 +64,19 @@ public class Employee {
 
 	public void setStringDate(String stringDate) {
 		this.stringDate = stringDate;
+	}
+	
+	public String getEmployeeAttributes() {
+		
+		String employeeId = Integer.toString(getEmployeeId());
+		String firstname = getFirstName();
+		String lastname = getLastName();
+		String stringDate = getStringDate();
+		
+		String employeeAttributes = employeeId + ";" + firstname + ";" + lastname + ";" + stringDate;
+				
+		return employeeAttributes;
+		
 	}
 
 }
