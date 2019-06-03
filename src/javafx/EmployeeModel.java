@@ -6,11 +6,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class EmployeeModel {
 
 	private static EmployeeModel instance;
-
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 	
 	public EmployeeModel(){
 		
@@ -55,17 +58,16 @@ public class EmployeeModel {
 	public void readEmployees() {
 		
 		File file = new File("src/javafx/resources/Employees.txt");
-		FileReader fr = new FileReader(file);
-		BufferedReader br = new BufferedReader(fr);
+
 		
-		try {
+		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr);){
 			String line;
 			br.readLine();
 			
 			while ((line = br.readLine()) != null) {
 				
 				String[] output = line.split(";");
-				EmployeeController.getEmployees().add(new Employee(Integer.parseInt(output[0]),output[1], output[2],  ));
+				EmployeeController.getEmployees().add(new Employee(output[0],output[1]));
 							
 			}	
 			
