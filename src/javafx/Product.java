@@ -1,5 +1,6 @@
 package javafx;
 
+
 public class Product {
 
 	private String name;
@@ -11,12 +12,14 @@ public class Product {
 	private int maxAmount;
 
 	public Product(int prodNumber, String name, String type, int amount, int maxAmount, float priceBuy) {
-		this.name = name;
-		this.priceBuy = priceBuy;
+		
 		this.prodNumber = prodNumber;
+		this.name = name;
 		this.type = type;
 		this.amount = amount;
 		this.maxAmount = maxAmount;
+		this.priceBuy = priceBuy;
+
 
 	}
 
@@ -59,13 +62,25 @@ public class Product {
 	public void setMaxAmount(int maxAmount) {
 		this.maxAmount = maxAmount;
 	}
-
+	
 	public void incAmount(int amount) {
 		this.amount += amount;
 	}
 
 	public void decAmount(int amount) {
 		this.amount -= amount;
+	}
+	public String getAttributes() {
+		
+		String prodNumber = Integer.toString(getProdNumber());
+		String name = getName();
+		String type = getType();
+		String amount = Integer.toString(getAmount());
+		String maxAmount = Integer.toString(getMaxAmount());
+		
+		String attributes = prodNumber + ";" + name + ";" + type + ";" + amount + ";" + maxAmount;
+		
+		return attributes;
 	}
 
 }
