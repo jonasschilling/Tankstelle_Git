@@ -39,12 +39,12 @@ public class Shoppingcart {
 
 	public void addWodka() {
 		numWodka++;
-		incTotal(wodka.getPriceSell());
+		incTotal(Float.valueOf(salesModel.readPrice("Wodka")));
 	}
 
 	public void removeWodka() {
 		numWodka--;
-		decTotal(wodka.getPriceSell());
+		decTotal(Float.valueOf(salesModel.readPrice("Wodka")));
 	}
 
 	public int getNumJupiter() {
@@ -53,12 +53,12 @@ public class Shoppingcart {
 
 	public void addJupiter() {
 		numJupiter++;
-		incTotal(jupiter.getPriceSell());
+		incTotal(Float.valueOf(salesModel.readPrice("Jupiter")));
 	}
 
 	public void removeJupiter() {
 		numJupiter--;
-		decTotal(jupiter.getPriceSell());
+		decTotal(Float.valueOf(salesModel.readPrice("Jupiter")));
 	}
 
 	public int getNumFilip() {
@@ -67,12 +67,12 @@ public class Shoppingcart {
 
 	public void addFilip() {
 		numFilip++;
-		incTotal(filip.getPriceSell());
+		incTotal(Float.valueOf(salesModel.readPrice("Filip")));
 	}
 
 	public void removeFilip() {
 		numFilip--;
-		decTotal(filip.getPriceSell());
+		decTotal(Float.valueOf(salesModel.readPrice("Filip")));
 	}
 
 	public int getNumBull() {
@@ -81,12 +81,12 @@ public class Shoppingcart {
 
 	public void addBull() {
 		numBull++;
-		incTotal(bull.getPriceSell());
+		incTotal(Float.valueOf(salesModel.readPrice("Bull")));
 	}
 
 	public void removeBull() {
 		numBull--;
-		decTotal(bull.getPriceSell());
+		decTotal(Float.valueOf(salesModel.readPrice("Bull")));
 	}
 
 	public int getNumPizza() {
@@ -95,12 +95,12 @@ public class Shoppingcart {
 
 	public void addPizza() {
 		numPizza++;
-		incTotal(pizza.getPriceSell());
+		incTotal(Float.valueOf(salesModel.readPrice("Pizza")));
 	}
 
 	public void removePizza() {
 		numPizza--;
-		decTotal(pizza.getPriceSell());
+		decTotal(Float.valueOf(salesModel.readPrice("Pizza")));
 	}
 
 	public float getTotal() {

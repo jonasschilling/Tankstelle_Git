@@ -38,6 +38,7 @@ public class SalesController implements Initializable {
 	AnchorPane anchor1, anchor2, anchor3, anchor4, anchor5;
 
 	TankModel tankModel = TankModel.getInstance();
+	ReceiptModel receiptModel = ReceiptModel.getInstance();
 	SalesModel salesModel = SalesModel.getInstance();
 	FilesModel filesmodel = FilesModel.getInstance();
 
@@ -270,6 +271,8 @@ public class SalesController implements Initializable {
 
 //Checkout Button wird gedr€ckt
 	public void checkout(ActionEvent actionEvent) {
+		receiptModel.getAmount(scart.getNumWodka(), scart.getNumFilip(), scart.getNumJupiter(), scart.getNumBull(), scart.getNumPizza(), scart.getTotal());
+		receiptModel.writeReceipt();
 		scart.checkout();
 		hideAll();
 		clearLabels();
@@ -553,6 +556,6 @@ public class SalesController implements Initializable {
 			return null;
 		}
 	}
-	
+
 
 }
