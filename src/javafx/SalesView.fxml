@@ -11,7 +11,7 @@
      <tabs>
           <Tab closable="false" text="Verkaufssystem">
                 <content>
-                     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: rgb(211, 224, 235)">
+                     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: rgb(211, 224, 235); -fx-border-width: 10px;">
                           <children>
                                <AnchorPane layoutX="820.0" layoutY="24.0" prefHeight="755.0" prefWidth="330.0" style="-fx-background-color: #FFFFFF">
                                      <children>
@@ -42,7 +42,7 @@
                                                     <Font size="25.0" />
                                                </font>
                                           </Label>
-                                          <Label id="labelTotal" fx:id="labelTotal" layoutX="25.0" layoutY="625.0" mnemonicParsing="false" text="Gesamtpreis: 0.00 â‚¬">
+                                          <Label id="labelTotal" fx:id="labelTotal" layoutX="25.0" layoutY="625.0" mnemonicParsing="false" text="Gesamtpreis: 0.00 €">
                                                <font>
                                                     <Font size="28.0" />
                                                </font>
@@ -143,12 +143,12 @@
                                           </ImageView>
                                      </graphic>
                                </ToggleButton>
-                               <ToggleButton id="button6" fx:id="button6" layoutX="75.0" layoutY="400.0" mnemonicParsing="false" onAction="#productButtonClicked" prefHeight="90.0" prefWidth="200.0" text="Wodka">
+                               <ToggleButton id="button6" fx:id="button6" layoutX="75.0" layoutY="425.0" mnemonicParsing="false" onAction="#productButtonClicked" prefHeight="90.0" prefWidth="200.0" text="Wodka">
                                      <cursor>
                                           <Cursor fx:constant="HAND" />
                                      </cursor>
                                </ToggleButton>
-                               <AnchorPane id="anchor1" fx:id="anchor1" layoutX="85.0" layoutY="500.0" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: rgb(211, 224, 235);">
+                               <AnchorPane id="anchor1" fx:id="anchor1" layoutX="85.0" layoutY="525.0" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: rgb(211, 224, 235);">
                                      <children>
                                           <Button fx:id="prod1minus" layoutX="10.0" layoutY="5.0" mnemonicParsing="false" onAction="#removeButtonClicked" prefHeight="30.0" prefWidth="30.0">
                                                <cursor>
@@ -181,12 +181,12 @@
                                           </Button>
                                      </children>
                                </AnchorPane>
-                               <ToggleButton id="button7" fx:id="button7" layoutX="325.0" layoutY="400.0" mnemonicParsing="false" onAction="#productButtonClicked" prefHeight="90.0" prefWidth="200.0" text="Filip Maurice">
+                               <ToggleButton id="button7" fx:id="button7" layoutX="325.0" layoutY="425.0" mnemonicParsing="false" onAction="#productButtonClicked" prefHeight="90.0" prefWidth="200.0" text="Filip Maurice">
                                      <cursor>
                                           <Cursor fx:constant="HAND" />
                                      </cursor>
                                </ToggleButton>
-                               <AnchorPane id="anchor2" fx:id="anchor2" layoutX="335.0" layoutY="500.0" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: rgb(211, 224, 235);">
+                               <AnchorPane id="anchor2" fx:id="anchor2" layoutX="335.0" layoutY="525.0" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: rgb(211, 224, 235);">
                                      <children>
                                           <Button id="prod2minus" fx:id="prod2minus" layoutX="10.0" layoutY="5.0" mnemonicParsing="false" onAction="#removeButtonClicked" prefHeight="30.0" prefWidth="30.0">
                                                <cursor>
@@ -219,12 +219,12 @@
                                           </Button>
                                      </children>
                                </AnchorPane>
-                               <ToggleButton id="button8" fx:id="button8" layoutX="575.0" layoutY="400.0" mnemonicParsing="false" onAction="#productButtonClicked" prefHeight="90.0" prefWidth="200.0" text="Jupiter">
+                               <ToggleButton id="button8" fx:id="button8" layoutX="575.0" layoutY="425.0" mnemonicParsing="false" onAction="#productButtonClicked" prefHeight="90.0" prefWidth="200.0" text="Jupiter">
                                      <cursor>
                                           <Cursor fx:constant="HAND" />
                                      </cursor>
                                </ToggleButton>
-                               <AnchorPane id="anchor3" fx:id="anchor3" layoutX="585.0" layoutY="500.0" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: rgb(211, 224, 235);">
+                               <AnchorPane id="anchor3" fx:id="anchor3" layoutX="585.0" layoutY="525.0" prefHeight="50.0" prefWidth="175.0" style="-fx-background-color: rgb(211, 224, 235);">
                                      <children>
                                           <Button id="prod3minus" fx:id="prod3minus" layoutX="10.0" layoutY="5.0" mnemonicParsing="false" onAction="#removeButtonClicked" prefHeight="30.0" prefWidth="30.0">
                                                <cursor>
@@ -333,11 +333,65 @@
                                           </Button>
                                      </children>
                                </AnchorPane>
-                               <Label layoutX="50.0" layoutY="52.0" prefHeight="70.0" prefWidth="722.0" text="ZapfsÃ¤ule auswÃ¤hlen">
+                               <Label layoutX="50.0" layoutY="52.0" prefHeight="70.0" prefWidth="722.0" text="Zapfsäule auswählen">
                                      <font>
                                           <Font name="System Bold" size="36.0" />
                                      </font>
                                </Label>
+                  <Pane fx:id="pumpPane" layoutX="50.0" layoutY="259.0" prefHeight="134.0" prefWidth="720.0" style="-fx-border-color: rgb(86, 138, 177);">
+                     <children>
+                        <Label layoutX="22.0" layoutY="35.0" text="Zapfsäule:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="173.0" layoutY="35.0" text="Kraftstoffart:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="354.0" layoutY="35.0" text="Preis pro Liter:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pumpNumber" layoutX="118.0" layoutY="35.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="gasKind" layoutX="289.0" layoutY="35.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pricePerLitre" layoutX="487.0" layoutY="35.0" prefHeight="21.0" prefWidth="56.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="556.0" layoutY="35.0" text="Getankt:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="amountRefilled" layoutX="637.0" layoutY="35.0" prefHeight="21.0" prefWidth="74.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="242.0" layoutY="82.0" text="Gesamt:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="priceCompleteLabel" layoutX="330.0" layoutY="82.0" prefHeight="30.0" prefWidth="130.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                           </children>
                      </AnchorPane>
                 </content>
@@ -346,6 +400,3 @@
           </Tab>
      </tabs>
 </TabPane>
-
-
-

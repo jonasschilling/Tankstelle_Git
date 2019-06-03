@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class SalesController implements Initializable {
 
@@ -28,17 +29,11 @@ public class SalesController implements Initializable {
 	@FXML
 	Button prod5plus, prod5minus;
 	@FXML
-	Label label1, label1amount;
+	Label label1, label1amount, label2, label2amount, label3, label3amount, label4, label4amount, label5, label5amount, labelTotal;
 	@FXML
-	Label label2, label2amount;
+	Label pumpNumber, gasKind, pricePerLitre, amountRefilled, priceCompleteLabel;
 	@FXML
-	Label label3, label3amount;
-	@FXML
-	Label label4, label4amount;
-	@FXML
-	Label label5, label5amount;
-	@FXML
-	Label labelTotal;
+	Pane pumpPane;
 	@FXML
 	AnchorPane anchor1, anchor2, anchor3, anchor4, anchor5;
 
@@ -55,6 +50,9 @@ public class SalesController implements Initializable {
 		toggleGroup.getToggles().add(pumpButton3);
 		toggleGroup.getToggles().add(pumpButton4);
 		toggleGroup.getToggles().add(pumpButton5);
+		
+		pumpPane.setVisible(false);
+		
 	}
 //Alle + und - Kn�pfe werden versteckt
 	public void hideAll() {
