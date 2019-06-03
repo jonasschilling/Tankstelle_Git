@@ -83,41 +83,41 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <ToggleButton fx:id="pumpButton1" layoutX="8.33" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="1">
+      <ToggleButton fx:id="pumpButton1" layoutX="8.33" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="1" onAction="#matchRefillData">
          <font>
             <Font name="Consolas Bold" size="34.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="pumpButton2" layoutX="86.66" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="2">
+      <ToggleButton fx:id="pumpButton2" layoutX="86.66" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="2" onAction="#matchRefillData">
          <font>
             <Font name="Consolas Bold" size="34.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="pumpButton3" layoutX="164.99" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="3">
+      <ToggleButton fx:id="pumpButton3" layoutX="164.99" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="3" onAction="#matchRefillData">
          <font>
             <Font name="Consolas Bold" size="34.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="pumpButton4" layoutX="243.32" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="4">
+      <ToggleButton fx:id="pumpButton4" layoutX="243.32" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="4" onAction="#matchRefillData">
          <font>
             <Font name="Consolas Bold" size="34.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="pumpButton5" layoutX="321.56" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="5">
+      <ToggleButton fx:id="pumpButton5" layoutX="321.56" layoutY="70.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="70.0" text="5" onAction="#matchRefillData">
          <font>
             <Font name="Consolas Bold" size="34.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="superButton" layoutX="65.0" layoutY="215.0" mnemonicParsing="false" onAction="#setSuperPrice" prefHeight="50.0" prefWidth="130.0" text="Super">
+      <ToggleButton fx:id="superButton" layoutX="65.0" layoutY="215.0" mnemonicParsing="false" onAction="#setPrice" prefHeight="50.0" prefWidth="130.0" text="Super">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </ToggleButton>
-      <ToggleButton fx:id="dieselButton" layoutX="210.0" layoutY="215.0" mnemonicParsing="false" onAction="#setDieselPrice" prefHeight="50.0" prefWidth="130.0" text="Diesel">
+      <ToggleButton fx:id="dieselButton" layoutX="210.0" layoutY="215.0" mnemonicParsing="false" onAction="#setPrice" prefHeight="50.0" prefWidth="130.0" text="Diesel">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </ToggleButton>
-      <Button fx:id="resetButtons" layoutX="340.0" layoutY="541.0" mnemonicParsing="false" text="reset" onAction="#resetButtons" />
+      <!-- <Button fx:id="resetButton" layoutX="340.0" layoutY="541.0" mnemonicParsing="false" text="reset" onAction="#resetButtons" /> -->
 	</children>
 </Pane>

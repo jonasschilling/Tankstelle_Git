@@ -98,7 +98,7 @@ public class AdministrationController implements Initializable {
 	public void refresh() {
 		superBar.setProgress((double) Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity());
 		if ((Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity()) > 0.5) {
-			superBar.setStyle("-fx-accent: green");
+			superBar.setStyle("-fx-accent: #1ae204");
 		} else if ((Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity()) > 0.25) {
 			superBar.setStyle("-fx-accent: yellow");
 		} else if ((Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity()) <= 0.25) {
