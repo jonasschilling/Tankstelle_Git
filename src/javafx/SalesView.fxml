@@ -11,28 +11,34 @@
 	<children>
 		<AnchorPane layoutX="820.0" layoutY="24.0" prefHeight="755.0" prefWidth="330.0" style="-fx-background-color: #FFFFFF">
 			<children>
-				<Label fx:id="label1" layoutX="20.0" layoutY="75.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300" text="">
+				<Label fx:id="label1" layoutX="20.0" layoutY="85.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300" text="">
 					<font>
 						<Font size="25.0" />
 					</font>
 				</Label>
-				<Label fx:id="label2" layoutX="20.0" layoutY="175.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300" text="">
+				<Label fx:id="label2" layoutX="20.0" layoutY="170.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300" text="">
 					<font>
 						<Font size="25.0" />
 					</font>
 				</Label>
-				<Label fx:id="label3" layoutX="20.0" layoutY="275.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300" text="">
+				<Label fx:id="label3" layoutX="20.0" layoutY="255.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300" text="">
 					<font>
 						<Font size="25.0" />
 					</font>
 				</Label>
-				<Label fx:id="label4" layoutX="20.0" layoutY="375.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300" text="">
+				<Label fx:id="label4" layoutX="20.0" layoutY="340.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300" text="">
 
 					<font>
 						<Font size="25.0" />
 					</font>
 				</Label>
-				<Label fx:id="label5" layoutX="20.0" layoutY="475.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300" text="">
+				<Label fx:id="label5" layoutX="20.0" layoutY="425.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300" text="">
+
+					<font>
+						<Font size="25.0" />
+					</font>
+				</Label>
+				<Label fx:id="label6" layoutX="20.0" layoutY="510.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300" text="">
 
 					<font>
 						<Font size="25.0" />
@@ -334,7 +340,7 @@
 				<Font name="System Bold" size="36.0" />
 			</font>
 		</Label>
-		<Pane fx:id="pumpPane" layoutX="50.0" layoutY="260.0" prefHeight="134.0" prefWidth="720.0" style="-fx-border-color: rgb(86, 138, 177); -fx-background-color: rgb(185, 206, 223);">
+		<Pane fx:id="pumpPane" layoutX="50.0" layoutY="280.0" prefHeight="134.0" prefWidth="720.0" style="-fx-border-color: rgb(86, 138, 177); -fx-background-color: rgb(185, 206, 223);">
 			<children>
 				<Label layoutX="10.0" layoutY="35.0" text="Zapfsäule:">
 					<font>

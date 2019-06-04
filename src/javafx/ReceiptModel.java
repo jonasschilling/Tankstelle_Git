@@ -10,10 +10,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import refillSimulation.SimulationModel;
+
 public class ReceiptModel {
 	private static String path;
 	private static ReceiptModel instance;
 	private static int noReceipts;
+	private float liter;
 	private int numWodka;
 	private int numFilip;
 	private int numJupiter;
@@ -22,6 +25,8 @@ public class ReceiptModel {
 	private float total;
 	private static ArrayList<Receipt> receipts = new ArrayList<Receipt>();
 	SalesModel salesModel = SalesModel.getInstance();
+	SimulationModel simulationModel = SimulationModel.getInstance();
+	TankModel tankModel = TankModel.getInstance();
 
 	public static ReceiptModel getInstance() {
 		if (ReceiptModel.instance == null) {
@@ -64,37 +69,43 @@ public class ReceiptModel {
 			bw = new BufferedWriter(fw);
 			bw.write("Tankstelle" + "\n" + "\n" + "Belegnummer: " + noReceipts + "\n" + "Datum: " + date + "\n" + "\n");
 			Product current = null;
+			if (liter > 0) {
+				bw.write(
+						simulationModel.getGasKind() + " - " + liter + " Liter - "+ tankModel.readPrice(simulationModel.getGasKind())
+								+ " EUR/Liter - " + simulationModel.getReadPriceComp() + " EUR \n");
+			}
 			if (numWodka > 0) {
 				current = salesModel.getProduct("Wodka");
-				String type = (numWodka > 1)? current.getType() + "n": current.getType();
+				String type = (numWodka > 1) ? current.getType() + "n" : current.getType();
 				float price = (float) Math.round(numWodka * Float.valueOf(salesModel.readPrice("Wodka")) * 100) / 100;
-				bw.write("Wodka Jelzin - " + numWodka + " " + type + " " + price/numWodka + " EUR/"
+				bw.write("Wodka Jelzin - " + numWodka + " " + type + " " + price / numWodka + " EUR/"
 						+ current.getType() + " - " + price + " EUR" + "\n");
 			}
 			if (numFilip > 0) {
 				current = salesModel.getProduct("Filip");
-				String type = (numFilip > 1)? current.getType() + "en": current.getType();
+				String type = (numFilip > 1) ? current.getType() + "en" : current.getType();
 				float price = (float) Math.round(numFilip * Float.valueOf(salesModel.readPrice("Filip")) * 100) / 100;
-				bw.write("Filip Jelzin - " + numFilip + " " + type + " " + price/numFilip + " EUR/"
+				bw.write("Filip Jelzin - " + numFilip + " " + type + " " + price / numFilip + " EUR/"
 						+ current.getType() + " - " + price + " EUR" + "\n");
 			}
 			if (numJupiter > 0) {
 				current = salesModel.getProduct("Jupiter");
-				float price = (float) Math.round(numJupiter * Float.valueOf(salesModel.readPrice("Jupiter")) * 100) / 100;
-				bw.write("Jupiter Jelzin - " + numJupiter + " " + current.getType() + " " + price/numJupiter + " EUR/"
+				float price = (float) Math.round(numJupiter * Float.valueOf(salesModel.readPrice("Jupiter")) * 100)
+						/ 100;
+				bw.write("Jupiter Jelzin - " + numJupiter + " " + current.getType() + " " + price / numJupiter + " EUR/"
 						+ current.getType() + " - " + price + " EUR" + "\n");
 			}
 			if (numBull > 0) {
 				current = salesModel.getProduct("Bull");
-				String type = (numBull > 1)? current.getType() + "n": current.getType();
+				String type = (numBull > 1) ? current.getType() + "n" : current.getType();
 				float price = (float) Math.round(numBull * Float.valueOf(salesModel.readPrice("Bull")) * 100) / 100;
-				bw.write("Bull Jelzin - " + numBull + " " + type + " " + price/numBull + " EUR/"
-						+ current.getType() + " - " + price + " EUR" + "\n");
+				bw.write("Bull Jelzin - " + numBull + " " + type + " " + price / numBull + " EUR/" + current.getType()
+						+ " - " + price + " EUR" + "\n");
 			}
 			if (numPizza > 0) {
 				current = salesModel.getProduct("Pizza");
 				float price = (float) Math.round(numPizza * Float.valueOf(salesModel.readPrice("Pizza")) * 100) / 100;
-				bw.write("Pizza Jelzin - " + numPizza + " " + current.getType() + " " + price/numPizza + " EUR/"
+				bw.write("Pizza Jelzin - " + numPizza + " " + current.getType() + " " + price / numPizza + " EUR/"
 						+ current.getType() + " - " + price + " EUR" + "\n");
 			}
 			String stringTotal = String.valueOf(total);
@@ -114,13 +125,17 @@ public class ReceiptModel {
 			}
 
 		}
-		
+
 	}
+
 	public ArrayList<Receipt> getReceipts() {
 		return receipts;
-		
+
 	}
-	public void getAmount(int numWodka, int numFilip, int numJupiter, int numBull, int numPizza, float total) {
+
+	public void getAmount(float liter, int numWodka, int numFilip, int numJupiter, int numBull, int numPizza,
+			float total) {
+		this.liter = liter;
 		this.numWodka = numWodka;
 		this.numFilip = numFilip;
 		this.numJupiter = numJupiter;
@@ -129,5 +144,5 @@ public class ReceiptModel {
 		this.total = total;
 
 	}
-	
+
 }
