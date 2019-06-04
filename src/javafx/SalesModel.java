@@ -1,4 +1,3 @@
-
 package javafx;
 
 import java.io.BufferedReader;
@@ -14,26 +13,21 @@ public class SalesModel {
 	private static SalesModel instance;
 	private float totalPrice;
 	private static String path = "src/javafx/resources/Preise/";
-	Product wodka = new Product(421, "Wodka Jelzin", "Flasche", 30, 30, 2.99f);
-	Product filip = new Product(871, "Filip Maurice", "Packung", 100, 100, 2.77f);
-	Product jupiter = new Product(358, "Jupiter Schokoriegel", "Stück", 150, 150, 0.19f);
-	Product bull = new Product(992, "Sitting Bull", "Dose", 50, 50, 0.29f);
-	Product pizza = new Product(101, "TK-Pizza Deluxe", "Stück", 20, 20, 0.89f);
+	private int amountWodka = 30;
+	private int amountFilip = 100;
+	private int amountJupiter = 150;
+	private int amountBull = 50;
+	private int amountPizza = 20;
+	Product wodka = new Product(421, "Wodka Jelzin", "Flasche", amountWodka, 30, 2.99f);
+	Product filip = new Product(871, "Filip Maurice", "Packung", amountFilip, 100, 2.77f);
+	Product jupiter = new Product(358, "Jupiter Schokoriegel", "Stück", amountJupiter, 150, 0.19f);
+	Product bull = new Product(992, "Sitting Bull", "Dose", amountBull, 50, 0.29f);
+	Product pizza = new Product(101, "TK-Pizza Deluxe", "Stück", amountPizza, 20, 0.89f);
 	ArrayList<Product> products = new ArrayList<>();
-//	Shoppingcart shoppingCart = new Shoppingcart();
 
 	public SalesModel() {
 
 	}
-//            Shoppingcart shoppingCart = new Shoppingcart();
-
-//            public Shoppingcart getShoppingcart() {
-//                           return shoppingCart;
-//            }
-//
-//            public void setScart(Shoppingcart shoppingCart) {
-//                           this.shoppingCart = shoppingCart;
-//            }
 
 	public static SalesModel getInstance() {
 		if (SalesModel.instance == null) {
@@ -114,10 +108,9 @@ public class SalesModel {
 			fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
 			for (Product p : products) {
-				bw.write(p.getAttributes());
-				bw.newLine();
+				bw.write(String.valueOf(p.getAmount()));
+				bw.write(";");
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -129,20 +122,27 @@ public class SalesModel {
 				}
 			}
 		}
-
 	}
 
 	public void readStock() {
+
 		File file = new File("src/javafx/resources/Stock.txt");
-		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
+		FileReader fr = null;
+		BufferedReader br = null;
+		try {
+			fr = new FileReader(file);
+			br = new BufferedReader(fr);
 			String line;
 			while ((line = br.readLine()) != null) {
 
 				String[] output = line.split(";");
-				products.add(new Product(Integer.parseInt(output[0]), output[1], output[2], Integer.parseInt(output[3]),
-						Integer.parseInt(output[4]), Float.parseFloat(output[5])));
+				wodka.setAmount(Integer.parseInt(output[0]));
+				filip.setAmount(Integer.parseInt(output[1]));
+				jupiter.setAmount(Integer.parseInt(output[2]));
+				bull.setAmount(Integer.parseInt(output[3]));
+				pizza.setAmount(Integer.parseInt(output[4]));
 			}
-		} catch (IOException e) {
+		} catch (IOException | NumberFormatException e) {
 			e.printStackTrace();
 		}
 	}
@@ -162,11 +162,5 @@ public class SalesModel {
 	public ArrayList<Product> getProducts() {
 		return products;
 	}
-
-//            public String getProduct(Product p) {
-//                           
-//                           return p.getAttributes();
-//                           
-//            }
 
 }

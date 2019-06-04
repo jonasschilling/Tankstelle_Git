@@ -154,7 +154,7 @@ public class SalesController implements Initializable {
 		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + "  €");
 	}
 
-//der - Button eines Produkts wird gedrückt
+//der + Button eines Produkts wird gedrückt
 	public void addButtonClicked(ActionEvent actionEvent) {
 
 		Button source = (Button) actionEvent.getSource();
@@ -218,7 +218,7 @@ public class SalesController implements Initializable {
 		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + "  €");
 	}
 
-//Der + Button eines Produkts wird gedrückt
+//Der - Button eines Produkts wird gedrückt
 	public void removeButtonClicked(ActionEvent actionEvent) {
 		Button source = (Button) actionEvent.getSource();
 		Label currentlabel;
@@ -295,8 +295,10 @@ public class SalesController implements Initializable {
 
 //Checkout Button wird gedrÃ¼ckt
 	public void checkout(ActionEvent actionEvent) {
-		receiptModel.getAmount(Float.valueOf(simulationModel.getReadAmount()), scart.getNumWodka(), scart.getNumFilip(), scart.getNumJupiter(), scart.getNumBull(),
-				scart.getNumPizza(), scart.getTotal());
+		if(simulationModel.getReadAmount() != null) {
+		receiptModel.getAmount(scart.getNumWodka(), scart.getNumFilip(), scart.getNumJupiter(), scart.getNumBull(),
+				scart.getNumPizza(), scart.getTotal());}
+		
 		receiptModel.writeReceipt();
 		scart.checkout();
 		hideAll();
@@ -312,6 +314,7 @@ public class SalesController implements Initializable {
 
 //Cancelbutton wird gedr €ckt
 	public void cancel(ActionEvent actionEvent) {
+		
 		scart.cancel();
 		hideAll();
 		clearLabels();

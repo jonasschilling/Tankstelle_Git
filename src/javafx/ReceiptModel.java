@@ -16,7 +16,6 @@ public class ReceiptModel {
 	private static String path;
 	private static ReceiptModel instance;
 	private static int noReceipts;
-	private float liter;
 	private int numWodka;
 	private int numFilip;
 	private int numJupiter;
@@ -69,10 +68,10 @@ public class ReceiptModel {
 			bw = new BufferedWriter(fw);
 			bw.write("Tankstelle" + "\n" + "\n" + "Belegnummer: " + noReceipts + "\n" + "Datum: " + date + "\n" + "\n");
 			Product current = null;
-			if (liter > 0) {
-				bw.write(
-						simulationModel.getGasKind() + " - " + liter + " Liter - "+ tankModel.readPrice(simulationModel.getGasKind())
-								+ " EUR/Liter - " + simulationModel.getReadPriceComp() + " EUR \n");
+			if (Float.valueOf(simulationModel.getReadAmount()) > 0) {
+				bw.write(simulationModel.getGasKind() + " - " + simulationModel.getReadAmount() + " Liter - "
+						+ tankModel.readPrice(simulationModel.getGasKind()) + " EUR/Liter - "
+						+ simulationModel.getReadPriceComp() + " EUR \n");
 			}
 			if (numWodka > 0) {
 				current = salesModel.getProduct("Wodka");
@@ -133,9 +132,8 @@ public class ReceiptModel {
 
 	}
 
-	public void getAmount(float liter, int numWodka, int numFilip, int numJupiter, int numBull, int numPizza,
+	public void getAmount(int numWodka, int numFilip, int numJupiter, int numBull, int numPizza,
 			float total) {
-		this.liter = liter;
 		this.numWodka = numWodka;
 		this.numFilip = numFilip;
 		this.numJupiter = numJupiter;
@@ -145,4 +143,39 @@ public class ReceiptModel {
 
 	}
 
+	public void writeNoReceipts() {
+
+		File file = new File("src/javafx/resources/noReceipts.txt");
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		try {
+			fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+			bw.write(String.valueOf(noReceipts));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (bw != null) {
+				try {
+					bw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+	}
+	public void readNoReceipts() {
+		File file = new File("src/javafx/resources/noReceipts.txt");
+		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
+			String line;
+			while ((line = br.readLine()) != null) {
+
+				noReceipts = Integer.valueOf(line);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
