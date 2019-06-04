@@ -66,7 +66,7 @@ public class EmployeeModel {
 			while ((line = br.readLine()) != null) {
 				
 				String[] output = line.split(";");
-				EmployeeController.getEmployees().add(new Employee(output[0],output[1]));
+				EmployeeController.getEmployees().add(new Employee(output[1],output[2]));
 							
 			}	
 			
