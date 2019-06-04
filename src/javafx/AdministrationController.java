@@ -109,6 +109,7 @@ public class AdministrationController implements Initializable {
 		bullOrder.setText(salesModel.getProduct("Bull").getName());
 		pizzaOrder.setText(salesModel.getProduct("Pizza").getName());
 		
+		
 		wodkaStock.setText(salesModel.getProduct("Wodka").getAmount() + " / " + salesModel.getProduct("Wodka").getMaxAmount());
 		filipStock.setText(salesModel.getProduct("Filip").getAmount() + " / " + salesModel.getProduct("Filip").getMaxAmount());
 		jupiterStock.setText(salesModel.getProduct("Jupiter").getAmount() + " / " + salesModel.getProduct("Jupiter").getMaxAmount());
