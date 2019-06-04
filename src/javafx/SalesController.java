@@ -53,6 +53,7 @@ public class SalesController implements Initializable {
 		if (salesModel.products.size() < 1) {
 			salesModel.addProducts();
 		}
+		disableButtonEmpty();
 		ToggleGroup toggleGroup = new ToggleGroup();
 		toggleGroup.getToggles().add(pumpButton1);
 		toggleGroup.getToggles().add(pumpButton2);
@@ -68,7 +69,14 @@ public class SalesController implements Initializable {
 		pumpPane.setVisible(false);
 
 	}
-
+	//Disabled einen Button falls der jeweilige Bestand leer ist.
+	public void disableButtonEmpty() {
+		if(salesModel.getProduct("Wodka").getAmount() <= 0) {button6.setDisable(true);}
+		if(salesModel.getProduct("Filip").getAmount() <= 0) {button7.setDisable(true);}
+		if(salesModel.getProduct("Jupiter").getAmount() <= 0) {button8.setDisable(true);}
+		if(salesModel.getProduct("Bull").getAmount() <= 0) {button9.setDisable(true);}
+		if(salesModel.getProduct("Pizza").getAmount() <= 0) {button10.setDisable(true);}
+	}
 //Alle + und - Knüpfe werden versteckt
 	public void hideAll() {
 		pumpPane.setVisible(false);

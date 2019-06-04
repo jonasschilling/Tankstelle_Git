@@ -1,5 +1,6 @@
 package javafx;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -10,7 +11,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -21,6 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class EmployeeController implements Initializable {
 
@@ -40,8 +45,9 @@ public class EmployeeController implements Initializable {
 	Button confirm, deleteEmployee;
 	@FXML
 	TextField firstNameField, lastNameField;
-
+	
 	EmployeeModel employeeModel = EmployeeModel.getInstance();
+	
 	
 	private static ObservableList<Employee> employees = FXCollections.observableArrayList();
 
@@ -74,11 +80,26 @@ public class EmployeeController implements Initializable {
 		}
 	}
 
-	public void confirm(ActionEvent actionEvent) {
+	public void confirm(ActionEvent actionEvent) throws IOException {
 		String firstname = firstNameField.getText();
 		String lastname = lastNameField.getText();
-		Employee E = new Employee(firstname, lastname);
-		employees.add(E);
+		if (firstname.equals("Daniel") && (lastname.equals("Appenmaier"))) {
+			showEasterEgg(actionEvent);
+		} else {
+			Employee E = new Employee(firstname, lastname);
+			employees.add(E);
+
+		}
+		firstNameField.clear();
+		lastNameField.clear();
+	}
+
+	public void showEasterEgg(ActionEvent actionEvent) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("EasterEgg.fxml"));
+		Scene scene = new Scene(root);
+		Stage popup = new Stage();
+		popup.setScene(scene);
+		popup.show();
 	}
 
 	public void deleteEmployee(ActionEvent actionEvent) {
@@ -96,6 +117,7 @@ public class EmployeeController implements Initializable {
 		}
 		tableView.setItems(employees);
 	}
+
 	public void showConfirmationDialog(String firstname, String lastname) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Mitarbeiter Entfernen");
@@ -104,10 +126,10 @@ public class EmployeeController implements Initializable {
 		Optional<ButtonType> option = alert.showAndWait();
 		System.out.println(option.get().getText());
 	}
-	
-	public static ObservableList<Employee> getEmployees(){
-		
+
+	public static ObservableList<Employee> getEmployees() {
+
 		return employees;
-		
+
 	}
 }

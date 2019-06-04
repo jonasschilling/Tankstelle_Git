@@ -1,0 +1,9 @@
+Tankstelle
+
+Belegnummer: 2
+Datum: 04.06.2019 21:58
+
+Diesel - 53.85 Liter - 1.239 EUR/Liter - 66.72 EUR 
+Filip Jelzin - 3 Packungen 6.99 EUR/Packung - 20.97 EUR
+Jupiter Jelzin - 1 Stück 0.99 EUR/Stück - 0.99 EUR
+Gesamtpreis: 21.96

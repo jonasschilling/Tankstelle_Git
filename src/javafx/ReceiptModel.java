@@ -68,7 +68,7 @@ public class ReceiptModel {
 			bw = new BufferedWriter(fw);
 			bw.write("Tankstelle" + "\n" + "\n" + "Belegnummer: " + noReceipts + "\n" + "Datum: " + date + "\n" + "\n");
 			Product current = null;
-			if (Float.valueOf(simulationModel.getReadAmount()) > 0) {
+			if (simulationModel.getReadAmount() != null) {
 				bw.write(simulationModel.getGasKind() + " - " + simulationModel.getReadAmount() + " Liter - "
 						+ tankModel.readPrice(simulationModel.getGasKind()) + " EUR/Liter - "
 						+ simulationModel.getReadPriceComp() + " EUR \n");
