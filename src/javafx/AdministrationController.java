@@ -168,6 +168,7 @@ public class AdministrationController implements Initializable {
 			dieselOrder.setText(String.valueOf(dieselSlider.getValue()));
 		});
 		
+		
 		wodkaStock.setText(salesModel.getProduct("Wodka").getAmount() + " / " + salesModel.getProduct("Wodka").getMaxAmount());
 		filipStock.setText(salesModel.getProduct("Filip").getAmount() + " / " + salesModel.getProduct("Filip").getMaxAmount());
 		jupiterStock.setText(salesModel.getProduct("Jupiter").getAmount() + " / " + salesModel.getProduct("Jupiter").getMaxAmount());
