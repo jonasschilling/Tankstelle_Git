@@ -102,7 +102,6 @@ public class Shoppingcart {
 		numPizza--;
 		decTotal(Float.valueOf(salesModel.readPrice("Pizza")));
 	}
-
 	public float getTotal() {
 		return (float) ((float) Math.round(total * 100) / 100.0);
 	}
