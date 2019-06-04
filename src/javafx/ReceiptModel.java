@@ -20,6 +20,7 @@ public class ReceiptModel {
 	private int numBull;
 	private int numPizza;
 	private float total;
+	private static ArrayList<Receipt> receipts = new ArrayList<Receipt>();
 	SalesModel salesModel = SalesModel.getInstance();
 
 	public static ReceiptModel getInstance() {
@@ -97,7 +98,10 @@ public class ReceiptModel {
 						+ current.getType() + " - " + price + " EUR" + "\n");
 			}
 			String stringTotal = String.valueOf(total);
-
+			bw.write("Gesamtpreis: " + stringTotal);
+			String p = file.getPath();
+			Receipt R1 = new Receipt(date, "Einkaufsbeleg", p);
+			receipts.add(R1);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -110,8 +114,12 @@ public class ReceiptModel {
 			}
 
 		}
+		
 	}
-
+	public ArrayList<Receipt> getReceipts() {
+		return receipts;
+		
+	}
 	public void getAmount(int numWodka, int numFilip, int numJupiter, int numBull, int numPizza, float total) {
 		this.numWodka = numWodka;
 		this.numFilip = numFilip;
@@ -121,4 +129,5 @@ public class ReceiptModel {
 		this.total = total;
 
 	}
+	
 }

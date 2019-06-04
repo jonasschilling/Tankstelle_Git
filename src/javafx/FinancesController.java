@@ -40,8 +40,12 @@ public class FinancesController implements Initializable {
 	DatePicker datepickerFrom, datepickerTo;
 	Stage popup = new Stage();
 	private ObservableList<Receipt> receiptlist = FXCollections.observableArrayList();
-	ReceiptModel receiptmodel = ReceiptModel.getInstance();
-	FilesModel filesmodel = FilesModel.getInstance();
+	ReceiptModel receiptModel = ReceiptModel.getInstance();
+	FilesModel filesModel = FilesModel.getInstance();
+
+	public void init() {
+
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -59,13 +63,13 @@ public class FinancesController implements Initializable {
 		datepickerFrom.setPromptText("von");
 		datepickerTo.setPromptText("bis");
 		tableView.setItems(receiptlist);
-		balance.setText("Bilanz:         " + Float.toString(filesmodel.getBalance()) + " €");
+		balance.setText("Bilanz:         " + Float.toString(filesModel.getBalance()) + " €");
 
 	}
 
 	public void openFile(ActionEvent actionEvent) throws IOException {
 		ObservableList<Receipt> selectedCells = tableView.getSelectionModel().getSelectedItems();
-		receiptmodel.setPath(selectedCells.get(0).getPath());
+		receiptModel.setPath(selectedCells.get(0).getPath());
 		Parent root = FXMLLoader.load(getClass().getResource("showReceipt.fxml"));
 		Scene scene = new Scene(root);
 //		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
@@ -74,7 +78,7 @@ public class FinancesController implements Initializable {
 		popup.show();
 
 	}
-	
+
 	public void filter(ActionEvent actionEvent) {
 		ObservableList<Receipt> tempreceiptlist = FXCollections.observableArrayList();
 		LocalDate fromDate = datepickerFrom.getValue();
@@ -82,14 +86,33 @@ public class FinancesController implements Initializable {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 		String from = fromDate.format(formatter);
 		String to = toDate.format(formatter);
-		for(int i = 0; i < receiptlist.size(); i++) {
-			if(receiptlist.get(i).getDate().compareTo(from) >= 0 && receiptlist.get(i).getDate().compareTo(to) <= 0) {
-				
+		for (int i = 0; i < receiptlist.size(); i++) {
+			if (receiptlist.get(i).getDate().compareTo(from) >= 0 && receiptlist.get(i).getDate().compareTo(to) <= 0) {
+
 				tempreceiptlist.add(receiptlist.get(i));
 			}
-			
+
 		}
 		tableView.setItems(tempreceiptlist);
+	}
+
+	public void refresh(ActionEvent actionevent) {
+		ArrayList<Receipt> newReceipts = new ArrayList<Receipt>();
+		for (int i = 0; i < receiptModel.getReceipts().size(); i++) {
+			int j = 0;
+			while (j < receiptlist.size()) {
+				if (receiptModel.getReceipts().get(i).equals(receiptlist.get(j))) {
+					j = 100000;
+				}
+				j++;
+			}
+			if (j < 100000) {
+				newReceipts.add(receiptModel.getReceipts().get(i));
+			}
+			;
+		}
+		receiptlist.addAll(newReceipts);
+		tableView.setItems(receiptlist);
 	}
 
 }

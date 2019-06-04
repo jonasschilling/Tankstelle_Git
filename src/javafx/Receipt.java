@@ -32,4 +32,5 @@ public class Receipt {
 	public String getPath() {
 		return path;
 	}
+
 }

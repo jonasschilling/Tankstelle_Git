@@ -1,8 +1,9 @@
 Tankstelle
 
 Belegnummer: 2
-Datum: 03.06.2019 22:20
+Datum: 04.06.2019 12:45
 
+Wodka Jelzin - 1 Flasche 9.99 EUR/Flasche - 9.99 EUR
 Filip Jelzin - 1 Packung 6.99 EUR/Packung - 6.99 EUR
-Pizza Jelzin - 1 Stück 2.49 EUR/Stück - 2.49 EUR
-Gesamtmenge: 9.48
+Jupiter Jelzin - 1 Stück 0.99 EUR/Stück - 0.99 EUR
+Gesamtpreis: 17.97

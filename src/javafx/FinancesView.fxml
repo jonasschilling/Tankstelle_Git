@@ -29,6 +29,13 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
+		<Button id="refresh" fx:id="refresh" layoutX="900"
+			layoutY="300.0" mnemonicParsing="false" prefHeight="50.0"
+			prefWidth="150" onAction="#refresh" text="aktualisieren">
+			<cursor>
+				<Cursor fx:constant="HAND" />
+			</cursor>
+		</Button>
 		<Label fx:id="receipts" text="Belege" layoutX="100.0"
 			layoutY="25.0" mnemonicParsing="false" prefHeight="100.0"
 			prefWidth="300">

@@ -1,8 +1,8 @@
 Tankstelle
 
 Belegnummer: 1
-Datum: 03.06.2019 22:20
+Datum: 04.06.2019 12:44
 
-Filip Jelzin - 1 Packung 6.99 EUR/Packung - 6.99 EUR
-Jupiter Jelzin - 1 St�ck 0.99 EUR/St�ck - 0.99 EUR
-Gesamtmenge: 7.98
+Wodka Jelzin - 2 Flaschen 9.99 EUR/Flasche - 19.98 EUR
+Filip Jelzin - 2 Packungen 6.99 EUR/Packung - 13.98 EUR
+Gesamtpreis: 33.96
