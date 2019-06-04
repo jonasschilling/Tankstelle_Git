@@ -105,7 +105,7 @@ public class SalesController implements Initializable {
 
 	}
 
-//Ein Produkt wird ausgew €hlt
+//Ein Produkt wird ausgewählt
 	public void productButtonClicked(ActionEvent actionEvent) {
 
 		ToggleButton source = (ToggleButton) actionEvent.getSource();

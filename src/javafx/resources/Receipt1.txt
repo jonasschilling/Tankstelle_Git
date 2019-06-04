@@ -1,8 +1,9 @@
 Tankstelle
 
 Belegnummer: 1
-Datum: 04.06.2019 12:44
+Datum: 04.06.2019 14:09
 
-Wodka Jelzin - 2 Flaschen 9.99 EUR/Flasche - 19.98 EUR
-Filip Jelzin - 2 Packungen 6.99 EUR/Packung - 13.98 EUR
-Gesamtpreis: 33.96
+Super - 17.65 Liter - 1.709 EUR/Liter - 27.52 EUR 
+Filip Jelzin - 1 Packung 6.99 EUR/Packung - 6.99 EUR
+Jupiter Jelzin - 1 Stück 0.99 EUR/Stück - 0.99 EUR
+Gesamtpreis: 35.5
