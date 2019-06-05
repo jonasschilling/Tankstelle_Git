@@ -1,7 +1,13 @@
 package javafx;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -11,6 +17,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
@@ -18,6 +26,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import refillSimulation.SimulationModel;
@@ -37,13 +46,15 @@ public class AdministrationController implements Initializable {
 	@FXML
 	Label wodkaStock, filipStock, jupiterStock, bullStock, pizzaStock;
 	@FXML
-	Button changePriceButton;
+	Button changePriceButton, bookProductsButton, bookFuelsButton, refreshButton;
 	@FXML
 	ProgressBar superBar, dieselBar;
 	@FXML
 	Slider superSlider, dieselSlider;
 	@FXML
 	RadioButton wodkaOrder, filipOrder, jupiterOrder, bullOrder, pizzaOrder;
+
+	boolean countUp1 = false, countUp2 = false;
 
 	TankModel tankModel = TankModel.getInstance();
 	SalesModel salesModel = SalesModel.getInstance();
@@ -202,7 +213,206 @@ public class AdministrationController implements Initializable {
 		popup.show();
 
 	}
-	
-	
-	
+
+	public void makeOrder(ActionEvent actionEvent) {
+		if (superOrder.getText().equals("0.0") == false || dieselOrder.getText().equals("0.0") == false
+				|| wodkaOrder.isSelected() || filipOrder.isSelected() || jupiterOrder.isSelected()
+				|| bullOrder.isSelected() || pizzaOrder.isSelected()) {
+
+			if ((superOrder.getText().equals("0.0") == false) || (dieselOrder.getText().equals("0.0")) == false) {
+				salesModel.writeNoOrders("Gas");
+				salesModel.writeGasOrder(superOrder.getText(), dieselOrder.getText());
+			}
+
+			ArrayList<Product> productsOrder = new ArrayList<>();
+			if (wodkaOrder.isSelected() || filipOrder.isSelected() || jupiterOrder.isSelected()
+					|| bullOrder.isSelected() || pizzaOrder.isSelected()) {
+
+				salesModel.writeNoOrders("Products");
+
+				if (wodkaOrder.isSelected()) {
+					productsOrder.add(salesModel.getProduct("Wodka"));
+				}
+				if (filipOrder.isSelected()) {
+					productsOrder.add(salesModel.getProduct("Filip"));
+				}
+				if (jupiterOrder.isSelected()) {
+					productsOrder.add(salesModel.getProduct("Jupiter"));
+				}
+				if (bullOrder.isSelected()) {
+					productsOrder.add(salesModel.getProduct("Bull"));
+				}
+				if (pizzaOrder.isSelected()) {
+					productsOrder.add(salesModel.getProduct("Pizza"));
+				}
+
+				salesModel.writeProductOrder(productsOrder);
+
+			}
+			
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Information");
+			alert.setHeaderText("Bestellung erfolgreich abgegeben.");
+			alert.show();
+			
+			wodkaOrder.setSelected(false);
+			filipOrder.setSelected(false);
+			jupiterOrder.setSelected(false);
+			bullOrder.setSelected(false);
+			pizzaOrder.setSelected(false);
+			
+		}
+	}
+
+	public void bookOrder() {
+
+		File file = new File("src/javafx/resources/Deliveries/lieferungProdukte" + readCounterProduct() + ".txt");
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		if (file.exists()) {
+			countUp1 = true;
+			try {
+
+				fr = new FileReader(file);
+				br = new BufferedReader(fr);
+				String line;
+				br.readLine();
+				br.readLine();
+				while ((line = br.readLine()) != null) {
+
+					String[] output = line.split(";");
+					if (Integer.parseInt(output[0]) == salesModel.wodka.getProdNumber()) {
+						salesModel.wodka.setAmount(Integer.parseInt(output[3]));
+					}
+
+					if (Integer.parseInt(output[0]) == salesModel.filip.getProdNumber()) {
+						salesModel.filip.setAmount(Integer.parseInt(output[3]));
+					}
+
+					if (Integer.parseInt(output[0]) == salesModel.jupiter.getProdNumber()) {
+						salesModel.jupiter.setAmount(Integer.parseInt(output[3]));
+					}
+
+					if (Integer.parseInt(output[0]) == salesModel.bull.getProdNumber()) {
+						salesModel.bull.setAmount(Integer.parseInt(output[3]));
+					}
+
+					if (Integer.parseInt(output[0]) == salesModel.pizza.getProdNumber()) {
+						salesModel.pizza.setAmount(Integer.parseInt(output[3]));
+					}
+
+				}
+				refresh();
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Information");
+				alert.setHeaderText("Die Waren wurden erfolgreich eingebucht.");
+				alert.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			countUp1 = false;
+		}
+	}
+
+	public Integer readCounterProduct() {
+		File file = new File("src/javafx/resources/Deliveries/counterProduct.txt");
+		FileReader fr = null;
+		BufferedReader br = null;
+		int counter1 = 0;
+		try {
+			fr = new FileReader(file);
+			br = new BufferedReader(fr);
+			String line;
+			while ((line = br.readLine()) != null) {
+
+				counter1 = Integer.parseInt(line);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if (countUp1 == true) {
+			counter1++;
+		}
+		try (FileWriter fw = new FileWriter(file); BufferedWriter bw = new BufferedWriter(fw)) {
+			String stringCounter1 = String.valueOf(counter1);
+			bw.write(stringCounter1);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return counter1;
+	}
+
+	public void bookFuels() {
+		File file = new File("src/javafx/resources/Deliveries/lieferungKraftstoff" + readCounterFuel() + ".txt");
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		if (file.exists()) {
+			countUp2 = true;
+			try {
+
+				fr = new FileReader(file);
+				br = new BufferedReader(fr);
+				String line;
+				br.readLine();
+				while ((line = br.readLine()) != null) {
+					String[] output = line.split("=");
+					if (output[0].equals(tankModel.getTank("Super").getDescription().toUpperCase())) {
+						float superFuelLevelOld = Float.valueOf(tankModel.readFuelLevel("Super"));
+						float superFuelAdd = Float.valueOf(output[1]);
+						float newSuperLevel = superFuelLevelOld + superFuelAdd;
+						tankModel.writeFuelLevel("Super", String.valueOf(newSuperLevel));
+					}
+					if (output[0].equals(tankModel.getTank("Diesel").getDescription().toUpperCase())) {
+						float dieselFuelLevelOld = Float.valueOf(tankModel.readFuelLevel("Diesel"));
+						float dieselFuelAdd = Float.valueOf(output[1]);
+						float newDieselLevel = dieselFuelLevelOld + dieselFuelAdd;
+						tankModel.writeFuelLevel("Diesel", String.valueOf(newDieselLevel));
+					}
+				}
+				refresh();
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Information");
+				alert.setHeaderText("Der Kraftstoff wurde erfolgreich eingebucht.");
+				alert.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			countUp2 = false;
+		}
+	}
+
+	public Integer readCounterFuel() {
+		File file = new File("src/javafx/resources/Deliveries/counterFuel.txt");
+		FileReader fr = null;
+		BufferedReader br = null;
+		int counter2 = 0;
+		try {
+			fr = new FileReader(file);
+			br = new BufferedReader(fr);
+			String line;
+			while ((line = br.readLine()) != null) {
+
+				counter2 = Integer.parseInt(line);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if (countUp2 == true) {
+			counter2++;
+		}
+		try (FileWriter fw = new FileWriter(file); BufferedWriter bw = new BufferedWriter(fw)) {
+			String stringCounter2 = String.valueOf(counter2);
+			bw.write(stringCounter2);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return counter2;
+	}
+
 }

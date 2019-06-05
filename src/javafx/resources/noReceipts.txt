@@ -1,4 +1,4 @@
-7
+11
 05.06.2019 17:05;Einkaufsbeleg
 05.06.2019 17:05;Einkaufsbeleg
 05.06.2019 17:05;Einkaufsbeleg
@@ -6,3 +6,7 @@
 05.06.2019 17:06;Einkaufsbeleg
 05.06.2019 17:07;Einkaufsbeleg
 05.06.2019 17:08;Einkaufsbeleg
+05.06.2019 20:19;Einkaufsbeleg
+05.06.2019 21:20;Einkaufsbeleg
+05.06.2019 21:23;Einkaufsbeleg
+05.06.2019 21:23;Einkaufsbeleg

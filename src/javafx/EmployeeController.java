@@ -82,25 +82,23 @@ public class EmployeeController implements Initializable {
 	public void confirm(ActionEvent actionEvent) throws IOException {
 		String firstname = firstNameField.getText();
 		String lastname = lastNameField.getText();
-		System.out.println(firstname + " " + lastname);
 		if (firstname.equals("Daniel") && (lastname.equals("Appenmaier"))) {
-//			showEasterEgg();
+			showEasteregg();
 		} else {
-			Employee E = new Employee(firstname, lastname);
-			employees.add(E);
-
+			Employee e = new Employee(firstname, lastname);
+			employees.add(e);
 		}
 		firstNameField.clear();
 		lastNameField.clear();
 	}
-
-	public void showEasterEgg(ActionEvent actionEvent) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("EasterEgg22.fxml"));
+	
+	public void showEasteregg() throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("Easteregg.fxml"));
 		Scene scene = new Scene(root);
-		Stage easterEgg = new Stage();
-		easterEgg.setTitle("Preise ändern");
-		easterEgg.setScene(scene);
-		easterEgg.show();
+		Stage popup = new Stage();
+		popup.setTitle("Hihihihi");
+		popup.setScene(scene);
+		popup.show();
 	}
 
 	public void deleteEmployee(ActionEvent actionEvent) {

@@ -33,7 +33,7 @@
 		</TextField>
 		<TextField id="lastNameField" fx:id="lastNameField" layoutX="925" layoutY="400.0" prefHeight="50.0" prefWidth="200">
 		</TextField>
-		<Button id="confirm" fx:id="confirm" layoutX="950" layoutY="500.0" mnemonicParsing="false" onAction="#confirm" prefHeight="50.0" prefWidth="150" text="Bestätigen">
+		<Button fx:id="confirm" layoutX="950" layoutY="500.0" mnemonicParsing="false" onAction="#confirm" prefHeight="50.0" prefWidth="150" text="Bestätigen">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
@@ -43,6 +43,5 @@
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-      <Button fx:id="testButton" layoutX="993.0" layoutY="603.0" mnemonicParsing="false" text="Button" onAction="#showEasterEgg" />
 	</children>
 </AnchorPane>

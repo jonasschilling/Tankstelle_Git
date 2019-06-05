@@ -6,7 +6,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class SalesModel {
 
@@ -24,6 +28,8 @@ public class SalesModel {
 	Product bull = new Product(992, "Sitting Bull", "Dose", amountBull, 50, 0.29f);
 	Product pizza = new Product(101, "TK-Pizza Deluxe", "Stück", amountPizza, 20, 0.89f);
 	ArrayList<Product> products = new ArrayList<>();
+
+	String orderNumber = null;
 
 	public SalesModel() {
 
@@ -161,6 +167,107 @@ public class SalesModel {
 
 	public ArrayList<Product> getProducts() {
 		return products;
+	}
+
+	public String readNoOrders(String kindOfOrder) {
+		File file = null;
+		if (kindOfOrder.equals("Gas")) {
+			file = new File("src/javafx/resources/Orders/no" + kindOfOrder + "Orders.txt");
+		} else if (kindOfOrder.equals("Products")) {
+			file = new File("src/javafx/resources/Orders/no" + kindOfOrder + "Orders.txt");
+		}
+		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
+			String number;
+			while ((number = br.readLine()) != null) {
+				orderNumber = number;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return orderNumber;
+	}
+
+	public void writeNoOrders(String kindOfOrder) {
+		File file = null;
+		if (kindOfOrder.equals("Gas")) {
+			file = new File("src/javafx/resources/Orders/no" + kindOfOrder + "Orders.txt");
+		} else if (kindOfOrder.equals("Products")) {
+			file = new File("src/javafx/resources/Orders/no" + kindOfOrder + "Orders.txt");
+		}
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		int orderNumberPlus = 0;
+		if (kindOfOrder.equals("Gas")) {
+			orderNumberPlus = Integer.valueOf(readNoOrders("Gas")) + 1;
+		} else if (kindOfOrder.equals("Products")) {
+			orderNumberPlus = Integer.valueOf(readNoOrders("Products")) + 1;
+		}
+		try {
+			fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+			bw.write(String.valueOf(orderNumberPlus));
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (bw != null) {
+				try {
+					bw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public void writeGasOrder(String superAmount, String dieselAmount) {
+		File file = new File("src/javafx/resources/Orders/GasOrder" + readNoOrders("Gas") + ".txt");
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		try {
+			fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+			bw.write("BESTELLDATUM=" + printSimpleDateFormat() + "\nDIESEL=" + dieselAmount + "\nSUPER=" + superAmount);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (bw != null) {
+				try {
+					bw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public void writeProductOrder(ArrayList<Product> products) {
+		File file = new File("src/javafx/resources/Orders/ProductOrder" + readNoOrders("Products") + ".txt");
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		try {
+			fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+			bw.write("BESTELLDATUM=" + printSimpleDateFormat() + "\nWarennummer;Bestellmenge");
+			for (Product product : products) {
+				bw.write("\n" + String.valueOf(product.getProdNumber() + ";" + String.valueOf(product.getMaxAmount() - product.getAmount())));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (bw != null) {
+				try {
+					bw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public String printSimpleDateFormat() {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+		Date currentTime = new Date();
+		return (formatter.format(currentTime));
 	}
 
 }

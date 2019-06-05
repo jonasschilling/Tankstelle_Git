@@ -11,8 +11,8 @@ public class TankModel {
 
 	private static TankModel instance;
 
-	Tank superTank = new Tank("Super", 1200.0f);
-	Tank dieselTank = new Tank("Diesel", 800.0f);
+	Tank superTank = new Tank("Super", 12000.0f);
+	Tank dieselTank = new Tank("Diesel", 8000.0f);
 	
 
 	private String newFuelLevel;
