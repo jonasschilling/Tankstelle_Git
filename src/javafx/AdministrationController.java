@@ -61,12 +61,10 @@ public class AdministrationController implements Initializable {
 		bullPriceLabel.setText(salesModel.readPrice("Bull") + " €");
 		pizzaPriceLabel.setText(salesModel.readPrice("Pizza") + " €");
 
-		superCapLabel.setText(
-				String.valueOf(Math.round(Float.valueOf(tankModel.readFuelLevel("Super")) * 100) / 100f + "/" + tankModel.getTank("Super").getCapacity())
-						+ " L");
-		dieselCapLabel.setText(
-				String.valueOf(Math.round(Float.valueOf(tankModel.readFuelLevel("Diesel")) * 100) / 100f + "/" + tankModel.getTank("Diesel").getCapacity())
-						+ " L");
+		superCapLabel.setText(String.valueOf(Math.round(Float.valueOf(tankModel.readFuelLevel("Super")) * 100) / 100f
+				+ "/" + tankModel.getTank("Super").getCapacity()) + " L");
+		dieselCapLabel.setText(String.valueOf(Math.round(Float.valueOf(tankModel.readFuelLevel("Diesel")) * 100) / 100f
+				+ "/" + tankModel.getTank("Diesel").getCapacity()) + " L");
 
 		superBar.setProgress(
 				(double) (Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity()));
@@ -108,13 +106,17 @@ public class AdministrationController implements Initializable {
 		jupiterOrder.setText(salesModel.getProduct("Jupiter").getName());
 		bullOrder.setText(salesModel.getProduct("Bull").getName());
 		pizzaOrder.setText(salesModel.getProduct("Pizza").getName());
-		
-		
-		wodkaStock.setText(salesModel.getProduct("Wodka").getAmount() + " / " + salesModel.getProduct("Wodka").getMaxAmount());
-		filipStock.setText(salesModel.getProduct("Filip").getAmount() + " / " + salesModel.getProduct("Filip").getMaxAmount());
-		jupiterStock.setText(salesModel.getProduct("Jupiter").getAmount() + " / " + salesModel.getProduct("Jupiter").getMaxAmount());
-		bullStock.setText(salesModel.getProduct("Bull").getAmount() + " / " + salesModel.getProduct("Bull").getMaxAmount());
-		pizzaStock.setText(salesModel.getProduct("Pizza").getAmount() + " / " + salesModel.getProduct("Pizza").getMaxAmount());
+
+		wodkaStock.setText(
+				salesModel.getProduct("Wodka").getAmount() + " / " + salesModel.getProduct("Wodka").getMaxAmount());
+		filipStock.setText(
+				salesModel.getProduct("Filip").getAmount() + " / " + salesModel.getProduct("Filip").getMaxAmount());
+		jupiterStock.setText(
+				salesModel.getProduct("Jupiter").getAmount() + " / " + salesModel.getProduct("Jupiter").getMaxAmount());
+		bullStock.setText(
+				salesModel.getProduct("Bull").getAmount() + " / " + salesModel.getProduct("Bull").getMaxAmount());
+		pizzaStock.setText(
+				salesModel.getProduct("Pizza").getAmount() + " / " + salesModel.getProduct("Pizza").getMaxAmount());
 
 	}
 
@@ -167,12 +169,17 @@ public class AdministrationController implements Initializable {
 		dieselSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
 			dieselOrder.setText(String.valueOf(dieselSlider.getValue()));
 		});
-		
-		wodkaStock.setText(salesModel.getProduct("Wodka").getAmount() + " / " + salesModel.getProduct("Wodka").getMaxAmount());
-		filipStock.setText(salesModel.getProduct("Filip").getAmount() + " / " + salesModel.getProduct("Filip").getMaxAmount());
-		jupiterStock.setText(salesModel.getProduct("Jupiter").getAmount() + " / " + salesModel.getProduct("Jupiter").getMaxAmount());
-		bullStock.setText(salesModel.getProduct("Bull").getAmount() + " / " + salesModel.getProduct("Bull").getMaxAmount());
-		pizzaStock.setText(salesModel.getProduct("Pizza").getAmount() + " / " + salesModel.getProduct("Pizza").getMaxAmount());
+
+		wodkaStock.setText(
+				salesModel.getProduct("Wodka").getAmount() + " / " + salesModel.getProduct("Wodka").getMaxAmount());
+		filipStock.setText(
+				salesModel.getProduct("Filip").getAmount() + " / " + salesModel.getProduct("Filip").getMaxAmount());
+		jupiterStock.setText(
+				salesModel.getProduct("Jupiter").getAmount() + " / " + salesModel.getProduct("Jupiter").getMaxAmount());
+		bullStock.setText(
+				salesModel.getProduct("Bull").getAmount() + " / " + salesModel.getProduct("Bull").getMaxAmount());
+		pizzaStock.setText(
+				salesModel.getProduct("Pizza").getAmount() + " / " + salesModel.getProduct("Pizza").getMaxAmount());
 	}
 
 	public void showPriceChangePopup(ActionEvent actionEvent) throws IOException {
@@ -184,17 +191,18 @@ public class AdministrationController implements Initializable {
 		popup.setScene(scene);
 		popup.show();
 	}
-	
+
 	public void showProdInfoPopup(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ProductInformationPopUp.fxml"));
-        Scene scene = new Scene(root);
-        Stage popup = new Stage();
-   scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
-        popup.setTitle("Warendetails");
-        popup.setScene(scene);
-        popup.show();
-        
-   }
+		Parent root = FXMLLoader.load(getClass().getResource("ProductInformationPopUp.fxml"));
+		Scene scene = new Scene(root);
+		Stage popup = new Stage();
+		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
+		popup.setTitle("Warendetails");
+		popup.setScene(scene);
+		popup.show();
 
-
+	}
+	
+	
+	
 }
