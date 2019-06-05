@@ -1,9 +1,0 @@
-Tankstelle
-
-Belegnummer: 1
-Datum: 04.06.2019 21:58
-
-Diesel - 53.85 Liter - 1.239 EUR/Liter - 66.72 EUR 
-Wodka Jelzin - 3 Flaschen 9.99 EUR/Flasche - 29.97 EUR
-Filip Jelzin - 1 Packung 6.99 EUR/Packung - 6.99 EUR
-Gesamtpreis: 103.68
