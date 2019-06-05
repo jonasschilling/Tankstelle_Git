@@ -1,0 +1,7 @@
+Tankstelle
+
+Belegnummer: 7
+Datum : 05.06.2019 17:08
+Mitarbeiter: null
+Super - 1.37 Liter - 1.559 EUR/Liter - 2.14 EUR 
+Gesamtpreis: 2.14

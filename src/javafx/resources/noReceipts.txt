@@ -1,4 +1,8 @@
-5
-20.05.2019;Einkaufsbeleg
-13.05.2019;Einkaufsbeleg
-05.06.2019 15:58;Einkaufsbeleg
+7
+05.06.2019 17:05;Einkaufsbeleg
+05.06.2019 17:05;Einkaufsbeleg
+05.06.2019 17:05;Einkaufsbeleg
+05.06.2019 17:06;Einkaufsbeleg
+05.06.2019 17:06;Einkaufsbeleg
+05.06.2019 17:07;Einkaufsbeleg
+05.06.2019 17:08;Einkaufsbeleg

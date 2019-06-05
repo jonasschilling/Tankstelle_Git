@@ -62,10 +62,10 @@ public class AdministrationController implements Initializable {
 		pizzaPriceLabel.setText(salesModel.readPrice("Pizza") + " €");
 
 		superCapLabel.setText(
-				String.valueOf(tankModel.readFuelLevel("Super") + "/" + tankModel.getTank("Super").getCapacity())
+				String.valueOf(Math.round(Float.valueOf(tankModel.readFuelLevel("Super")) * 100) / 100f + "/" + tankModel.getTank("Super").getCapacity())
 						+ " L");
 		dieselCapLabel.setText(
-				String.valueOf(tankModel.readFuelLevel("Diesel") + "/" + tankModel.getTank("Diesel").getCapacity())
+				String.valueOf(Math.round(Float.valueOf(tankModel.readFuelLevel("Diesel")) * 100) / 100f + "/" + tankModel.getTank("Diesel").getCapacity())
 						+ " L");
 
 		superBar.setProgress(
@@ -168,7 +168,6 @@ public class AdministrationController implements Initializable {
 			dieselOrder.setText(String.valueOf(dieselSlider.getValue()));
 		});
 		
-		
 		wodkaStock.setText(salesModel.getProduct("Wodka").getAmount() + " / " + salesModel.getProduct("Wodka").getMaxAmount());
 		filipStock.setText(salesModel.getProduct("Filip").getAmount() + " / " + salesModel.getProduct("Filip").getMaxAmount());
 		jupiterStock.setText(salesModel.getProduct("Jupiter").getAmount() + " / " + salesModel.getProduct("Jupiter").getMaxAmount());
@@ -185,5 +184,17 @@ public class AdministrationController implements Initializable {
 		popup.setScene(scene);
 		popup.show();
 	}
+	
+	public void showProdInfoPopup(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ProductInformationPopUp.fxml"));
+        Scene scene = new Scene(root);
+        Stage popup = new Stage();
+   scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
+        popup.setTitle("Warendetails");
+        popup.setScene(scene);
+        popup.show();
+        
+   }
+
 
 }

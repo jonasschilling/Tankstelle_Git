@@ -1,8 +1,8 @@
 Tankstelle
 
 Belegnummer: 2
-Datum : 05.06.2019 15:55
-Mitarbeiter: Jonas Schilling
-Jupiter Jelzin - 1 Stück 0.99 EUR/Stück - 0.99 EUR
-Pizza Jelzin - 1 Stück 2.49 EUR/Stück - 2.49 EUR
-Gesamtpreis: 3.48
+Datum : 05.06.2019 17:05
+Mitarbeiter: null
+Super - 1.37 Liter - 1.559 EUR/Liter - 2.14 EUR 
+Filip Jelzin - 4 Packungen 6.99 EUR/Packung - 27.96 EUR
+Gesamtpreis: 27.96

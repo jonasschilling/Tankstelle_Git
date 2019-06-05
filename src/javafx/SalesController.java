@@ -354,17 +354,15 @@ public class SalesController implements Initializable {
 		scart.checkout();
 		if(pumpButton1.isSelected() == true) {
 			simulationModel.writePumpData("1", "---", 0.0f, 0.0f);
-		} else if(pumpButton1.isSelected() == true) {
+		} else if(pumpButton2.isSelected() == true) {
 			simulationModel.writePumpData("2", "---", 0.0f, 0.0f);
-		} else if(pumpButton1.isSelected() == true) {
+		} else if(pumpButton3.isSelected() == true) {
 			simulationModel.writePumpData("3", "---", 0.0f, 0.0f);
-		} else if(pumpButton1.isSelected() == true) {
+		} else if(pumpButton4.isSelected() == true) {
 			simulationModel.writePumpData("4", "---", 0.0f, 0.0f);
-		} else if(pumpButton1.isSelected() == true) {
+		} else if(pumpButton5.isSelected() == true) {
 			simulationModel.writePumpData("5", "---", 0.0f, 0.0f);
 		}
-		
-		
 		hideAll();
 		clearLabels();
 		unToggleAll();

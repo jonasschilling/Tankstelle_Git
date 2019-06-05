@@ -6,28 +6,18 @@
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-	prefWidth="1200.0" style="-fx-background-color: rgb(135, 171, 201);"
-	xmlns:fx="http://javafx.com/fxml"
-	fx:controller="javafx.EmployeeController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: rgb(135, 171, 201);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.EmployeeController">
 	<children>
-		<TableView fx:id="tableView" layoutX="35.0" layoutY="28.0"
-			prefHeight="750.0" prefWidth="800.0">
+		<TableView fx:id="tableView" layoutX="35.0" layoutY="28.0" prefHeight="750.0" prefWidth="800.0">
 			<columns>
-				<TableColumn prefWidth="200.0" text="MitarbeiterNummer"
-					fx:id="employeeId" />
-				<TableColumn prefWidth="200.0" text="Vorname"
-					fx:id="firstName" />
-				<TableColumn prefWidth="200.0" text="Nachname"
-					fx:id="lastName" />
-				<TableColumn prefWidth="200.0" text="Einstellungsdatum"
-					fx:id="employmentDate" />
+				<TableColumn fx:id="employeeId" prefWidth="200.0" text="MitarbeiterNummer" />
+				<TableColumn fx:id="firstName" prefWidth="200.0" text="Vorname" />
+				<TableColumn fx:id="lastName" prefWidth="200.0" text="Nachname" />
+				<TableColumn fx:id="employmentDate" prefWidth="200.0" text="Einstellungsdatum" />
 			</columns>
 		</TableView>
-		<ToggleButton id="addEmployee" fx:id="addEmployee" layoutX="950"
-			layoutY="75.0" mnemonicParsing="false" prefHeight="150.0"
-			prefWidth="150" onAction="#addEmployee">
+		<ToggleButton id="addEmployee" fx:id="addEmployee" layoutX="950" layoutY="75.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="150.0" prefWidth="150">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
@@ -39,26 +29,20 @@
 				</ImageView>
 			</graphic>
 		</ToggleButton>
-		<TextField fx:id="firstNameField"
-			layoutX="925" layoutY="300.0" prefHeight="50.0" prefWidth="200">
+		<TextField fx:id="firstNameField" layoutX="925" layoutY="300.0" prefHeight="50.0" prefWidth="200">
 		</TextField>
-		<TextField id="lastNameField" fx:id="lastNameField"
-			layoutX="925" layoutY="400.0" prefHeight="50.0" prefWidth="200">
+		<TextField id="lastNameField" fx:id="lastNameField" layoutX="925" layoutY="400.0" prefHeight="50.0" prefWidth="200">
 		</TextField>
-		<Button id="confirm" fx:id="confirm" layoutX="950"
-			layoutY="500.0" mnemonicParsing="false" prefHeight="50.0"
-			prefWidth="150" onAction="#confirm" text="Bestätigen">
+		<Button id="confirm" fx:id="confirm" layoutX="950" layoutY="500.0" mnemonicParsing="false" onAction="#confirm" prefHeight="50.0" prefWidth="150" text="Bestätigen">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
-		<Button id="deleteEmployee" fx:id="deleteEmployee" layoutX="925"
-			layoutY="700.0" mnemonicParsing="false" prefHeight="50.0"
-			prefWidth="200" onAction="#deleteEmployee" text="Mitarbeiter Entfernen">
+		<Button id="deleteEmployee" fx:id="deleteEmployee" layoutX="925" layoutY="700.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="50.0" prefWidth="200" text="Mitarbeiter Entfernen">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</Button>
+      <Button fx:id="testButton" layoutX="993.0" layoutY="603.0" mnemonicParsing="false" text="Button" onAction="#showEasterEgg" />
 	</children>
 </AnchorPane>
-

@@ -26,6 +26,9 @@ public class Product {
      public String getName() {
           return name;
      }
+     public void setName(String name) {
+    	 this.name=name;
+     }
 
      public float getPriceBuy() {
           return priceBuy;
@@ -46,9 +49,15 @@ public class Product {
      public int getProdNumber() {
           return prodNumber;
      }
+     public void setProdNumber(int prodNumber) {
+    	 this.prodNumber=prodNumber;
+     }
      
      public String getType() {
           return type;
+     }
+     public void setType(String type) {
+    	 this.type=type;
      }
 
      public int getAmount() {
@@ -84,6 +93,12 @@ public class Product {
           String attributes = prodNumber + ";" + name + ";" + type + ";" + amount + ";" + maxAmount + ";" + priceBuy;
           
           return attributes;
+     }
+     
+     public void setAttributes(Product p) {
+    	 
+    	 
+    	 
      }
 
 }
