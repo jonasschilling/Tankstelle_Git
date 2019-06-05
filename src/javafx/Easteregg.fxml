@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane minHeight="400.0" minWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="590.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
    <children>
-      <ImageView fitHeight="317.0" fitWidth="258.0" layoutX="149.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="590.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resources/daniela.png" />
+            <Image url="@resources/WhatsApp%20Image%202019-06-05%20at%2021.56.05.jpeg" />
          </image>
       </ImageView>
    </children>
