@@ -143,18 +143,23 @@ public class SimulationController implements Initializable {
 		pump = (ToggleButton) e.getSource();
 		if (pump != pumpButton1) {
 			pumpButton1.setDisable(true);
+			resetPump();
 		}
 		if (pump != pumpButton2) {
 			pumpButton2.setDisable(true);
+			resetPump();
 		}
 		if (pump != pumpButton3) {
 			pumpButton3.setDisable(true);
+			resetPump();
 		}
 		if (pump != pumpButton4) {
 			pumpButton4.setDisable(true);
+			resetPump();
 		}
 		if (pump != pumpButton5) {
 			pumpButton5.setDisable(true);
+			resetPump();
 		}
 		superButton.setDisable(false);
 		dieselButton.setDisable(false);
@@ -234,51 +239,6 @@ public class SimulationController implements Initializable {
 	}
 
 	public void startTimer(ActionEvent actionEvent) {
-//		timer = new Timeline(new KeyFrame(Duration.millis(10), (actionEvent2) -> {
-//			milliLitresText = String.valueOf(milliLitres);
-//			if (getAmountRefilled() > Float.valueOf(tankModel.readFuelLevel("Super"))) {
-//				stopTimer(actionEvent2);
-//			}
-//			if (milliLitres < 10) {
-//				milliLitresText0 = ("0" + getMilliLitresText());
-//				milliLitresLabel.setText(getMilliLitresText0());
-//				if (milliLitres == 0) {
-//					litres++;
-//					milliLitres++;
-//				} else if (milliLitres < 99) {
-//					milliLitres++;
-//				} else if (milliLitres == 99) {
-//					milliLitres = 0;
-//				}
-//			} else {
-//				milliLitresLabel.setText(getMilliLitresText());
-//				if (milliLitres == 0) {
-//					litres++;
-//					milliLitres++;
-//				} else if (milliLitres < 99) {
-//					milliLitres++;
-//				} else if (milliLitres == 99) {
-//					milliLitres = 0;
-//				}
-//			}
-//
-//			litresText = String.valueOf(litres);
-//			litresLabel.setText(getLitresText());
-//
-//			if (milliLitres < 9) {
-//				setAmountRefilled(litres, milliLitresText0);
-//			} else if (milliLitres > 9) {
-//				setAmountRefilled(litres, milliLitresText);
-//			}
-//			
-//			
-//			pricePerLitreLabel.setText(tankModel.readPrice("Super") + " €/L");
-//			priceComp = getAmountRefilled() * Float.valueOf(tankModel.readPrice("Super"));
-//			setPriceCompRound(Math.round(priceComp * 100) / 100.0f);
-//			priceCompLabel.setText(String.valueOf(getPriceCompRound()) + " €");
-//
-//		}));
-//		timer.setCycleCount(Timeline.INDEFINITE);
 		timer.play();
 	}
 
@@ -287,19 +247,21 @@ public class SimulationController implements Initializable {
 		simulationModel.writePumpData(pump.getText(), gas.getText(), getAmountRefilled(), getPriceCompRound());
 		decreaseTank(gas.getText());
 		tankModel.getProgress(tankModel.getTank(gas.getText()));
+		
+		getReady();
 	}
 
-//	public void resetTimer(ActionEvent actionEvent) {
-//		setLitres(0);
-//		setLitresText("0");
-//		setMilliLitres(1);
-//		setMilliLitresText("00");
-//		setMilliLitresText0("00");
-//
-//		litresLabel.setText(String.valueOf(getLitres()));
-//		milliLitresLabel.setText(getMilliLitresText());
-//		priceCompLabel.setText("0.00 €");
-//	}
+	public void resetPump() {
+		setLitres(0);
+		setLitresText("0");
+		setMilliLitres(1);
+		setMilliLitresText("00");
+		setMilliLitresText0("00");
+
+		litresLabel.setText(String.valueOf(getLitres()));
+		milliLitresLabel.setText(getMilliLitresText());
+		priceCompLabel.setText("0.00 €");
+	}
 
 	public void decreaseTank(String tankDescription) {
 		Float actualFuelLevel = Float.valueOf(tankModel.readFuelLevel(tankDescription));
@@ -310,6 +272,25 @@ public class SimulationController implements Initializable {
 	public void resetButtons(ActionEvent actionEvent) {
 		startTimerButton.setDisable(false);
 		stopTimerButton.setDisable(false);
+	}
+	
+	public void getReady() {
+		pumpButton1.setDisable(false);
+		pumpButton1.setSelected(false);
+		pumpButton2.setDisable(false);
+		pumpButton2.setSelected(false);
+		pumpButton3.setDisable(false);
+		pumpButton3.setSelected(false);
+		pumpButton4.setDisable(false);
+		pumpButton4.setSelected(false);
+		pumpButton5.setDisable(false);
+		pumpButton5.setSelected(false);
+		superButton.setDisable(true);
+		superButton.setSelected(false);
+		dieselButton.setDisable(true);
+		dieselButton.setSelected(false);
+		startTimerButton.setDisable(true);
+		stopTimerButton.setDisable(true);
 	}
 
 }
