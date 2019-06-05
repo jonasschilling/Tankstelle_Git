@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="600.0" style="-fx-background-color: rgb(211, 224, 235)" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.ChangePriceController">
+	<children>
+		<Button fx:id="okButton" layoutX="100.0" layoutY="380.0" mnemonicParsing="false" onAction="#changePrices" prefHeight="40.0" prefWidth="150.0" text="Bestätigen">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         </Button>
+		<Button fx:id="exitButton" cancelButton="true" layoutX="350.0" layoutY="380.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="150.0" text="Abbrechen">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         </Button>
+		<Pane prefHeight="365.0" prefWidth="300.0">
+			<children>
+				<TextField fx:id="newSuperPrice" layoutX="110.0" layoutY="100.0" prefHeight="30.0" prefWidth="110.0" />
+				<TextField fx:id="newDieselPrice" layoutX="110.0" layoutY="150.0" prefHeight="30.0" prefWidth="110.0" />
+				<Label layoutX="93.0" layoutY="25.0" text="Kraftstoff">
+					<font>
+						<Font name="System Bold" size="25.0" />
+					</font>
+				</Label>
+				<Label layoutX="27.0" layoutY="102.0" text="Super">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="26.0" layoutY="152.0" text="Diesel">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="225.0" layoutY="102.0" text="€ / Liter">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="225.0" layoutY="151.0" text="€ / Liter">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+			</children>
+		</Pane>
+		<Pane layoutX="300.0" prefHeight="365.0" prefWidth="300.0">
+			<children>
+				<Label layoutX="105.0" layoutY="25.0" text="Waren">
+					<font>
+						<Font name="System Bold" size="25.0" />
+					</font>
+				</Label>
+				<TextField fx:id="newWodkaPrice" layoutX="150.0" layoutY="100.0" prefHeight="30.0" prefWidth="110.0" />
+				<TextField fx:id="newFilipPrice" layoutX="150.0" layoutY="150.0" prefHeight="30.0" prefWidth="110.0" />
+				<TextField fx:id="newJupiterPrice" layoutX="150.0" layoutY="200.0" prefHeight="30.0" prefWidth="110.0" />
+				<TextField fx:id="newBullPrice" layoutX="150.0" layoutY="250.0" prefHeight="30.0" prefWidth="110.0" />
+				<TextField fx:id="newPizzaPrice" layoutX="150.0" layoutY="300.0" prefHeight="30.0" prefWidth="110.0" />
+				<Label layoutX="19.0" layoutY="102.0" text="Wodka Jelzin">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="19.0" layoutY="152.0" text="Filip Maurice">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="19.0" layoutY="202.0" text="Jupiter">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="19.0" layoutY="252.0" text="Sitting Bull">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="19.0" layoutY="302.0" text="Pizza">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="265.0" layoutY="102.0" text="€">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="265.0" layoutY="152.0" text="€">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="265.0" layoutY="202.0" text="€">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="265.0" layoutY="252.0" text="€">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+				<Label layoutX="265.0" layoutY="302.0" text="€">
+					<font>
+						<Font size="18.0" />
+					</font>
+				</Label>
+			</children>
+		</Pane>
+	</children>
+</AnchorPane>

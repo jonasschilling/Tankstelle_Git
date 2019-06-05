@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+	prefWidth="1000.0" style="-fx-background-color: #316c9f"
+	xmlns:fx="http://javafx.com/fxml1"
+	fx:controller="javafx.showReceiptController">
+	<Label fx:id="receiptLabel" text="" layoutX="250.0"
+		layoutY="50.0" mnemonicParsing="false">
+		<font>
+			<Font size="20.0" />
+		</font>
+	</Label>
+</AnchorPane>
+
