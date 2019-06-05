@@ -53,6 +53,8 @@ public class AdministrationController implements Initializable {
 	Slider superSlider, dieselSlider;
 	@FXML
 	RadioButton wodkaOrder, filipOrder, jupiterOrder, bullOrder, pizzaOrder;
+	
+	public static char eurosign;
 
 	boolean countUp1 = false, countUp2 = false;
 
@@ -64,13 +66,13 @@ public class AdministrationController implements Initializable {
 		tankNameLabel1.setText(tankModel.getTank("Super").getDescription());
 		tankNameLabel2.setText(tankModel.getTank("Diesel").getDescription());
 
-		superPriceLabel.setText(tankModel.readPrice("Super") + " €/L");
-		dieselPriceLabel.setText(tankModel.readPrice("Diesel") + " €/L");
-		wodkaPriceLabel.setText(salesModel.readPrice("Wodka") + " €");
-		filipPriceLabel.setText(salesModel.readPrice("Filip") + " €");
-		jupiterPriceLabel.setText(salesModel.readPrice("Jupiter") + " €");
-		bullPriceLabel.setText(salesModel.readPrice("Bull") + " €");
-		pizzaPriceLabel.setText(salesModel.readPrice("Pizza") + " €");
+		superPriceLabel.setText(tankModel.readPrice("Super") + " " + eurosign + "/L");
+		dieselPriceLabel.setText(tankModel.readPrice("Diesel") + " " + eurosign + "/L");
+		wodkaPriceLabel.setText(salesModel.readPrice("Wodka") + " " + eurosign);
+		filipPriceLabel.setText(salesModel.readPrice("Filip") + " " + eurosign);
+		jupiterPriceLabel.setText(salesModel.readPrice("Jupiter") + " " + eurosign);
+		bullPriceLabel.setText(salesModel.readPrice("Bull") + " " + eurosign);
+		pizzaPriceLabel.setText(salesModel.readPrice("Pizza") + " " + eurosign);
 
 		superCapLabel.setText(String.valueOf(Math.round(Float.valueOf(tankModel.readFuelLevel("Super")) * 100) / 100f
 				+ "/" + tankModel.getTank("Super").getCapacity()) + " L");
@@ -157,11 +159,11 @@ public class AdministrationController implements Initializable {
 
 		superPriceLabel.setText(tankModel.readPrice("Super") + " €/L");
 		dieselPriceLabel.setText(tankModel.readPrice("Diesel") + " €/L");
-		wodkaPriceLabel.setText(salesModel.readPrice("Wodka") + " €");
-		filipPriceLabel.setText(salesModel.readPrice("Filip") + " €");
-		jupiterPriceLabel.setText(salesModel.readPrice("Jupiter") + " €");
-		bullPriceLabel.setText(salesModel.readPrice("Bull") + " €");
-		pizzaPriceLabel.setText(salesModel.readPrice("Pizza") + " €");
+		wodkaPriceLabel.setText(salesModel.readPrice("Wodka") + " " + eurosign);
+		filipPriceLabel.setText(salesModel.readPrice("Filip") + " " + eurosign);
+		jupiterPriceLabel.setText(salesModel.readPrice("Jupiter") + " " + eurosign);
+		bullPriceLabel.setText(salesModel.readPrice("Bull") + " " + eurosign);
+		pizzaPriceLabel.setText(salesModel.readPrice("Pizza") + " " + eurosign);
 
 		superCapLabel.setText(
 				String.valueOf(tankModel.readFuelLevel("Super") + "/" + tankModel.getTank("Super").getCapacity())
