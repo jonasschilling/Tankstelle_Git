@@ -1,8 +1,8 @@
 Tankstelle
 
 Belegnummer: 4
-Datum : 05.06.2019 17:06
+Datum : 06.06.2019 17:56
 Mitarbeiter: null
-Super - 1.37 Liter - 1.559 EUR/Liter - 2.14 EUR 
-Jupiter Jelzin - 3 Stück 0.99 EUR/Stück - 2.97 EUR
-Gesamtpreis: 2.97
+Diesel - 2.04 Liter - 1.239 EUR/Liter - 2.53 EUR 
+Wodka Jelzin - 30 Flaschen 9.990001 EUR/Flasche - 299.7 EUR
+Gesamtpreis: 302.23

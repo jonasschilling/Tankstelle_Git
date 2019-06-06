@@ -22,7 +22,9 @@ public class SalesModel {
 	private int amountJupiter = 150;
 	private int amountBull = 50;
 	private int amountPizza = 20;
-	private float dieselPriceSell = 0.82f, superPriceSell = 1.04f;
+	private float dieselPriceBuy = 0.82f, superPriceBuy = 1.04f;
+	private FinancesController financesController;
+	private float balance;
 
 	Product wodka = new Product(421, "Wodka Jelzin", "Flasche", amountWodka, 30, 2.99f);
 	Product filip = new Product(871, "Filip Maurice", "Packung", amountFilip, 100, 2.77f);
@@ -70,21 +72,21 @@ public class SalesModel {
 			return null;
 		}
 	}
-	
-	public float getDieselPriceSell() {
-		return dieselPriceSell;
+
+	public float getDieselPriceBuy() {
+		return dieselPriceBuy;
 	}
 
-	public void setDieselPriceSell(float dieselPriceSell) {
-		this.dieselPriceSell = dieselPriceSell;
+	public void setDieselPriceBuy(float dieselPriceBuy) {
+		this.dieselPriceBuy = dieselPriceBuy;
 	}
 
-	public float getSuperPriceSell() {
-		return superPriceSell;
+	public float getSuperPriceBuy() {
+		return superPriceBuy;
 	}
 
-	public void setSuperPriceSell(float superPriceSell) {
-		this.superPriceSell = superPriceSell;
+	public void setSuperPriceBuy(float superPriceBuy) {
+		this.superPriceBuy = superPriceBuy;
 	}
 
 	public void writePrice(String productDescription, String newPrice) {
@@ -131,6 +133,8 @@ public class SalesModel {
 		try {
 			fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
+			bw.write(String.valueOf(balance));
+			bw.newLine();
 			for (Product p : products) {
 				bw.write(String.valueOf(p.getAmount()));
 				bw.write(";");
@@ -156,6 +160,7 @@ public class SalesModel {
 		try {
 			fr = new FileReader(file);
 			br = new BufferedReader(fr);
+			balance = Float.valueOf(br.readLine());
 			String line;
 			while ((line = br.readLine()) != null) {
 
@@ -204,7 +209,7 @@ public class SalesModel {
 		}
 		return orderNumber;
 	}
-	
+
 	public void writeNoDeliveryNote(String kindOfOrder) {
 		File file = null;
 		if (kindOfOrder.equals("Gas")) {
@@ -236,7 +241,7 @@ public class SalesModel {
 			}
 		}
 	}
-	
+
 	public String readNoDeliveryNote(String kindOfOrder) {
 		File file = null;
 		if (kindOfOrder.equals("Gas")) {
@@ -294,7 +299,8 @@ public class SalesModel {
 		try {
 			fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
-			bw.write("BESTELLDATUM=" + printSimpleDateFormat() + "\nDIESEL=" + dieselAmount + "\nSUPER=" + superAmount + ";");
+			bw.write("BESTELLDATUM=" + printSimpleDateFormat() + "\nDIESEL=" + dieselAmount + "\nSUPER=" + superAmount
+					+ ";");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -317,7 +323,8 @@ public class SalesModel {
 			bw = new BufferedWriter(fw);
 			bw.write("BESTELLDATUM=" + printSimpleDateFormat() + "\nWarennummer;Bestellmenge");
 			for (Product product : products) {
-				bw.write("\n" + String.valueOf(product.getProdNumber() + ";" + String.valueOf(product.getMaxAmount() - product.getAmount()) + ";"));
+				bw.write("\n" + String.valueOf(product.getProdNumber() + ";"
+						+ String.valueOf(product.getMaxAmount() - product.getAmount()) + ";"));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -331,7 +338,7 @@ public class SalesModel {
 			}
 		}
 	}
-	
+
 	public void writeProductDeliveryNote(ArrayList<Product> products) {
 		File file = new File("src/javafx/resources/Deliveries/ProductDeliveryNote" + readNoOrders("Products") + ".txt");
 		FileWriter fw = null;
@@ -339,9 +346,12 @@ public class SalesModel {
 		try {
 			fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
-			bw.write("LIEFERDATUM=" + printSimpleDateFormat() + "\nWarennummer;Bezeichnung;Lagereinheit;Menge;Einkaufspreis");
+			bw.write("LIEFERDATUM=" + printSimpleDateFormat()
+					+ "\nWarennummer;Bezeichnung;Lagereinheit;Menge;Einkaufspreis");
 			for (Product product : products) {
-				bw.write("\n" + String.valueOf(product.getProdNumber() + ";" + product.getName() + ";" + product.getType() + ";" +  String.valueOf(product.getMaxAmount() - product.getAmount()) + ";" + String.valueOf(product.getPriceBuy())));
+				bw.write("\n" + String.valueOf(product.getProdNumber() + ";" + product.getName() + ";"
+						+ product.getType() + ";" + String.valueOf(product.getMaxAmount() - product.getAmount()) + ";"
+						+ String.valueOf(product.getPriceBuy())));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -355,7 +365,7 @@ public class SalesModel {
 			}
 		}
 	}
-	
+
 	public void writeGasDeliveryNote(String superAmount, String dieselAmount) {
 		File file = new File("src/javafx/resources/Deliveries/GasDeliveryNote" + readNoOrders("Gas") + ".txt");
 		FileWriter fw = null;
@@ -363,7 +373,8 @@ public class SalesModel {
 		try {
 			fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
-			bw.write("LIEFERDATUM=" + printSimpleDateFormat() + "\nDIESEL=" + dieselAmount + "\nDIESEL_PREIS=" + getDieselPriceSell() + "\nSUPER=" + superAmount + "\nSUPER_PREIS=" + getSuperPriceSell() + ";");
+			bw.write("LIEFERDATUM=" + printSimpleDateFormat() + "\nDIESEL=" + dieselAmount + "\nDIESEL_PREIS="
+					+ getDieselPriceBuy() + "\nSUPER=" + superAmount + "\nSUPER_PREIS=" + getSuperPriceBuy());
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -381,6 +392,26 @@ public class SalesModel {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 		Date currentTime = new Date();
 		return (formatter.format(currentTime));
+	}
+
+	public FinancesController getFinancesController() {
+		return financesController;
+	}
+
+	public void setFinancesController(FinancesController financesController) {
+		this.financesController = financesController;
+	}
+
+	public float getBalance() {
+		return Math.round(balance*100) /100f;
+	}
+
+	public void incBalance(float balance) {
+		this.balance += balance;
+	}
+
+	public void decBalance(float balance) {
+		this.balance -= balance;
 	}
 
 }

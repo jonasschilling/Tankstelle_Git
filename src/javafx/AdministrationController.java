@@ -285,6 +285,7 @@ public class AdministrationController implements Initializable {
 				while ((line = br.readLine()) != null) {
 
 					String[] output = line.split(";");
+					salesModel.decBalance(Integer.valueOf(output[3]) * Float.valueOf(output[4]));
 					if (Integer.parseInt(output[0]) == salesModel.getProduct("Wodka").getProdNumber()) {
 						int newAmount = salesModel.getProduct("Wodka").getAmount() + Integer.valueOf(output[3]);
 						salesModel.getProduct("Wodka").setAmount(newAmount);
@@ -311,6 +312,7 @@ public class AdministrationController implements Initializable {
 					}
 
 				}
+				salesModel.getFinancesController().setBalanceLabel();
 				refresh();
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Information");
@@ -329,6 +331,8 @@ public class AdministrationController implements Initializable {
 	}
 
 	public void bookGasOrder() {
+		float dieselFuelAdd = 0;
+		float superFuelAdd = 0;
 		File file = new File(
 				"src/javafx/resources/Deliveries/GasDeliveryNote" + salesModel.readNoDeliveryNote("Gas") + ".txt");
 		FileReader fr = null;
@@ -341,21 +345,34 @@ public class AdministrationController implements Initializable {
 				br = new BufferedReader(fr);
 				String line;
 				br.readLine();
+				
 				while ((line = br.readLine()) != null) {
 					String[] output = line.split("=");
 					if (output[0].equals(tankModel.getTank("Super").getDescription().toUpperCase())) {
 						float superFuelLevelOld = Float.valueOf(tankModel.readFuelLevel("Super"));
-						float superFuelAdd = Float.valueOf(output[1]);
+						superFuelAdd = Float.valueOf(output[1]);
 						float newSuperLevel = superFuelLevelOld + superFuelAdd;
 						tankModel.writeFuelLevel("Super", String.valueOf(newSuperLevel));
 					}
 					if (output[0].equals(tankModel.getTank("Diesel").getDescription().toUpperCase())) {
 						float dieselFuelLevelOld = Float.valueOf(tankModel.readFuelLevel("Diesel"));
-						float dieselFuelAdd = Float.valueOf(output[1]);
+						dieselFuelAdd = Float.valueOf(output[1]);
 						float newDieselLevel = dieselFuelLevelOld + dieselFuelAdd;
 						tankModel.writeFuelLevel("Diesel", String.valueOf(newDieselLevel));
 					}
+					if (output[0].equals("DIESEL_PREIS")) {
+						salesModel.setDieselPriceBuy(Float.valueOf(output[1]));
+						
+					}
+					if (output[0].equals("SUPER_PREIS")) {
+						salesModel.setSuperPriceBuy(Float.valueOf(output[1]));
+						
+					}
+					
 				}
+				salesModel.decBalance(dieselFuelAdd*salesModel.getDieselPriceBuy());
+				salesModel.decBalance(superFuelAdd*salesModel.getSuperPriceBuy());
+				salesModel.getFinancesController().setBalanceLabel();
 				refresh();
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Information");

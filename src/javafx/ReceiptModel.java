@@ -111,7 +111,7 @@ public class ReceiptModel {
                     String stringTotal = String.valueOf(total);
                     bw.write("Gesamtpreis: " + stringTotal);
                     String p = file.getPath();
-                    Receipt R1 = new Receipt(date, "Einkaufsbeleg", p);
+                    Receipt R1 = new Receipt(date, "Verkaufsbeleg", p);
                     receipts.add(R1);
                     FinancesController.getReceipts().add(R1);
              } catch (IOException e) {

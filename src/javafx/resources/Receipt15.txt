@@ -1,7 +1,0 @@
-Tankstelle
-
-Belegnummer: 15
-Datum : 05.06.2019 22:19
-Mitarbeiter: null
-Super - 1.77 Liter - 1.559 EUR/Liter - 2.76 EUR 
-Gesamtpreis: 2.76

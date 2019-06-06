@@ -1,7 +1,0 @@
-Tankstelle
-
-Belegnummer: 11
-Datum : 05.06.2019 21:23
-Mitarbeiter: null
-Filip Jelzin - 7 Packungen 6.9900002 EUR/Packung - 48.93 EUR
-Gesamtpreis: 48.93

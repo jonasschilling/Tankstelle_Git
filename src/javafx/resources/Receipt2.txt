@@ -1,8 +1,7 @@
 Tankstelle
 
 Belegnummer: 2
-Datum : 05.06.2019 17:05
+Datum : 06.06.2019 17:36
 Mitarbeiter: null
-Super - 1.37 Liter - 1.559 EUR/Liter - 2.14 EUR 
-Filip Jelzin - 4 Packungen 6.99 EUR/Packung - 27.96 EUR
-Gesamtpreis: 27.96
+Jupiter Jelzin - 1 Stück 0.99 EUR/Stück - 0.99 EUR
+Gesamtpreis: 0.99

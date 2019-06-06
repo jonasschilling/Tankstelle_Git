@@ -350,7 +350,8 @@ public class SalesController implements Initializable {
 	public void checkout(ActionEvent actionEvent) {
 		receiptModel.getAmount(scart.getNumWodka(), scart.getNumFilip(), scart.getNumJupiter(), scart.getNumBull(),
 				scart.getNumPizza(), scart.getTotal());
-
+		salesModel.incBalance(scart.getTotal());
+		salesModel.getFinancesController().setBalanceLabel();
 		receiptModel.writeReceipt();
 		scart.checkout();
 		if(pumpButton1.isSelected() == true) {

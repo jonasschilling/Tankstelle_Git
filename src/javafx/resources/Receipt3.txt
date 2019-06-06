@@ -1,8 +1,7 @@
 Tankstelle
 
 Belegnummer: 3
-Datum : 05.06.2019 17:05
-Mitarbeiter: Patrick Berlet
-Super - 1.37 Liter - 1.559 EUR/Liter - 2.14 EUR 
-Bull Jelzin - 3 Dosen 2.1000001 EUR/Dose - 6.3 EUR
-Gesamtpreis: 6.3
+Datum : 06.06.2019 17:42
+Mitarbeiter: null
+Wodka Jelzin - 10 Flaschen 9.99 EUR/Flasche - 99.9 EUR
+Gesamtpreis: 99.9

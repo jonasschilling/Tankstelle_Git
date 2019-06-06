@@ -1,7 +1,7 @@
 Tankstelle
 
 Belegnummer: 1
-Datum : 05.06.2019 17:05
+Datum : 06.06.2019 17:36
 Mitarbeiter: null
-Diesel - 4.53 Liter - 1.239 EUR/Liter - 5.61 EUR 
-Gesamtpreis: 5.61
+Jupiter Jelzin - 3 Stück 0.99 EUR/Stück - 2.97 EUR
+Gesamtpreis: 2.97
