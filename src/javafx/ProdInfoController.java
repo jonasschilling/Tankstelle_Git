@@ -14,6 +14,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+/**
+ * @author Patrick Berlet
+ *
+ */
 public class ProdInfoController implements Initializable {
 	@FXML
 	TableView<Product> tableView;

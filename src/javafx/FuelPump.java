@@ -1,5 +1,9 @@
 package javafx;
 
+/**
+ * @author Jonas Schilling
+ *
+ */
 public class FuelPump {
 	
 	private int id;

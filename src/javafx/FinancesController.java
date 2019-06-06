@@ -25,6 +25,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+/**
+ * @author Thore Bedey
+ *
+ */
 public class FinancesController implements Initializable {
 	@FXML
 	Label balanceLabel, receipts;

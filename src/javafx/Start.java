@@ -11,6 +11,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
+/**
+ * @author Alissa Templin
+ *
+ */
 public class Start extends Application {
 
 	SalesModel salesModel = SalesModel.getInstance();

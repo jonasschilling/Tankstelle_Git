@@ -9,6 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+/**
+ * @author Jonas Schilling
+ *
+ */
 public class SimulationStart extends Application {
 
 	public static void main(String[] args) {

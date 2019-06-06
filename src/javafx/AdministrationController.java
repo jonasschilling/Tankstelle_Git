@@ -33,6 +33,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import refillSimulation.SimulationModel;
 
+
+/**
+ * @author Jonas Schilling
+ *
+ */
 public class AdministrationController implements Initializable {
 
 	@FXML

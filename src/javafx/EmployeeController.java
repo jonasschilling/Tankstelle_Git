@@ -29,6 +29,10 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+/**
+ * @author Patrick Berlet
+ *
+ */
 public class EmployeeController implements Initializable {
 
 	@FXML
@@ -56,19 +60,21 @@ public class EmployeeController implements Initializable {
 		if (EmployeeController.getEmployees().size() < 1) {
 			createEmployee();
 		}
-
+		//Textfelder werden beschriftet und noch ausgeblendet, erst bei Button drücken anzeigen
 		firstNameField.setPromptText("Vorname eingeben");
 		lastNameField.setPromptText("Nachname eingeben");
 		firstNameField.setVisible(false);
 		lastNameField.setVisible(false);
 		confirm.setVisible(false);
+		//Attribute der Mitarbeiter werden den Zellen zugeordnet
 		employeeId.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("employeeId"));
 		firstName.setCellValueFactory(new PropertyValueFactory<Employee, String>("firstName"));
 		lastName.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
 		employmentDate.setCellValueFactory(new PropertyValueFactory<Employee, String>("stringDate"));
-		tableView.setItems(employees);
+		tableView.setItems(employees); //Der TableView wird die ObservableList "employees" zugewiesen
 	}
-
+	
+	//Textfelder werden beim drücken des Buttons angezeigt
 	public void addEmployee(ActionEvent actionEvent) {
 		if (addEmployee.isSelected()) {
 			firstNameField.setVisible(true);
@@ -81,11 +87,12 @@ public class EmployeeController implements Initializable {
 		}
 	}
 
+	//erstellt neuen Mitarbeiter mit Angaben aus den Textfeldern und fügt ihn der Tablle hinzu
 	public void confirm(ActionEvent actionEvent) throws IOException {
 		String firstname = firstNameField.getText();
 		String lastname = lastNameField.getText();
 		if (firstname.matches("[A-Za-z]+") && lastname.matches("[A-Za-z]+")) {
-
+			//EasterEgg
 			if (firstname.equals("Daniel") && (lastname.equals("Appenmaier"))) {
 				showEasteregg();
 			} else {
@@ -95,6 +102,7 @@ public class EmployeeController implements Initializable {
 			firstNameField.clear();
 			lastNameField.clear();
 		}
+		//Alert bei falscher Eingabe (nur Buchstaben von A-Z möglich)
 		else {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("Fehler");
@@ -104,6 +112,7 @@ public class EmployeeController implements Initializable {
 		}
 	}
 
+	//löst EasterEgg aus
 	public void showEasteregg() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("Easteregg.fxml"));
 		Scene scene = new Scene(root);
@@ -112,7 +121,8 @@ public class EmployeeController implements Initializable {
 		popup.setScene(scene);
 		popup.show();
 	}
-
+	
+	//löscht ausgewählten Mitarbeiter aus der Tablle und Textdatei
 	public void deleteEmployee(ActionEvent e) {
 		ObservableList<Employee> selectedCells = tableView.getSelectionModel().getSelectedItems();
 		if (selectedCells.size() != 0) {
@@ -120,6 +130,7 @@ public class EmployeeController implements Initializable {
 		}
 	}
 
+	//Bestätigung ob Mitarbeiter wirklich gelöscht werden soll
 	public void showConfirmationDialog() {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Mitarbeiter Entfernen");
@@ -144,12 +155,14 @@ public class EmployeeController implements Initializable {
 		}
 	}
 
+	//gibt ObservableList "employees" zurück
 	public static ObservableList<Employee> getEmployees() {
 
 		return employees;
 
 	}
 
+	//drei Mitarbeiter werden erstellt und der ObservableList "employees" hinzugefügt 
 	public void createEmployee() {
 
 		Employee e1 = new Employee("Patrick", "Berlet");

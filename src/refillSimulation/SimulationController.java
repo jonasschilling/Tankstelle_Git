@@ -20,6 +20,10 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.util.Duration;
 
+/**
+ * @author Jonas Schilling
+ *
+ */
 public class SimulationController implements Initializable {
 
 	int milliLitres = 1;

@@ -1,5 +1,9 @@
 package javafx;
 
+/**
+ * @author Jonas Schilling
+ *
+ */
 public class Tank {
 
 	private String description;

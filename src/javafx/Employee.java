@@ -5,6 +5,10 @@ import java.text.SimpleDateFormat;
 import java.time.*;
 import java.util.*;
 
+/**
+ * @author Thore Bedey
+ *
+ */
 public class Employee {
 	private static int employees = 0;
 	private int employeeId;
@@ -66,6 +70,7 @@ public class Employee {
 		this.stringDate = stringDate;
 	}
 	
+	//Attribute der Mitarbeiter werden zu einem String zusammengefügt
 	public String getEmployeeAttributes() {
 		
 		String employeeId = Integer.toString(getEmployeeId());

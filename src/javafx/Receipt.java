@@ -1,6 +1,10 @@
 package javafx;
 
 
+/**
+ * @author Thore Bedey
+ *
+ */
 public class Receipt {
 	private String date;
 	private String type;

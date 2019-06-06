@@ -1,6 +1,10 @@
 package javafx;
 
 
+/**
+ * @author Thore Bedey
+ *
+ */
 public class Product {
 
      private String name;

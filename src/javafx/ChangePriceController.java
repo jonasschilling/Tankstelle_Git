@@ -20,6 +20,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
+/**
+ * @author Jonas Schilling 
+ *
+ */
 public class ChangePriceController implements Initializable {
 
 	@FXML

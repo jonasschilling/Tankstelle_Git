@@ -10,6 +10,10 @@ import java.io.IOException;
 import javafx.Employee;
 import javafx.EmployeeController;
 
+/**
+ * @author Jonas Schilling
+ *
+ */
 public class SimulationModel {
 
 	private static SimulationModel instance;

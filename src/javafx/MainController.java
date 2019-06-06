@@ -12,6 +12,10 @@ import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
+/**
+ * @author Thore Bedey
+ *
+ */
 public class MainController implements Initializable {
 	@FXML
 	private TabPane tabPane;

@@ -1,5 +1,9 @@
 package javafx;
 
+/**
+ * @author Alissa Templin
+ *
+ */
 public class Shoppingcart {
 	
 	SalesModel salesModel = SalesModel.getInstance();

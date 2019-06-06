@@ -12,6 +12,10 @@ import java.util.ArrayList;
 
 import refillSimulation.SimulationModel;
 
+/**
+ * @author Thore Bedey
+ *
+ */
 public class ReceiptModel {
        private static String path;
        private static ReceiptModel instance;

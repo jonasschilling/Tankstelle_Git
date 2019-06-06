@@ -10,6 +10,10 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * @author Patrick Berlet
+ *
+ */
 public class EmployeeModel {
 
 	private static EmployeeModel instance;
@@ -25,9 +29,9 @@ public class EmployeeModel {
 		}
 		return EmployeeModel.instance;
 	}
-
+	
+	//schreibt Textdatei "Employees.txt", welche alle aktuellen Mitarbeiter beinhaltet und speichert sie ab
 	public void writeEmployees() {
-//		System.getProperty("user.dir") + "\\Employees.txt\\"
 		File file = new File("src/javafx/resources/Employees.txt");
 		FileWriter fw = null;
 		BufferedWriter bw = null;
@@ -54,6 +58,7 @@ public class EmployeeModel {
 
 	}
 
+	//liest Textdatei "Employees.txt" mit Mitarbeitern aus und fügt diese der ObservableList "employees" hinzu
 	public void readEmployees() {
 
 		File file = new File("src/javafx/resources/Employees.txt");

@@ -12,6 +12,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+/**
+ * @author Thore Bedey, Patrick Berlet
+ *
+ */
 public class SalesModel {
 
 	private static SalesModel instance;

@@ -18,6 +18,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import refillSimulation.SimulationModel;
 
+/**
+ * @author Thore Bedey, Patrick Berlet
+ *
+ */
 public class SalesController implements Initializable {
 
 	public static char eurosign = '\u20AC';
