@@ -84,14 +84,24 @@ public class EmployeeController implements Initializable {
 	public void confirm(ActionEvent actionEvent) throws IOException {
 		String firstname = firstNameField.getText();
 		String lastname = lastNameField.getText();
-		if (firstname.equals("Daniel") && (lastname.equals("Appenmaier"))) {
-			showEasteregg();
-		} else {
-			Employee e = new Employee(firstname, lastname);
-			employees.add(e);
+		if (firstname.matches("[A-Za-z]+") && lastname.matches("[A-Za-z]+")) {
+
+			if (firstname.equals("Daniel") && (lastname.equals("Appenmaier"))) {
+				showEasteregg();
+			} else {
+				Employee e = new Employee(firstname, lastname);
+				employees.add(e);
+			}
+			firstNameField.clear();
+			lastNameField.clear();
 		}
-		firstNameField.clear();
-		lastNameField.clear();
+		else {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Fehler");
+			alert.setHeaderText("Nur Buchstaben und keine Umlaute verwenden!");
+			alert.setContentText("Außerdem bitte beide Felder ausfüllen");
+			alert.showAndWait();
+		}
 	}
 
 	public void showEasteregg() throws IOException {
