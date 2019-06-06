@@ -32,12 +32,8 @@ public class SalesModel {
 	Product bull = new Product(992, "Sitting Bull", "Dose", amountBull, 50, 0.29f);
 	Product pizza = new Product(101, "TK-Pizza Deluxe", "Stück", amountPizza, 20, 0.89f);
 	ArrayList<Product> products = new ArrayList<>();
-
+	//ReceiptModel receiptModel = ReceiptModel.getInstance();; 
 	String orderNumber = null, deliveryNoteNumber = null;
-
-	public SalesModel() {
-
-	}
 
 	public static SalesModel getInstance() {
 		if (SalesModel.instance == null) {
@@ -386,6 +382,7 @@ public class SalesModel {
 				}
 			}
 		}
+		
 	}
 
 	public String printSimpleDateFormat() {
@@ -393,6 +390,7 @@ public class SalesModel {
 		Date currentTime = new Date();
 		return (formatter.format(currentTime));
 	}
+	
 
 	public FinancesController getFinancesController() {
 		return financesController;

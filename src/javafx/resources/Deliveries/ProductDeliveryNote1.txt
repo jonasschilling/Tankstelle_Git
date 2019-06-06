@@ -1,3 +1,0 @@
-LIEFERDATUM=06.06.2019
-Warennummer;Bezeichnung;Lagereinheit;Menge;Einkaufspreis
-421;Wodka Jelzin;Flasche;11;2.99

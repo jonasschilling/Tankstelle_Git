@@ -23,10 +23,11 @@ public class ReceiptModel {
        private int numPizza;
        private float total;
        private static ArrayList<Receipt> receipts = new ArrayList<Receipt>();
-       SalesModel salesModel = SalesModel.getInstance();
+       SalesModel salesModel  = SalesModel.getInstance();
        SimulationModel simulationModel = SimulationModel.getInstance();
        TankModel tankModel = TankModel.getInstance();
-
+       
+       
        public static ReceiptModel getInstance() {
              if (ReceiptModel.instance == null) {
                     ReceiptModel.instance = new ReceiptModel();
@@ -60,7 +61,7 @@ public class ReceiptModel {
              DateTimeFormatter df = DateTimeFormatter.ofPattern("dd.MM.yyyy kk:mm");
              String date = now.format(df);
              noReceipts++;
-             File file = new File("src/javafx/resources/Receipt" + noReceipts + ".txt");
+             File file = new File("src/javafx/resources/Receipts/Receipt" + noReceipts + ".txt");
              FileWriter fw = null;
              BufferedWriter bw = null;
              try {
@@ -85,27 +86,27 @@ public class ReceiptModel {
                           current = salesModel.getProduct("Filip");
                           String type = (numFilip > 1) ? current.getType() + "en" : current.getType();
                           float price = (float) Math.round(numFilip * Float.valueOf(salesModel.readPrice("Filip")) * 100) / 100;
-                          bw.write("Filip Jelzin - " + numFilip + " " + type + " " + price / numFilip + " EUR/"
+                          bw.write("Filip Maurice - " + numFilip + " " + type + " " + price / numFilip + " EUR/"
                                        + current.getType() + " - " + price + " EUR" + "\n");
                     }
                     if (numJupiter > 0) {
                           current = salesModel.getProduct("Jupiter");
                           float price = (float) Math.round(numJupiter * Float.valueOf(salesModel.readPrice("Jupiter")) * 100)
                                        / 100;
-                          bw.write("Jupiter Jelzin - " + numJupiter + " " + current.getType() + " " + price / numJupiter + " EUR/"
+                          bw.write("Jupiter Riegel - " + numJupiter + " " + current.getType() + " " + price / numJupiter + " EUR/"
                                        + current.getType() + " - " + price + " EUR" + "\n");
                     }
                     if (numBull > 0) {
                           current = salesModel.getProduct("Bull");
                           String type = (numBull > 1) ? current.getType() + "n" : current.getType();
                           float price = (float) Math.round(numBull * Float.valueOf(salesModel.readPrice("Bull")) * 100) / 100;
-                          bw.write("Bull Jelzin - " + numBull + " " + type + " " + price / numBull + " EUR/" + current.getType()
+                          bw.write("Sitting Bull - " + numBull + " " + type + " " + price / numBull + " EUR/" + current.getType()
                                        + " - " + price + " EUR" + "\n");
                     }
                     if (numPizza > 0) {
                           current = salesModel.getProduct("Pizza");
                           float price = (float) Math.round(numPizza * Float.valueOf(salesModel.readPrice("Pizza")) * 100) / 100;
-                          bw.write("Pizza Jelzin - " + numPizza + " " + current.getType() + " " + price / numPizza + " EUR/"
+                          bw.write("Tk-Pizza Deluxe - " + numPizza + " " + current.getType() + " " + price / numPizza + " EUR/"
                                        + current.getType() + " - " + price + " EUR" + "\n");
                     }
                     String stringTotal = String.valueOf(total);
@@ -129,10 +130,10 @@ public class ReceiptModel {
 
        }
 
-       public ArrayList<Receipt> getReceipts() {
-             return receipts;
-
-       }
+//       public ArrayList<Receipt> getReceipts() {
+//             return receipts;
+//
+//       }
 
        public void getAmount(int numWodka, int numFilip, int numJupiter, int numBull, int numPizza, float total) {
              this.numWodka = numWodka;
@@ -156,7 +157,7 @@ public class ReceiptModel {
                     for (int i = 0; i < FinancesController.getReceipts().size(); i++) {
                           bw.newLine();
                            bw.write(FinancesController.getReceipts().get(i).getDate() + ";"
-                                       + FinancesController.getReceipts().get(i).getType());
+                                       + FinancesController.getReceipts().get(i).getType() + ";"+ FinancesController.getReceipts().get(i).getPath());
                     }
 
              } catch (
@@ -180,20 +181,21 @@ public class ReceiptModel {
              try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
                     String line;
                     noReceipts = Integer.valueOf(br.readLine());
-                    int i = 1;
+
                     while ((line = br.readLine()) != null) {
                           String[] input = line.split(";");
                           String date = input[0];
                           String type = input[1];
-                          File f = new File("src/javafx/resources/Receipt" + i + ".txt");
-                          String p = f.getPath();
-                          Receipt R1 = new Receipt(date, type, p);
+                          String path = input[2];
+                          Receipt R1 = new Receipt(date, type, path);
                           FinancesController.getReceipts().add(R1);
-                          i++;
                     }
              } catch (IOException e) {
                     e.printStackTrace();
              }
+       }
+       public void incReceipts() {
+    	   noReceipts++;
        }
 }
 

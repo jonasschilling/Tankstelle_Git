@@ -7,7 +7,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -60,6 +62,7 @@ public class AdministrationController implements Initializable {
 
 	TankModel tankModel = TankModel.getInstance();
 	SalesModel salesModel = SalesModel.getInstance();
+	ReceiptModel receiptModel = ReceiptModel.getInstance();
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -318,6 +321,10 @@ public class AdministrationController implements Initializable {
 				alert.setTitle("Information");
 				alert.setHeaderText("Die Waren wurden erfolgreich eingebucht.");
 				alert.show();
+				String p = file.getPath();
+				Receipt R1 = new Receipt(printSimpleDateFormatWithTime(), "Einkaufsbeleg", p);
+				receiptModel.incReceipts();
+				FinancesController.getReceipts().add(R1);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -345,7 +352,7 @@ public class AdministrationController implements Initializable {
 				br = new BufferedReader(fr);
 				String line;
 				br.readLine();
-				
+
 				while ((line = br.readLine()) != null) {
 					String[] output = line.split("=");
 					if (output[0].equals(tankModel.getTank("Super").getDescription().toUpperCase())) {
@@ -362,17 +369,21 @@ public class AdministrationController implements Initializable {
 					}
 					if (output[0].equals("DIESEL_PREIS")) {
 						salesModel.setDieselPriceBuy(Float.valueOf(output[1]));
-						
+
 					}
 					if (output[0].equals("SUPER_PREIS")) {
 						salesModel.setSuperPriceBuy(Float.valueOf(output[1]));
-						
+
 					}
-					
+
 				}
-				salesModel.decBalance(dieselFuelAdd*salesModel.getDieselPriceBuy());
-				salesModel.decBalance(superFuelAdd*salesModel.getSuperPriceBuy());
+				salesModel.decBalance(dieselFuelAdd * salesModel.getDieselPriceBuy());
+				salesModel.decBalance(superFuelAdd * salesModel.getSuperPriceBuy());
 				salesModel.getFinancesController().setBalanceLabel();
+				String p = file.getPath();
+				Receipt R1 = new Receipt(printSimpleDateFormatWithTime(), "Einkaufsbeleg", p);
+				receiptModel.incReceipts();
+				FinancesController.getReceipts().add(R1);
 				refresh();
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Information");
@@ -387,157 +398,12 @@ public class AdministrationController implements Initializable {
 			alert.setHeaderText("Kein aktueller Lieferschein für Kraftstoff vorhanden.");
 			alert.show();
 		}
+
 	}
 
-	// public void bookOrder() {
-//
-//		File file = new File("src/javafx/resources/Deliveries/lieferungProdukte" + readCounterProduct() + ".txt");
-//		FileReader fr = null;
-//		BufferedReader br = null;
-//
-//		if (file.exists()) {
-//			countUp1 = true;
-//			try {
-//
-//				fr = new FileReader(file);
-//				br = new BufferedReader(fr);
-//				String line;
-//				br.readLine();
-//				br.readLine();
-//				while ((line = br.readLine()) != null) {
-//
-//					String[] output = line.split(";");
-//					if (Integer.parseInt(output[0]) == salesModel.wodka.getProdNumber()) {
-//						salesModel.wodka.setAmount(Integer.parseInt(output[3]));
-//					}
-//
-//					if (Integer.parseInt(output[0]) == salesModel.filip.getProdNumber()) {
-//						salesModel.filip.setAmount(Integer.parseInt(output[3]));
-//					}
-//
-//					if (Integer.parseInt(output[0]) == salesModel.jupiter.getProdNumber()) {
-//						salesModel.jupiter.setAmount(Integer.parseInt(output[3]));
-//					}
-//
-//					if (Integer.parseInt(output[0]) == salesModel.bull.getProdNumber()) {
-//						salesModel.bull.setAmount(Integer.parseInt(output[3]));
-//					}
-//
-//					if (Integer.parseInt(output[0]) == salesModel.pizza.getProdNumber()) {
-//						salesModel.pizza.setAmount(Integer.parseInt(output[3]));
-//					}
-//
-//				}
-//				refresh();
-//				Alert alert = new Alert(AlertType.INFORMATION);
-//				alert.setTitle("Information");
-//				alert.setHeaderText("Die Waren wurden erfolgreich eingebucht.");
-//				alert.show();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		} else {
-//			countUp1 = false;
-//		}
-//	}
-//
-//	public Integer readCounterProduct() {
-//		File file = new File("src/javafx/resources/Deliveries/counterProduct.txt");
-//		FileReader fr = null;
-//		BufferedReader br = null;
-//		int counter1 = 0;
-//		try {
-//			fr = new FileReader(file);
-//			br = new BufferedReader(fr);
-//			String line;
-//			while ((line = br.readLine()) != null) {
-//
-//				counter1 = Integer.parseInt(line);
-//			}
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		if (countUp1 == true) {
-//			counter1++;
-//		}
-//		try (FileWriter fw = new FileWriter(file); BufferedWriter bw = new BufferedWriter(fw)) {
-//			String stringCounter1 = String.valueOf(counter1);
-//			bw.write(stringCounter1);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return counter1;
-//	}
-//
-//	public void bookFuels() {
-//		File file = new File("src/javafx/resources/Deliveries/lieferungKraftstoff" + readCounterFuel() + ".txt");
-//		FileReader fr = null;
-//		BufferedReader br = null;
-//
-//		if (file.exists()) {
-//			countUp2 = true;
-//			try {
-//
-//				fr = new FileReader(file);
-//				br = new BufferedReader(fr);
-//				String line;
-//				br.readLine();
-//				while ((line = br.readLine()) != null) {
-//					String[] output = line.split("=");
-//					if (output[0].equals(tankModel.getTank("Super").getDescription().toUpperCase())) {
-//						float superFuelLevelOld = Float.valueOf(tankModel.readFuelLevel("Super"));
-//						float superFuelAdd = Float.valueOf(output[1]);
-//						float newSuperLevel = superFuelLevelOld + superFuelAdd;
-//						tankModel.writeFuelLevel("Super", String.valueOf(newSuperLevel));
-//					}
-//					if (output[0].equals(tankModel.getTank("Diesel").getDescription().toUpperCase())) {
-//						float dieselFuelLevelOld = Float.valueOf(tankModel.readFuelLevel("Diesel"));
-//						float dieselFuelAdd = Float.valueOf(output[1]);
-//						float newDieselLevel = dieselFuelLevelOld + dieselFuelAdd;
-//						tankModel.writeFuelLevel("Diesel", String.valueOf(newDieselLevel));
-//					}
-//				}
-//				refresh();
-//				Alert alert = new Alert(AlertType.INFORMATION);
-//				alert.setTitle("Information");
-//				alert.setHeaderText("Der Kraftstoff wurde erfolgreich eingebucht.");
-//				alert.show();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		} else {
-//			countUp2 = false;
-//		}
-//	}
-//
-//	public Integer readCounterFuel() {
-//		File file = new File("src/javafx/resources/Deliveries/counterFuel.txt");
-//		FileReader fr = null;
-//		BufferedReader br = null;
-//		int counter2 = 0;
-//		try {
-//			fr = new FileReader(file);
-//			br = new BufferedReader(fr);
-//			String line;
-//			while ((line = br.readLine()) != null) {
-//
-//				counter2 = Integer.parseInt(line);
-//			}
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		if (countUp2 == true) {
-//			counter2++;
-//		}
-//		try (FileWriter fw = new FileWriter(file); BufferedWriter bw = new BufferedWriter(fw)) {
-//			String stringCounter2 = String.valueOf(counter2);
-//			bw.write(stringCounter2);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return counter2;
-//	}
-
+	public String printSimpleDateFormatWithTime() {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy kk:mm");
+		Date currentTime = new Date();
+		return (formatter.format(currentTime));
+	}
 }

@@ -1,4 +1,0 @@
-Kraftstoffbestellung: 
-
-Kraftstoffart 	 Menge 	 Preis pro Liter 
- Super 	 8000 l 	 0,94 €

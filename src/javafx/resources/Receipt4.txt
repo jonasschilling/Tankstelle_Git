@@ -1,8 +1,0 @@
-Tankstelle
-
-Belegnummer: 4
-Datum : 06.06.2019 17:56
-Mitarbeiter: null
-Diesel - 2.04 Liter - 1.239 EUR/Liter - 2.53 EUR 
-Wodka Jelzin - 30 Flaschen 9.990001 EUR/Flasche - 299.7 EUR
-Gesamtpreis: 302.23

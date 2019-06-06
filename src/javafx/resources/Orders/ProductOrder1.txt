@@ -1,3 +1,0 @@
-BESTELLDATUM=06.06.2019
-Warennummer;Bestellmenge
-421;11;
