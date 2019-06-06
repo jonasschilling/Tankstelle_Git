@@ -22,6 +22,8 @@ public class SalesModel {
 	private int amountJupiter = 150;
 	private int amountBull = 50;
 	private int amountPizza = 20;
+	private float dieselPriceSell = 0.82f, superPriceSell = 1.04f;
+
 	Product wodka = new Product(421, "Wodka Jelzin", "Flasche", amountWodka, 30, 2.99f);
 	Product filip = new Product(871, "Filip Maurice", "Packung", amountFilip, 100, 2.77f);
 	Product jupiter = new Product(358, "Jupiter Schokoriegel", "Stück", amountJupiter, 150, 0.19f);
@@ -29,7 +31,7 @@ public class SalesModel {
 	Product pizza = new Product(101, "TK-Pizza Deluxe", "Stück", amountPizza, 20, 0.89f);
 	ArrayList<Product> products = new ArrayList<>();
 
-	String orderNumber = null;
+	String orderNumber = null, deliveryNoteNumber = null;
 
 	public SalesModel() {
 
@@ -67,6 +69,22 @@ public class SalesModel {
 		} else {
 			return null;
 		}
+	}
+	
+	public float getDieselPriceSell() {
+		return dieselPriceSell;
+	}
+
+	public void setDieselPriceSell(float dieselPriceSell) {
+		this.dieselPriceSell = dieselPriceSell;
+	}
+
+	public float getSuperPriceSell() {
+		return superPriceSell;
+	}
+
+	public void setSuperPriceSell(float superPriceSell) {
+		this.superPriceSell = superPriceSell;
 	}
 
 	public void writePrice(String productDescription, String newPrice) {
@@ -186,6 +204,56 @@ public class SalesModel {
 		}
 		return orderNumber;
 	}
+	
+	public void writeNoDeliveryNote(String kindOfOrder) {
+		File file = null;
+		if (kindOfOrder.equals("Gas")) {
+			file = new File("src/javafx/resources/Deliveries/no" + kindOfOrder + "DeliveryNotes.txt");
+		} else if (kindOfOrder.equals("Products")) {
+			file = new File("src/javafx/resources/Deliveries/no" + kindOfOrder + "Deliverynotes.txt");
+		}
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		int orderNumberPlus = 0;
+		if (kindOfOrder.equals("Gas")) {
+			orderNumberPlus = Integer.valueOf(readNoOrders("Gas")) + 1;
+		} else if (kindOfOrder.equals("Products")) {
+			orderNumberPlus = Integer.valueOf(readNoOrders("Products")) + 1;
+		}
+		try {
+			fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+			bw.write(String.valueOf(orderNumberPlus));
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (bw != null) {
+				try {
+					bw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public String readNoDeliveryNote(String kindOfOrder) {
+		File file = null;
+		if (kindOfOrder.equals("Gas")) {
+			file = new File("src/javafx/resources/Deliveries/no" + kindOfOrder + "DeliveryNotes.txt");
+		} else if (kindOfOrder.equals("Products")) {
+			file = new File("src/javafx/resources/Deliveries/no" + kindOfOrder + "DeliveryNotes.txt");
+		}
+		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
+			String number;
+			while ((number = br.readLine()) != null) {
+				deliveryNoteNumber = number;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return deliveryNoteNumber;
+	}
 
 	public void writeNoOrders(String kindOfOrder) {
 		File file = null;
@@ -226,7 +294,7 @@ public class SalesModel {
 		try {
 			fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
-			bw.write("BESTELLDATUM=" + printSimpleDateFormat() + "\nDIESEL=" + dieselAmount + "\nSUPER=" + superAmount);
+			bw.write("BESTELLDATUM=" + printSimpleDateFormat() + "\nDIESEL=" + dieselAmount + "\nSUPER=" + superAmount + ";");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -249,8 +317,53 @@ public class SalesModel {
 			bw = new BufferedWriter(fw);
 			bw.write("BESTELLDATUM=" + printSimpleDateFormat() + "\nWarennummer;Bestellmenge");
 			for (Product product : products) {
-				bw.write("\n" + String.valueOf(product.getProdNumber() + ";" + String.valueOf(product.getMaxAmount() - product.getAmount())));
+				bw.write("\n" + String.valueOf(product.getProdNumber() + ";" + String.valueOf(product.getMaxAmount() - product.getAmount()) + ";"));
 			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (bw != null) {
+				try {
+					bw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public void writeProductDeliveryNote(ArrayList<Product> products) {
+		File file = new File("src/javafx/resources/Deliveries/ProductDeliveryNote" + readNoOrders("Products") + ".txt");
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		try {
+			fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+			bw.write("LIEFERDATUM=" + printSimpleDateFormat() + "\nWarennummer;Bezeichnung;Lagereinheit;Menge;Einkaufspreis");
+			for (Product product : products) {
+				bw.write("\n" + String.valueOf(product.getProdNumber() + ";" + product.getName() + ";" + product.getType() + ";" +  String.valueOf(product.getMaxAmount() - product.getAmount()) + ";" + String.valueOf(product.getPriceBuy())));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (bw != null) {
+				try {
+					bw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public void writeGasDeliveryNote(String superAmount, String dieselAmount) {
+		File file = new File("src/javafx/resources/Deliveries/GasDeliveryNote" + readNoOrders("Gas") + ".txt");
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		try {
+			fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+			bw.write("LIEFERDATUM=" + printSimpleDateFormat() + "\nDIESEL=" + dieselAmount + "\nDIESEL_PREIS=" + getDieselPriceSell() + "\nSUPER=" + superAmount + "\nSUPER_PREIS=" + getSuperPriceSell() + ";");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {

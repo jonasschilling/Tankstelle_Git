@@ -1,0 +1,7 @@
+Tankstelle
+
+Belegnummer: 12
+Datum : 05.06.2019 22:19
+Mitarbeiter: null
+Diesel - 4.53 Liter - 1.239 EUR/Liter - 5.61 EUR 
+Gesamtpreis: 5.61

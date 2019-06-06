@@ -80,14 +80,14 @@
 				</Button>
 				<Button fx:id="bookProductsButton" layoutX="25.0"
 					layoutY="257.0" mnemonicParsing="false" prefHeight="50.0"
-					prefWidth="200.0" text="Waren einbuchen" onAction="#bookOrder">
+					prefWidth="200.0" text="Waren einbuchen" onAction="#bookProductOrder">
 					<font>
 						<Font size="18.0" />
 					</font>
 				</Button>
 				<Button fx:id="bookFuelsButton" layoutX="25.0"
 					layoutY="185.0" mnemonicParsing="false" prefHeight="50.0"
-					prefWidth="200.0" text="Kraftstoff einbuchen" onAction="#bookFuels">
+					prefWidth="200.0" text="Kraftstoff einbuchen" onAction="#bookGasOrder">
 					<font>
 						<Font size="18.0" />
 					</font>

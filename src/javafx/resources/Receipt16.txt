@@ -1,0 +1,11 @@
+Tankstelle
+
+Belegnummer: 16
+Datum : 06.06.2019 09:44
+Mitarbeiter: Jonas Schilling
+Diesel - 16.71 Liter - 1.239 EUR/Liter - 20.7 EUR 
+Wodka Jelzin - 2 Flaschen 9.99 EUR/Flasche - 19.98 EUR
+Filip Jelzin - 1 Packung 6.99 EUR/Packung - 6.99 EUR
+Bull Jelzin - 5 Dosen 2.1 EUR/Dose - 10.5 EUR
+Pizza Jelzin - 1 Stück 2.49 EUR/Stück - 2.49 EUR
+Gesamtpreis: 60.66
