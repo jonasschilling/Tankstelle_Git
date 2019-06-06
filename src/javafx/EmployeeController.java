@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 
 import javax.swing.JTable;
 
+import com.sun.corba.se.impl.io.TypeMismatchException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -91,7 +93,7 @@ public class EmployeeController implements Initializable {
 		firstNameField.clear();
 		lastNameField.clear();
 	}
-	
+
 	public void showEasteregg() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("Easteregg.fxml"));
 		Scene scene = new Scene(root);
@@ -101,29 +103,35 @@ public class EmployeeController implements Initializable {
 		popup.show();
 	}
 
-	public void deleteEmployee(ActionEvent actionEvent) {
+	public void deleteEmployee(ActionEvent e) {
 		ObservableList<Employee> selectedCells = tableView.getSelectionModel().getSelectedItems();
-		for (int i = 0; i < selectedCells.size(); i++) {
-			for (int j = 0; j < employees.size(); j++) {
-				Employee t1 = selectedCells.get(i);
-				Employee t2 = employees.get(j);
-				if (t1.equals(t2)) {
-					showConfirmationDialog(t1.getFirstName(), t1.getLastName());
-					employees.remove(j);
-				}
-
-			}
+		if (selectedCells.size() != 0) {
+			showConfirmationDialog();
 		}
-		tableView.setItems(employees);
 	}
 
-	public void showConfirmationDialog(String firstname, String lastname) {
+	public void showConfirmationDialog() {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Mitarbeiter Entfernen");
-		alert.setHeaderText(firstname + " " + lastname + " wirklich entfernen?");
+		alert.setHeaderText("Diesen Mitarbeiter wirklich entfernen?");
 		alert.setContentText("");
 		Optional<ButtonType> option = alert.showAndWait();
-		System.out.println(option.get().getText());
+		if (option.get().getText().equals("Cancel")) {
+			alert.hide();
+		} else {
+			ObservableList<Employee> selectedCells = tableView.getSelectionModel().getSelectedItems();
+			for (int i = 0; i < selectedCells.size(); i++) {
+				for (int j = 0; j < employees.size(); j++) {
+					Employee t1 = selectedCells.get(i);
+					Employee t2 = employees.get(j);
+					if (t1.equals(t2)) {
+						employees.remove(j);
+					}
+
+				}
+			}
+			tableView.setItems(employees);
+		}
 	}
 
 	public static ObservableList<Employee> getEmployees() {
@@ -131,15 +139,14 @@ public class EmployeeController implements Initializable {
 		return employees;
 
 	}
-		public void createEmployee() {
 
-			Employee e1 = new Employee("Patrick", "Berlet");
-			Employee e2 = new Employee("Jonas", "Schilling");
-			Employee e3 = new Employee("Assila", "Templin");
-			employees.addAll(e1, e2, e3);
-			
-		}
-		 
-	 
+	public void createEmployee() {
+
+		Employee e1 = new Employee("Patrick", "Berlet");
+		Employee e2 = new Employee("Jonas", "Schilling");
+		Employee e3 = new Employee("Assila", "Templin");
+		employees.addAll(e1, e2, e3);
+
+	}
 
 }

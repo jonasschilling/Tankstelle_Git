@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.FinancesController;
 import javafx.SalesController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -26,9 +27,11 @@ public class MainController implements Initializable {
 	private EmployeeController employeePageController;
 	@FXML
 	private FinancesController financesPageController;
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
+		
 	}
+	
 }

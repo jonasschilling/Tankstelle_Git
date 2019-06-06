@@ -25,6 +25,9 @@ public class SalesModel {
 	private float dieselPriceBuy = 0.82f, superPriceBuy = 1.04f;
 	private FinancesController financesController;
 	private float balance;
+	private AdministrationController administrationController;
+
+	
 
 	Product wodka = new Product(421, "Wodka Jelzin", "Flasche", amountWodka, 30, 2.99f);
 	Product filip = new Product(871, "Filip Maurice", "Packung", amountFilip, 100, 2.77f);
@@ -67,6 +70,14 @@ public class SalesModel {
 		} else {
 			return null;
 		}
+	}
+	
+	public AdministrationController getAdministrationController() {
+		return administrationController;
+	}
+
+	public void setAdministrationController(AdministrationController administrationController) {
+		this.administrationController = administrationController;
 	}
 
 	public float getDieselPriceBuy() {
@@ -384,13 +395,13 @@ public class SalesModel {
 		}
 		
 	}
+	
 
 	public String printSimpleDateFormat() {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 		Date currentTime = new Date();
 		return (formatter.format(currentTime));
 	}
-	
 
 	public FinancesController getFinancesController() {
 		return financesController;

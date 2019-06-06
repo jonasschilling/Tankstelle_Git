@@ -13,6 +13,8 @@
 
 .tab {
 	-fx-background-color: #FFFFFF;
+	-fx-pref-width: 300;
+	-fx-text-alignment: CENTER;
 }
 
 .tab:hover {
@@ -326,3 +328,4 @@
 #exit:pressed {
 	-fx-background-color: rgb(158, 188, 211);
 }
+

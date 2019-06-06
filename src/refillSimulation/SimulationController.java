@@ -239,6 +239,8 @@ public class SimulationController implements Initializable {
 	}
 
 	public void startTimer(ActionEvent actionEvent) {
+		superButton.setDisable(true);
+		dieselButton.setDisable(true);
 		timer.play();
 	}
 
