@@ -41,7 +41,6 @@ public class FinancesController implements Initializable {
        Stage popup = new Stage();
        private static ObservableList<Receipt> receiptlist = FXCollections.observableArrayList();
        ReceiptModel receiptModel = ReceiptModel.getInstance();
-       FilesModel filesModel = FilesModel.getInstance();
 
        public void init() {
 
@@ -55,7 +54,6 @@ public class FinancesController implements Initializable {
              datepickerFrom.setPromptText("von");
              datepickerTo.setPromptText("bis");
              tableView.setItems(receiptlist);
-             balance.setText("Bilanz:         " + Float.toString(filesModel.getBalance()) + " â‚¬");
 
        }
 
