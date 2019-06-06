@@ -53,7 +53,6 @@ public class SalesController implements Initializable {
 	TankModel tankModel = TankModel.getInstance();
 	ReceiptModel receiptModel = ReceiptModel.getInstance();
 	SalesModel salesModel = SalesModel.getInstance();
-	FilesModel filesmodel = FilesModel.getInstance();
 	SimulationModel simulationModel = SimulationModel.getInstance();
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -373,7 +372,6 @@ public class SalesController implements Initializable {
 		button8.setDisable((scart.jupiter.getAmount() == 0) ? true : false);
 		button9.setDisable((scart.bull.getAmount() == 0) ? true : false);
 		button10.setDisable((scart.pizza.getAmount() == 0) ? true : false);
-		filesmodel.setBalance(filesmodel.getBalance() + scart.getTotal());
 		
 		
 	}
