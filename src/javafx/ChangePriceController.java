@@ -4,8 +4,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import com.sun.prism.paint.Color;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -50,8 +48,8 @@ public class ChangePriceController implements Initializable {
 		newPizzaPrice.setPromptText(tankModel.readPrice("Pizza"));
 	}
 
-	// Prüft ob die Preise im korrekten Format angegeben wurden.
-	// Wenn ja -> ändert Preise
+	// Prueft ob die Preise im korrekten Format angegeben wurden.
+	// Wenn ja -> aendert Preise
 	// Wenn nein -> Alert-Popup und markiert die fehlerhaften Felder rot
 	public void changePrices(ActionEvent actionEvent) {
 		boolean check = false;
@@ -135,7 +133,7 @@ public class ChangePriceController implements Initializable {
 		}
 	}
 
-	// Schließt Popup
+	// Schliesst Popup
 	public void cancel(ActionEvent actionEvent) {
 		Stage popup = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 		popup.hide();

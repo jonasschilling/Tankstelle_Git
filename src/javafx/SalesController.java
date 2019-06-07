@@ -103,7 +103,7 @@ public class SalesController implements Initializable {
 		}
 	}
 
-//Alle + und - Kn�pfe werden versteckt
+//Alle (+) und (-) Knoepfe werden versteckt
 	public void hideAll() {
 		pumpPane.setVisible(false);
 		anchor1.setVisible(false);
@@ -114,7 +114,7 @@ public class SalesController implements Initializable {
 		labelTotal.setText("Gesamtpreis: 0.00  €");
 	}
 
-//Falls Knöpfe gedrückt sind, werden sie nun "losgelassen"
+//Falls Knoepfe gedrueckt sind, werden sie nun "losgelassen"
 	public void unToggleAll() {
 		pumpButton1.setSelected(false);
 		pumpButton2.setSelected(false);
@@ -146,23 +146,8 @@ public class SalesController implements Initializable {
 	public static String getCurrentEmployee() {
 		return currentEmployee;
 	}
-//	public Employee currentEmployee(ActionEvent actionEvent) {
-//		String fullName = comboBox.getValue();
-//		String[] nameArray = fullName.split(" ");
-//		String firstName = nameArray[0];
-//		String lastName = nameArray[1];
-//		for(int i = 0; i< EmployeeController.getEmployees().size(); i++) {
-//			if(firstName.equals(EmployeeController.getEmployees().get(i).getFirstName()) &&
-//					lastName.equals(EmployeeController.getEmployees().get(i).getLastName())) {
-//				System.out.println(EmployeeController.getEmployees().get(i));
-//					return EmployeeController.getEmployees().get(i);
-//			}
-//			
-//		}
-//		return null;
-//	}
 
-//Ein Produkt wird ausgewählt
+//Ein Produkt wird ausgewaehlt
 	public void productButtonClicked(ActionEvent actionEvent) {
 
 		ToggleButton source = (ToggleButton) actionEvent.getSource();
@@ -211,7 +196,7 @@ public class SalesController implements Initializable {
 		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + "  €");
 	}
 
-//der + Button eines Produkts wird gedr�ckt
+//der (+) Button eines Produkts wird gedrueckt
 	public void addButtonClicked(ActionEvent actionEvent) {
 
 		Button source = (Button) actionEvent.getSource();
@@ -275,7 +260,7 @@ public class SalesController implements Initializable {
 		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + "  €");
 	}
 
-//Der - Button eines Produkts wird gedr�ckt
+//Der (-) Button eines Produkts wird gedrueckt
 	public void removeButtonClicked(ActionEvent actionEvent) {
 		Button source = (Button) actionEvent.getSource();
 		Label currentlabel;
@@ -350,7 +335,7 @@ public class SalesController implements Initializable {
 		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + "  €");
 	}
 
-//Checkout Button wird gedrückt
+//Checkout Button wird gedrueckt
 	public void checkout(ActionEvent actionEvent) {
 		receiptModel.getAmount(scart.getNumWodka(), scart.getNumFilip(), scart.getNumJupiter(), scart.getNumBull(),
 				scart.getNumPizza(), scart.getTotal());
@@ -381,7 +366,7 @@ public class SalesController implements Initializable {
 		
 	}
 
-//Cancelbutton wird gedr �ckt
+//Cancelbutton wird gedrueckt
 	public void cancel(ActionEvent actionEvent) {
 
 		scart.cancel();
@@ -390,8 +375,8 @@ public class SalesController implements Initializable {
 		unToggleAll();
 	}
 
-// die Pressed und Released-Methoden f�hren Operationen aus, die bei Ausw�hlen
-// bzw. Abw�hlen eines Produktes wichtig sind.
+// die Pressed und Released-Methoden fuehren Operationen aus, die bei Auswaehlen
+// bzw. Abwaehlen eines Produktes wichtig sind.
 	public void wodkaPressed() {
 		scart.addWodka();
 		anchor1.setVisible(true);
@@ -500,7 +485,7 @@ public class SalesController implements Initializable {
 	}
 
 // Die Remove-methoden lassen die Schriftzug des Produkts verschwinden und die
-// anderen Schriftz�ge weiter hoch r�cken in der Anzeige
+// anderen Schriftzuege weiter hochruecken in der Anzeige
 	public void removeWodka() {
 		if (label1.getText().contains("Wodka")) {
 			label1.setText(label2.getText());
@@ -688,7 +673,7 @@ public class SalesController implements Initializable {
 		}
 	}
 
-//�berp�ft, welches Label in der Warenkorbanzeige frei ist
+//Ueberprueft, welches Label in der Warenkorbanzeige frei ist
 	public Label freeLabel() {
 		if (label1.getText().equals("")) {
 			return label1;
@@ -707,7 +692,7 @@ public class SalesController implements Initializable {
 		}
 	}
 
-//�berpr�ft, in welchem Label der �bergebene String angezeigt wird
+//Ueberprueft, in welchem Label der Uebergebene String angezeigt wird
 	public Label getCurrentLabel(String s) {
 		if (label1.getText().contains(s)) {
 			return label1;
@@ -775,7 +760,8 @@ public class SalesController implements Initializable {
 			labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " " + eurosign);
 		}
 	}
-
+	
+	//gibt ObservableList "employees" zur�ck
 	public static ObservableList<String> getEmployeesNames() {
 
 		return employeesNames;

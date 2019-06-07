@@ -41,7 +41,7 @@ public class TankModel {
 		}
 	}
 
-	// Erzeugt Textdatei mit Verkaufspreis für die jeweilige Kraftstoffart
+	// Erzeugt Textdatei mit Verkaufspreis fuer die jeweilige Kraftstoffart
 	public void writePrice(String tankDescription, String newPrice) {
 		File file = new File("src/javafx/resources/Preise/" + tankDescription + "Preis.txt");
 		FileWriter fw = null;
@@ -79,7 +79,7 @@ public class TankModel {
 		return newPrice;
 	}
 	
-	// Erzeugt Textdatei mit Füllstand für die jeweilige Kraftstoffart
+	// Erzeugt Textdatei mit Fuellstand fuer die jeweilige Kraftstoffart
 	public void writeFuelLevel(String tankDescription, String newFuelLevel) {
 		File file = new File("src/javafx/resources/" + tankDescription + "Level.txt");
 		FileWriter fw = null;
@@ -102,7 +102,7 @@ public class TankModel {
 		}
 	}
 	
-	// Liest Füllstand der jeweiligen Kraftstoffart aus Textdatei aus
+	// Liest Fuellstand der jeweiligen Kraftstoffart aus Textdatei aus
 	public String readFuelLevel(String tankDescription) {
 		File file = new File("src/javafx/resources/" + tankDescription + "Level.txt");
 		try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {

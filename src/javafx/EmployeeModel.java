@@ -6,8 +6,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -58,7 +56,7 @@ public class EmployeeModel {
 
 	}
 
-	//liest Textdatei "Employees.txt" mit Mitarbeitern aus und fügt diese der ObservableList "employees" hinzu
+	//liest Textdatei "Employees.txt" mit Mitarbeitern aus und fuegt diese der ObservableList "employees" hinzu
 	public void readEmployees() {
 
 		File file = new File("src/javafx/resources/Employees.txt");

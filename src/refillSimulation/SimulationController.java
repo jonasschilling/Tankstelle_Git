@@ -1,13 +1,8 @@
 package refillSimulation;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.FuelPump;
 import javafx.SalesModel;
 import javafx.TankModel;
 import javafx.animation.KeyFrame;
@@ -17,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.util.Duration;
@@ -135,7 +129,7 @@ public class SimulationController implements Initializable {
 		timer.setCycleCount(Timeline.INDEFINITE);
 	}
 
-	// Ordnet die getankte Menge der ausgewählten Zapfsäule zu
+	// Ordnet die getankte Menge der ausgewaehlten Zapfsaeule zu
 	public void matchRefillData(ActionEvent e) {
 		pump = (ToggleButton) e.getSource();
 		if (pump != pumpButton1) {
@@ -162,7 +156,7 @@ public class SimulationController implements Initializable {
 		dieselButton.setDisable(false);
 	}
 
-	// Passt Preisanzeige mit Preis der ausgewählten Kraftstoffart an
+	// Passt Preisanzeige mit Preis der ausgewaehlten Kraftstoffart an
 	public void setPrice(ActionEvent e) {
 		gas = (ToggleButton) e.getSource();
 		pricePerLitreLabel.setText(tankModel.readPrice(gas.getText()) + " €/L");
@@ -258,7 +252,7 @@ public class SimulationController implements Initializable {
 		priceCompLabel.setText("0.00 €");
 	}
 
-	// Zieht getankte Liter von den Füllständen des Tanks der ausgewählten Kraftstoffart ab
+	// Zieht getankte Liter von den Fuelstaenden des Tanks der ausgewaehlten Kraftstoffart ab
 	public void decreaseTank(String tankDescription) {
 		Float actualFuelLevel = Float.valueOf(tankModel.readFuelLevel(tankDescription));
 		newFuelLevel = String.valueOf(actualFuelLevel - amountRefilled);
@@ -266,7 +260,7 @@ public class SimulationController implements Initializable {
 	}
 
 
-	// Stellt Anfangszustand der Zapfsäule für nächste Simulation wieder her
+	// Stellt Anfangszustand der Zapfsaeule fuer naechste Simulation wieder her
 	public void getReady() {
 		pumpButton1.setDisable(false);
 		pumpButton1.setSelected(false);

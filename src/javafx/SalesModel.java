@@ -6,11 +6,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  * @author Thore Bedey, Patrick Berlet
@@ -48,7 +46,8 @@ public class SalesModel {
 		}
 		return SalesModel.instance;
 	}
-
+	
+	//fuegt Produkte der ArrayList "products" hinzu
 	public void addProducts() {
 
 		products.add(wodka);
@@ -100,7 +99,7 @@ public class SalesModel {
 		this.superPriceBuy = superPriceBuy;
 	}
 
-	// Erzeut Textdatei mit Preis für das jeweilige Produkt
+	// Erzeut Textdatei mit Preis fuer das jeweilige Produkt
 	public void writePrice(String productDescription, String newPrice) {
 		File file = new File(path + productDescription + "Preis.txt");
 		FileWriter fw = null;
@@ -123,7 +122,7 @@ public class SalesModel {
 		}
 	}
 
-	// Liest Preis für das jeweilige Produkt aus Textdatei ein
+	// Liest Preis fuer das jeweilige Produkt aus Textdatei ein
 	public String readPrice(String productDescription) {
 		File file = new File(path + productDescription + "Preis.txt");
 		String newPrice = null;
@@ -138,7 +137,7 @@ public class SalesModel {
 		return newPrice;
 	}
 
-	// Schreibt Bestände in Textdatei
+	// Schreibt Bestaende in Textdatei
 	public void writeStock() {
 		File file = new File("src/javafx/resources/Stock.txt");
 		FileWriter fw = null;
@@ -165,7 +164,7 @@ public class SalesModel {
 		}
 	}
 
-	// Liest Bestände aus Textdatei ein
+	// Liest Bestaende aus Textdatei ein
 	public void readStock() {
 		File file = new File("src/javafx/resources/Stock.txt");
 		FileReader fr = null;
@@ -205,7 +204,7 @@ public class SalesModel {
 		return products;
 	}
 
-	// Liest Anzahl der Bestellbelegen für die angegebene Bestellart ein
+	// Liest Anzahl der Bestellbelegen fuer die angegebene Bestellart ein
 	public String readNoOrders(String kindOfOrder) {
 		File file = null;
 		if (kindOfOrder.equals("Gas")) {
@@ -224,7 +223,7 @@ public class SalesModel {
 		return orderNumber;
 	}
 
-	// Schreibt Anzahl der Lieferscheine für die angegebene Bestellart und inkrementiert diese
+	// Schreibt Anzahl der Lieferscheine fuer die angegebene Bestellart und inkrementiert diese
 	public void writeNoDeliveryNote(String kindOfOrder) {
 		File file = null;
 		if (kindOfOrder.equals("Gas")) {
@@ -257,7 +256,7 @@ public class SalesModel {
 		}
 	}
 
-	// Liest Anzahl der Lieferscheine für die angegebene Bestellart ein
+	// Liest Anzahl der Lieferscheine fuer die angegebene Bestellart ein
 	public String readNoDeliveryNote(String kindOfOrder) {
 		File file = null;
 		if (kindOfOrder.equals("Gas")) {
@@ -276,7 +275,7 @@ public class SalesModel {
 		return deliveryNoteNumber;
 	}
 
-	// Schreibt Anzahl der Bestellbelegen für die angegebene Bestellart
+	// Schreibt Anzahl der Bestellbelegen fuer die angegebene Bestellart
 	public void writeNoOrders(String kindOfOrder) {
 		File file = null;
 		if (kindOfOrder.equals("Gas")) {
@@ -309,7 +308,7 @@ public class SalesModel {
 		}
 	}
 
-	// Schreibt Bestellbeleg für Kraftstoffbestellung
+	// Schreibt Bestellbeleg fuer Kraftstoffbestellung
 	public void writeGasOrder(String superAmount, String dieselAmount) {
 		File file = new File("src/javafx/resources/Orders/GasOrder" + readNoOrders("Gas") + ".txt");
 		FileWriter fw = null;
@@ -332,7 +331,7 @@ public class SalesModel {
 		}
 	}
 
-	// Schreibt Bestellbeleg für Produktbestellung
+	// Schreibt Bestellbeleg fuer Produktbestellung
 	public void writeProductOrder(ArrayList<Product> products) {
 		File file = new File("src/javafx/resources/Orders/ProductOrder" + readNoOrders("Products") + ".txt");
 		FileWriter fw = null;
@@ -358,7 +357,7 @@ public class SalesModel {
 		}
 	}
 
-	// Erzeugt Lieferschein für Produkte
+	// Erzeugt Lieferschein fuer Produkte
 	public void writeProductDeliveryNote(ArrayList<Product> products) {
 		File file = new File("src/javafx/resources/Deliveries/ProductDeliveryNote" + readNoOrders("Products") + ".txt");
 		FileWriter fw = null;
@@ -386,7 +385,7 @@ public class SalesModel {
 		}
 	}
 
-	// Erzeugt Lieferschein für Kraftstoff
+	// Erzeugt Lieferschein fuer Kraftstoff
 	public void writeGasDeliveryNote(String superAmount, String dieselAmount) {
 		File file = new File("src/javafx/resources/Deliveries/GasDeliveryNote" + readNoOrders("Gas") + ".txt");
 		FileWriter fw = null;
@@ -410,14 +409,14 @@ public class SalesModel {
 
 	}
 
-	// Gibt Datum zurück
+	// Gibt Datum zurueck
 	public String printSimpleDateFormat() {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 		Date currentTime = new Date();
 		return (formatter.format(currentTime));
 	}
 
-	// Gibt FinancesController zurück
+	// Gibt FinancesController zurueck
 	public FinancesController getFinancesController() {
 		return financesController;
 	}

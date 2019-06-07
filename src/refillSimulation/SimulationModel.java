@@ -7,8 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import javafx.Employee;
-import javafx.EmployeeController;
 
 /**
  * @author Jonas Schilling
@@ -55,7 +53,7 @@ public class SimulationModel {
 		}
 	}
 
-	// Liest Daten der Simulation für jeweilige Zapfsäule ein
+	// Liest Daten der Simulation fuer jeweilige Zapfsaeule ein
 	public void readPumpData(int pumpNr) throws IOException {
 		File file = new File("src/javafx/resources/PumpData/pumpData" + pumpNr + ".txt");
 		FileReader fr = new FileReader(file);

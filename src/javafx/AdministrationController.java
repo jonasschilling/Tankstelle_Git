@@ -1,16 +1,13 @@
 package javafx;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -22,16 +19,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
-import javafx.scene.control.TextInputDialog;
-import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import refillSimulation.SimulationModel;
 
 
 /**
@@ -200,7 +192,7 @@ public class AdministrationController implements Initializable {
 				salesModel.getProduct("Pizza").getAmount() + " / " + salesModel.getProduct("Pizza").getMaxAmount());
 	}
 
-	// Öffnet Popup, um Verkaufspreise zu ändern
+	// Oeffnet Popup, um Verkaufspreise zu Aendern
 	public void showPriceChangePopup(ActionEvent actionEvent) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("ChangePricePopup.fxml"));
 		Scene scene = new Scene(root);
@@ -211,7 +203,7 @@ public class AdministrationController implements Initializable {
 		popup.show();
 	}
 
-	// Öffnet Popup um Details zu den Waren anzeigen zu lassen
+	// Oeffnet Popup um Details zu den Waren anzeigen zu lassen
 	public void showProdInfoPopup(ActionEvent actionEvent) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("ProductInformationPopUp.fxml"));
 		Scene scene = new Scene(root);
@@ -222,7 +214,7 @@ public class AdministrationController implements Initializable {
 		popup.show();
 	}
 
-	// Prüft, ob etwas ausgewählt ist, wenn ja -> bestellt die Kraftstoff- und Warenmengen
+	// Prueft, ob etwas ausgewaehlt ist, wenn ja -> bestellt die Kraftstoff- und Warenmengen
 	public void makeOrder(ActionEvent actionEvent) {
 		if (superOrder.getText().equals("0.0") == false || dieselOrder.getText().equals("0.0") == false
 				|| wodkaOrder.isSelected() || filipOrder.isSelected() || jupiterOrder.isSelected()
@@ -279,7 +271,7 @@ public class AdministrationController implements Initializable {
 		}
 	}
 
-	// Liest Produkt-Lieferscheine ein und erhöht Bestände
+	// Liest Produkt-Lieferscheine ein und erhaelt Bestaende
 	public void bookProductOrder() {
 		File file = new File("src/javafx/resources/Deliveries/ProductDeliveryNote"
 				+ salesModel.readNoDeliveryNote("Products") + ".txt");
@@ -346,7 +338,7 @@ public class AdministrationController implements Initializable {
 
 	}
 
-	// Liest Kraftstoff-Lieferscheine ein und erhöht Bestände
+	// Liest Kraftstoff-Lieferscheine ein und erhaelt Bestaende
 	public void bookGasOrder() {
 		float dieselFuelAdd = 0;
 		float superFuelAdd = 0;
@@ -411,7 +403,7 @@ public class AdministrationController implements Initializable {
 
 	}
 
-	// Gibt aktuelles Datum im Format dd.MM.yyyy kk:mm zurück
+	// Gibt aktuelles Datum im Format dd.MM.yyyy kk:mm zurueck
 	public String printSimpleDateFormatWithTime() {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy kk:mm");
 		Date currentTime = new Date();

@@ -2,7 +2,6 @@ package javafx;
 
 
 import java.text.SimpleDateFormat;
-import java.time.*;
 import java.util.*;
 
 /**
@@ -70,7 +69,7 @@ public class Employee {
 		this.stringDate = stringDate;
 	}
 	
-	//Attribute der Mitarbeiter werden zu einem String zusammengefügt
+	//Attribute der Mitarbeiter werden zu einem String zusammengefuegt
 	public String getEmployeeAttributes() {
 		
 		String employeeId = Integer.toString(getEmployeeId());
