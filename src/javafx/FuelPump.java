@@ -7,6 +7,7 @@ package javafx;
 public class FuelPump {
 	
 	private int id;
+	private String gasKind;
 	private float amountRefilled, priceComp;
 	
 	public FuelPump (int id, float amountRefilled, float priceComp) {
@@ -39,7 +40,14 @@ public class FuelPump {
 		this.priceComp = priceComp;
 	}
 	
-	
+	public String getGasKind() {
+		return gasKind;
+	}
+
+	public void setGasKind(String gasKind) {
+		this.gasKind = gasKind;
+	}
+
 	
 	
 }

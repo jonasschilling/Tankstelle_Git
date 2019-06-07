@@ -33,6 +33,7 @@ public class SimulationModel {
 
 	}
 
+	// Erzeugt Textdatei mit Daten der Simulation
 	public void writePumpData(String pumpNr, String gasKind, float amountRefilled, float priceComp) {
 		File file = new File("src/javafx/resources/PumpData/pumpData" + pumpNr + ".txt");
 		FileWriter fw = null;
@@ -54,6 +55,7 @@ public class SimulationModel {
 		}
 	}
 
+	// Liest Daten der Simulation für jeweilige Zapfsäule ein
 	public void readPumpData(int pumpNr) throws IOException {
 		File file = new File("src/javafx/resources/PumpData/pumpData" + pumpNr + ".txt");
 		FileReader fr = new FileReader(file);

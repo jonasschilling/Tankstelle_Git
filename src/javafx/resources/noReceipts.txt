@@ -1,2 +1,1 @@
-1
-07.06.2019 08:59;Verkaufsbeleg;src\javafx\resources\Receipts\Receipt1.txt
+0

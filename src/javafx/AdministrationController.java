@@ -63,8 +63,6 @@ public class AdministrationController implements Initializable {
 
 	private static char eurosign = '\u20AC';
 
-	boolean countUp1 = false, countUp2 = false;
-
 	TankModel tankModel = TankModel.getInstance();
 	SalesModel salesModel = SalesModel.getInstance();
 	ReceiptModel receiptModel = ReceiptModel.getInstance();
@@ -140,7 +138,8 @@ public class AdministrationController implements Initializable {
 				salesModel.getProduct("Pizza").getAmount() + " / " + salesModel.getProduct("Pizza").getMaxAmount());
 
 	}
-
+	
+	// Aktualisiert alle Controls in der Administrationview
 	public void refresh() {
 		superBar.setProgress(
 				(double) Float.valueOf(tankModel.readFuelLevel("Super")) / tankModel.getTank("Super").getCapacity());
@@ -201,6 +200,7 @@ public class AdministrationController implements Initializable {
 				salesModel.getProduct("Pizza").getAmount() + " / " + salesModel.getProduct("Pizza").getMaxAmount());
 	}
 
+	// Öffnet Popup, um Verkaufspreise zu ändern
 	public void showPriceChangePopup(ActionEvent actionEvent) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("ChangePricePopup.fxml"));
 		Scene scene = new Scene(root);
@@ -211,6 +211,7 @@ public class AdministrationController implements Initializable {
 		popup.show();
 	}
 
+	// Öffnet Popup um Details zu den Waren anzeigen zu lassen
 	public void showProdInfoPopup(ActionEvent actionEvent) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("ProductInformationPopUp.fxml"));
 		Scene scene = new Scene(root);
@@ -219,15 +220,17 @@ public class AdministrationController implements Initializable {
 		popup.setTitle("Warendetails");
 		popup.setScene(scene);
 		popup.show();
-
 	}
 
+	// Prüft, ob etwas ausgewählt ist, wenn ja -> bestellt die Kraftstoff- und Warenmengen
 	public void makeOrder(ActionEvent actionEvent) {
 		if (superOrder.getText().equals("0.0") == false || dieselOrder.getText().equals("0.0") == false
 				|| wodkaOrder.isSelected() || filipOrder.isSelected() || jupiterOrder.isSelected()
 				|| bullOrder.isSelected() || pizzaOrder.isSelected()) {
 
 			if ((superOrder.getText().equals("0.0") == false) || (dieselOrder.getText().equals("0.0")) == false) {
+				superSlider.setMax((double) tankModel.getTank("Super").getCapacity() - Double.valueOf(tankModel.readFuelLevel("Super")) - Double.valueOf(superOrder.getText()));
+				dieselSlider.setMax((double) tankModel.getTank("Diesel").getCapacity() - Double.valueOf(tankModel.readFuelLevel("Diesel")) - Double.valueOf(superOrder.getText()));
 				salesModel.writeNoOrders("Gas");
 				salesModel.writeGasDeliveryNote(superOrder.getText(), dieselOrder.getText());
 				salesModel.writeGasOrder(superOrder.getText(), dieselOrder.getText());
@@ -276,6 +279,7 @@ public class AdministrationController implements Initializable {
 		}
 	}
 
+	// Liest Produkt-Lieferscheine ein und erhöht Bestände
 	public void bookProductOrder() {
 		File file = new File("src/javafx/resources/Deliveries/ProductDeliveryNote"
 				+ salesModel.readNoDeliveryNote("Products") + ".txt");
@@ -342,6 +346,7 @@ public class AdministrationController implements Initializable {
 
 	}
 
+	// Liest Kraftstoff-Lieferscheine ein und erhöht Bestände
 	public void bookGasOrder() {
 		float dieselFuelAdd = 0;
 		float superFuelAdd = 0;
@@ -406,6 +411,7 @@ public class AdministrationController implements Initializable {
 
 	}
 
+	// Gibt aktuelles Datum im Format dd.MM.yyyy kk:mm zurück
 	public String printSimpleDateFormatWithTime() {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy kk:mm");
 		Date currentTime = new Date();

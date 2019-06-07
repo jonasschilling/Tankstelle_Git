@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.FuelPump;
+import javafx.SalesModel;
 import javafx.TankModel;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -56,6 +58,7 @@ public class SimulationController implements Initializable {
 	ToggleButton superButton, dieselButton, pumpButton1, pumpButton2, pumpButton3, pumpButton4, pumpButton5;
 
 	TankModel tankModel = TankModel.getInstance();
+	SalesModel salesModel = SalesModel.getInstance();
 	SimulationModel simulationModel = SimulationModel.getInstance();
 
 	public void initialize(URL location, ResourceBundle resources) {
@@ -78,6 +81,7 @@ public class SimulationController implements Initializable {
 		startTimerButton.setDisable(true);
 		stopTimerButton.setDisable(true);
 
+		// Erzeugt Timer
 		timer = new Timeline(new KeyFrame(Duration.millis(10), (actionEvent) -> {
 			milliLitresText = String.valueOf(milliLitres);
 
@@ -123,18 +127,6 @@ public class SimulationController implements Initializable {
 				setAmountRefilled(litres, milliLitresText);
 			}
 
-//			if (superButton.isPressed() == true) {
-//				tankFrom = "Super";
-//				dieselButton.setDisable(true);
-////				pricePerLitreLabel.setText(tankModel.readPrice("Super") + " €/L");
-////				priceComp = getAmountRefilled() * Float.valueOf(tankModel.readPrice("Super"));
-//			} else if (dieselButton.isPressed() == true) {
-//				tankFrom = "Diesel";
-//				superButton.setDisable(true);
-////				pricePerLitreLabel.setText(tankModel.readPrice("Super") + " €/L");
-////				priceComp = getAmountRefilled() * Float.valueOf(tankModel.readPrice("Diesel"));
-//			}
-
 			pricePerLitreLabel.setText(tankModel.readPrice(gas.getText()) + " €/L");
 			priceComp = getAmountRefilled() * Float.valueOf(tankModel.readPrice(gas.getText()));
 			setPriceCompRound(Math.round(priceComp * 100) / 100.0f);
@@ -143,6 +135,7 @@ public class SimulationController implements Initializable {
 		timer.setCycleCount(Timeline.INDEFINITE);
 	}
 
+	// Ordnet die getankte Menge der ausgewählten Zapfsäule zu
 	public void matchRefillData(ActionEvent e) {
 		pump = (ToggleButton) e.getSource();
 		if (pump != pumpButton1) {
@@ -169,6 +162,7 @@ public class SimulationController implements Initializable {
 		dieselButton.setDisable(false);
 	}
 
+	// Passt Preisanzeige mit Preis der ausgewählten Kraftstoffart an
 	public void setPrice(ActionEvent e) {
 		gas = (ToggleButton) e.getSource();
 		pricePerLitreLabel.setText(tankModel.readPrice(gas.getText()) + " €/L");
@@ -176,14 +170,6 @@ public class SimulationController implements Initializable {
 		startTimerButton.setDisable(false);
 		stopTimerButton.setDisable(false);
 	}
-
-//	public float getPricePerLitre() {
-//		return pricePerLitre;
-//	}
-//
-//	public void setPricePerLitre(float pricePerLitre) {
-//		this.pricePerLitre = pricePerLitre;
-//	}
 
 	public float getPriceCompRound() {
 		return priceCompRound;
@@ -242,21 +228,24 @@ public class SimulationController implements Initializable {
 		return amountRefilled;
 	}
 
+	// Startet Simulation
 	public void startTimer(ActionEvent actionEvent) {
 		superButton.setDisable(true);
 		dieselButton.setDisable(true);
 		timer.play();
 	}
 
+	// Stoppt Simulation
 	public void stopTimer(ActionEvent actionEvent) {
 		timer.stop();
 		simulationModel.writePumpData(pump.getText(), gas.getText(), getAmountRefilled(), getPriceCompRound());
 		decreaseTank(gas.getText());
 		tankModel.getProgress(tankModel.getTank(gas.getText()));
-		
+
 		getReady();
 	}
-
+	
+	// Resettet alle Variablen
 	public void resetPump() {
 		setLitres(0);
 		setLitresText("0");
@@ -269,17 +258,15 @@ public class SimulationController implements Initializable {
 		priceCompLabel.setText("0.00 €");
 	}
 
+	// Zieht getankte Liter von den Füllständen des Tanks der ausgewählten Kraftstoffart ab
 	public void decreaseTank(String tankDescription) {
 		Float actualFuelLevel = Float.valueOf(tankModel.readFuelLevel(tankDescription));
 		newFuelLevel = String.valueOf(actualFuelLevel - amountRefilled);
 		tankModel.writeFuelLevel(tankDescription, newFuelLevel);
 	}
 
-	public void resetButtons(ActionEvent actionEvent) {
-		startTimerButton.setDisable(false);
-		stopTimerButton.setDisable(false);
-	}
-	
+
+	// Stellt Anfangszustand der Zapfsäule für nächste Simulation wieder her
 	public void getReady() {
 		pumpButton1.setDisable(false);
 		pumpButton1.setSelected(false);

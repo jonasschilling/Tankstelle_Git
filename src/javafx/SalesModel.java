@@ -39,8 +39,8 @@ public class SalesModel {
 	Product bull = new Product(992, "Sitting Bull", "Dose", amountBull, 50, 0.29f);
 	Product pizza = new Product(101, "TK-Pizza Deluxe", "Stück", amountPizza, 20, 0.89f);
 	ArrayList<Product> products = new ArrayList<>();
-	//ReceiptModel receiptModel = ReceiptModel.getInstance();; 
 	String orderNumber = null, deliveryNoteNumber = null;
+	FuelPump fuelPump1, fuelPump2, fuelPump3, fuelPump4, fuelPump5;
 
 	public static SalesModel getInstance() {
 		if (SalesModel.instance == null) {
@@ -75,7 +75,7 @@ public class SalesModel {
 			return null;
 		}
 	}
-	
+
 	public AdministrationController getAdministrationController() {
 		return administrationController;
 	}
@@ -100,6 +100,7 @@ public class SalesModel {
 		this.superPriceBuy = superPriceBuy;
 	}
 
+	// Erzeut Textdatei mit Preis für das jeweilige Produkt
 	public void writePrice(String productDescription, String newPrice) {
 		File file = new File(path + productDescription + "Preis.txt");
 		FileWriter fw = null;
@@ -122,6 +123,7 @@ public class SalesModel {
 		}
 	}
 
+	// Liest Preis für das jeweilige Produkt aus Textdatei ein
 	public String readPrice(String productDescription) {
 		File file = new File(path + productDescription + "Preis.txt");
 		String newPrice = null;
@@ -136,8 +138,8 @@ public class SalesModel {
 		return newPrice;
 	}
 
+	// Schreibt Bestände in Textdatei
 	public void writeStock() {
-
 		File file = new File("src/javafx/resources/Stock.txt");
 		FileWriter fw = null;
 		BufferedWriter bw = null;
@@ -163,8 +165,8 @@ public class SalesModel {
 		}
 	}
 
+	// Liest Bestände aus Textdatei ein
 	public void readStock() {
-
 		File file = new File("src/javafx/resources/Stock.txt");
 		FileReader fr = null;
 		BufferedReader br = null;
@@ -203,6 +205,7 @@ public class SalesModel {
 		return products;
 	}
 
+	// Liest Anzahl der Bestellbelegen für die angegebene Bestellart ein
 	public String readNoOrders(String kindOfOrder) {
 		File file = null;
 		if (kindOfOrder.equals("Gas")) {
@@ -221,6 +224,7 @@ public class SalesModel {
 		return orderNumber;
 	}
 
+	// Schreibt Anzahl der Lieferscheine für die angegebene Bestellart und inkrementiert diese
 	public void writeNoDeliveryNote(String kindOfOrder) {
 		File file = null;
 		if (kindOfOrder.equals("Gas")) {
@@ -253,6 +257,7 @@ public class SalesModel {
 		}
 	}
 
+	// Liest Anzahl der Lieferscheine für die angegebene Bestellart ein
 	public String readNoDeliveryNote(String kindOfOrder) {
 		File file = null;
 		if (kindOfOrder.equals("Gas")) {
@@ -271,6 +276,7 @@ public class SalesModel {
 		return deliveryNoteNumber;
 	}
 
+	// Schreibt Anzahl der Bestellbelegen für die angegebene Bestellart
 	public void writeNoOrders(String kindOfOrder) {
 		File file = null;
 		if (kindOfOrder.equals("Gas")) {
@@ -303,6 +309,7 @@ public class SalesModel {
 		}
 	}
 
+	// Schreibt Bestellbeleg für Kraftstoffbestellung
 	public void writeGasOrder(String superAmount, String dieselAmount) {
 		File file = new File("src/javafx/resources/Orders/GasOrder" + readNoOrders("Gas") + ".txt");
 		FileWriter fw = null;
@@ -325,6 +332,7 @@ public class SalesModel {
 		}
 	}
 
+	// Schreibt Bestellbeleg für Produktbestellung
 	public void writeProductOrder(ArrayList<Product> products) {
 		File file = new File("src/javafx/resources/Orders/ProductOrder" + readNoOrders("Products") + ".txt");
 		FileWriter fw = null;
@@ -350,6 +358,7 @@ public class SalesModel {
 		}
 	}
 
+	// Erzeugt Lieferschein für Produkte
 	public void writeProductDeliveryNote(ArrayList<Product> products) {
 		File file = new File("src/javafx/resources/Deliveries/ProductDeliveryNote" + readNoOrders("Products") + ".txt");
 		FileWriter fw = null;
@@ -377,6 +386,7 @@ public class SalesModel {
 		}
 	}
 
+	// Erzeugt Lieferschein für Kraftstoff
 	public void writeGasDeliveryNote(String superAmount, String dieselAmount) {
 		File file = new File("src/javafx/resources/Deliveries/GasDeliveryNote" + readNoOrders("Gas") + ".txt");
 		FileWriter fw = null;
@@ -397,16 +407,17 @@ public class SalesModel {
 				}
 			}
 		}
-		
-	}
-	
 
+	}
+
+	// Gibt Datum zurück
 	public String printSimpleDateFormat() {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
 		Date currentTime = new Date();
 		return (formatter.format(currentTime));
 	}
 
+	// Gibt FinancesController zurück
 	public FinancesController getFinancesController() {
 		return financesController;
 	}
@@ -416,7 +427,7 @@ public class SalesModel {
 	}
 
 	public float getBalance() {
-		return Math.round(balance*100) /100f;
+		return Math.round(balance * 100) / 100f;
 	}
 
 	public void incBalance(float balance) {
@@ -426,7 +437,7 @@ public class SalesModel {
 	public void decBalance(float balance) {
 		this.balance -= balance;
 	}
-	
+
 	public char getEurosign() {
 		return eurosign;
 	}
