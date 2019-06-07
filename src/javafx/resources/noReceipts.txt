@@ -1,1 +1,6 @@
-0
+5
+07.06.2019 08:09;Einkaufsbeleg;src\javafx\resources\Deliveries\GasDeliveryNote1.txt
+07.06.2019 08:12;Einkaufsbeleg;src\javafx\resources\Deliveries\GasDeliveryNote2.txt
+07.06.2019 08:13;Einkaufsbeleg;src\javafx\resources\Deliveries\ProductDeliveryNote1.txt
+07.06.2019 08:14;Einkaufsbeleg;src\javafx\resources\Deliveries\ProductDeliveryNote2.txt
+07.06.2019 08:14;Einkaufsbeleg;src\javafx\resources\Deliveries\ProductDeliveryNote3.txt

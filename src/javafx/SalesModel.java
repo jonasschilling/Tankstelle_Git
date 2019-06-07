@@ -232,9 +232,9 @@ public class SalesModel {
 		BufferedWriter bw = null;
 		int orderNumberPlus = 0;
 		if (kindOfOrder.equals("Gas")) {
-			orderNumberPlus = Integer.valueOf(readNoOrders("Gas")) + 1;
+			orderNumberPlus = Integer.valueOf(readNoDeliveryNote("Gas")) + 1;
 		} else if (kindOfOrder.equals("Products")) {
-			orderNumberPlus = Integer.valueOf(readNoOrders("Products")) + 1;
+			orderNumberPlus = Integer.valueOf(readNoDeliveryNote("Products")) + 1;
 		}
 		try {
 			fw = new FileWriter(file);
