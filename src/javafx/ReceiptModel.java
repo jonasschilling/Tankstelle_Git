@@ -76,45 +76,45 @@ public class ReceiptModel {
                     Product current = null;
                     if (simulationModel.getReadAmount() != null) {
                           bw.write(simulationModel.getGasKind() + " - " + simulationModel.getReadAmount() + " Liter - "
-                                       + tankModel.readPrice(simulationModel.getGasKind()) + " EUR/Liter - "
-                                       + simulationModel.getReadPriceComp() + " EUR \n");
+                                       + tankModel.readPrice(simulationModel.getGasKind()) + " " + salesModel.getEurosign() + " - "
+                                       + simulationModel.getReadPriceComp() + " " + salesModel.getEurosign() + "\n");
                     }
                     if (numWodka > 0) {
                           current = salesModel.getProduct("Wodka");
                           String type = (numWodka > 1) ? current.getType() + "n" : current.getType();
                           float price = (float) Math.round(numWodka * Float.valueOf(salesModel.readPrice("Wodka")) * 100) / 100;
-                          bw.write("Wodka Jelzin - " + numWodka + " " + type + " " + price / numWodka + " EUR/"
-                                       + current.getType() + " - " + price + " EUR" + "\n");
+                          bw.write("Wodka Jelzin - " + numWodka + " " + type + " " + price / numWodka + " " + salesModel.getEurosign() + "/"
+                                       + current.getType() + " - " + price + " " + salesModel.getEurosign() + "\n");
                     }
                     if (numFilip > 0) {
                           current = salesModel.getProduct("Filip");
                           String type = (numFilip > 1) ? current.getType() + "en" : current.getType();
                           float price = (float) Math.round(numFilip * Float.valueOf(salesModel.readPrice("Filip")) * 100) / 100;
-                          bw.write("Filip Maurice - " + numFilip + " " + type + " " + price / numFilip + " EUR/"
-                                       + current.getType() + " - " + price + " EUR" + "\n");
+                          bw.write("Filip Maurice - " + numFilip + " " + type + " " + price / numFilip + " " + salesModel.getEurosign() + "/"
+                                       + current.getType() + " - " + price + " " + salesModel.getEurosign() + "\n");
                     }
                     if (numJupiter > 0) {
                           current = salesModel.getProduct("Jupiter");
                           float price = (float) Math.round(numJupiter * Float.valueOf(salesModel.readPrice("Jupiter")) * 100)
                                        / 100;
-                          bw.write("Jupiter Riegel - " + numJupiter + " " + current.getType() + " " + price / numJupiter + " EUR/"
-                                       + current.getType() + " - " + price + " EUR" + "\n");
+                          bw.write("Jupiter Riegel - " + numJupiter + " " + current.getType() + " " + price / numJupiter + " " + salesModel.getEurosign() + "/"
+                                       + current.getType() + " - " + price + " " + salesModel.getEurosign() + "\n");
                     }
                     if (numBull > 0) {
                           current = salesModel.getProduct("Bull");
                           String type = (numBull > 1) ? current.getType() + "n" : current.getType();
                           float price = (float) Math.round(numBull * Float.valueOf(salesModel.readPrice("Bull")) * 100) / 100;
-                          bw.write("Sitting Bull - " + numBull + " " + type + " " + price / numBull + " EUR/" + current.getType()
-                                       + " - " + price + " EUR" + "\n");
+                          bw.write("Sitting Bull - " + numBull + " " + type + " " + price / numBull + " " + salesModel.getEurosign() + "/" + current.getType()
+                                       + " - " + price + " " + salesModel.getEurosign() + "\n");
                     }
                     if (numPizza > 0) {
                           current = salesModel.getProduct("Pizza");
                           float price = (float) Math.round(numPizza * Float.valueOf(salesModel.readPrice("Pizza")) * 100) / 100;
-                          bw.write("Tk-Pizza Deluxe - " + numPizza + " " + current.getType() + " " + price / numPizza + " EUR/"
-                                       + current.getType() + " - " + price + " EUR" + "\n");
+                          bw.write("Tk-Pizza Deluxe - " + numPizza + " " + current.getType() + " " + price / numPizza + " " + salesModel.getEurosign() + "/"
+                                       + current.getType() + " - " + price + " " + salesModel.getEurosign() + "\n");
                     }
                     String stringTotal = String.valueOf(total);
-                    bw.write("Gesamtpreis: " + stringTotal);
+                    bw.write("Gesamtpreis: " + stringTotal + " " + salesModel.getEurosign());
                     String p = file.getPath();
                     Receipt R1 = new Receipt(date, "Verkaufsbeleg", p);
                     receipts.add(R1);

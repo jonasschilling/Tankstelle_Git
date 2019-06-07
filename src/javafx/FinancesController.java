@@ -56,7 +56,7 @@ public class FinancesController implements Initializable {
 		datepickerFrom.setPromptText("von");
 		datepickerTo.setPromptText("bis");
 		tableView.setItems(receiptlist);
-		balanceLabel.setText("Bilanz:      " + String.valueOf(salesModel.getBalance()) + " €");
+		balanceLabel.setText("Bilanz:      " + String.valueOf(salesModel.getBalance()) + " " + salesModel.getEurosign());
 
 	}
 
@@ -94,7 +94,7 @@ public class FinancesController implements Initializable {
 	}
 
 	public void setBalanceLabel() {
-		balanceLabel.setText("Bilanz:      " + String.valueOf(salesModel.getBalance()) + " €");
+		balanceLabel.setText("Bilanz:      " + String.valueOf(salesModel.getBalance()) + " " + salesModel.getEurosign());
 	}
 
 }

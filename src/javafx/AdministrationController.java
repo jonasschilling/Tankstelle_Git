@@ -61,7 +61,7 @@ public class AdministrationController implements Initializable {
 	@FXML
 	RadioButton wodkaOrder, filipOrder, jupiterOrder, bullOrder, pizzaOrder;
 
-	public static char eurosign = '\u20AC';
+	private static char eurosign = '\u20AC';
 
 	boolean countUp1 = false, countUp2 = false;
 
@@ -411,4 +411,7 @@ public class AdministrationController implements Initializable {
 		Date currentTime = new Date();
 		return (formatter.format(currentTime));
 	}
+	
+	
+	
 }

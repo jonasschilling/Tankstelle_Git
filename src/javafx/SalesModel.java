@@ -31,7 +31,7 @@ public class SalesModel {
 	private float balance;
 	private AdministrationController administrationController;
 
-	
+	private static char eurosign = '\u20AC';
 
 	Product wodka = new Product(421, "Wodka Jelzin", "Flasche", amountWodka, 30, 2.99f);
 	Product filip = new Product(871, "Filip Maurice", "Packung", amountFilip, 100, 2.77f);
@@ -425,6 +425,10 @@ public class SalesModel {
 
 	public void decBalance(float balance) {
 		this.balance -= balance;
+	}
+	
+	public char getEurosign() {
+		return eurosign;
 	}
 
 }
