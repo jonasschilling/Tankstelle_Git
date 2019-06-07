@@ -25,6 +25,7 @@ import refillSimulation.SimulationModel;
 public class SalesController implements Initializable {
 
 	public static char eurosign = '\u20AC';
+	public static char ae = '\u00E4';
 	
 	Shoppingcart scart;
 	@FXML
@@ -51,6 +52,7 @@ public class SalesController implements Initializable {
 	Pane pumpPane;
 	@FXML
 	AnchorPane anchor1, anchor2, anchor3, anchor4, anchor5;
+	private float currentprice = 0;
 	private static String currentEmployee;
 	private static ObservableList<String> employeesNames = FXCollections.observableArrayList();
 
@@ -58,15 +60,16 @@ public class SalesController implements Initializable {
 	ReceiptModel receiptModel = ReceiptModel.getInstance();
 	SalesModel salesModel = SalesModel.getInstance();
 	SimulationModel simulationModel = SimulationModel.getInstance();
-
+//Beim Initialisieren werden grafische Vorkehrungen getroffen, wie z.B. ein ProduktButton disabled, falls dieses Produkt incht vorhanden ist.
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		scart = new Shoppingcart();
 		hideAll();
 		if (salesModel.products.size() < 1) {
 			salesModel.addProducts();
 		}
 		comboBox.getItems().setAll(employeesNames);
-		comboBox.setPromptText("Mitarbeiter auswählen");
+		comboBox.setPromptText("Mitarbeiter ausw"+ae+"hlen");
 		disableButtonEmpty();
 		ToggleGroup toggleGroup = new ToggleGroup();
 		toggleGroup.getToggles().add(pumpButton1);
@@ -111,7 +114,7 @@ public class SalesController implements Initializable {
 		anchor3.setVisible(false);
 		anchor4.setVisible(false);
 		anchor5.setVisible(false);
-		labelTotal.setText("Gesamtpreis: 0.00  €");
+		labelTotal.setText("Gesamtpreis: 0.00  " + eurosign);
 	}
 
 //Falls Knoepfe gedrueckt sind, werden sie nun "losgelassen"
@@ -138,16 +141,17 @@ public class SalesController implements Initializable {
 		label6.setText("");
 
 	}
-
+//speichert den momentan ausgewaehlten Mitarbeiter in einer Variable
 	public void currentEmployee(ActionEvent actionEvent) {
 		currentEmployee = comboBox.getValue();
 	}
-
+	//gibt den momentan ausgewaehlten Mitarbeiter zurueck
 	public static String getCurrentEmployee() {
 		return currentEmployee;
 	}
 
-//Ein Produkt wird ausgewaehlt
+//Wenn ein Produkt ausgewaehlt wird, wird es dem Warenkor hinzugefuegt und der + und - button dieses Produkts werden auch angezeigt.
+//Wenn ein Produkt abgewaehlt wird, verschwindet es aus dem Warenkorb und auch der + und - buttone dieses Produkts verschwinden.
 	public void productButtonClicked(ActionEvent actionEvent) {
 
 		ToggleButton source = (ToggleButton) actionEvent.getSource();
@@ -193,10 +197,10 @@ public class SalesController implements Initializable {
 			}
 			break;
 		}
-		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + "  €");
+		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + "  " +eurosign);
 	}
 
-//der (+) Button eines Produkts wird gedrueckt
+//Wird der (+) Button eines Produkts gedrueckt, wird das Produkt dem Warenkorb hinzugefuegt.
 	public void addButtonClicked(ActionEvent actionEvent) {
 
 		Button source = (Button) actionEvent.getSource();
@@ -257,10 +261,10 @@ public class SalesController implements Initializable {
 			currentlabel.setText("Pizza                    " + price + " " + eurosign);
 			break;
 		}
-		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + "  €");
+		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + "  " + eurosign);
 	}
 
-//Der (-) Button eines Produkts wird gedrueckt
+//Wird der (-) Button eines Produkts gedrueckt, wird das Produkt aus dem Warenkorb entfernt.
 	public void removeButtonClicked(ActionEvent actionEvent) {
 		Button source = (Button) actionEvent.getSource();
 		Label currentlabel;
@@ -332,10 +336,11 @@ public class SalesController implements Initializable {
 			currentlabel.setText("Pizza                    " + price + " " + eurosign);
 			break;
 		}
-		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + "  €");
+		labelTotal.setText("Gesamtpreis: " + scart.getTotal() + "  " + eurosign);
 	}
 
-//Checkout Button wird gedrueckt
+//Wird der checkout Button gedrueckt, wird ein Beleg der gekauften Produkte/Benzin erstellt, 
+//	die Buttons werden "losgelassen" und die Bilanz wird erhoeht.
 	public void checkout(ActionEvent actionEvent) {
 		receiptModel.getAmount(scart.getNumWodka(), scart.getNumFilip(), scart.getNumJupiter(), scart.getNumBull(),
 				scart.getNumPizza(), scart.getTotal());
@@ -366,7 +371,7 @@ public class SalesController implements Initializable {
 		
 	}
 
-//Cancelbutton wird gedrueckt
+//Wird der Cancelbutton gedrueckt, wird alles aus dem Warenkorb geloescht 
 	public void cancel(ActionEvent actionEvent) {
 
 		scart.cancel();
@@ -376,7 +381,8 @@ public class SalesController implements Initializable {
 	}
 
 // die Pressed und Released-Methoden fuehren Operationen aus, die bei Auswaehlen
-// bzw. Abwaehlen eines Produktes wichtig sind.
+// bzw. Abwaehlen eines Produktes wichtig sind. Falls z.B. der Pizza Button gedrueckt wird, muss der Preis zum Gesamtpreis hinzugefuegt
+// werden und richtig angezeigt werden.
 	public void wodkaPressed() {
 		scart.addWodka();
 		anchor1.setVisible(true);
@@ -673,7 +679,8 @@ public class SalesController implements Initializable {
 		}
 	}
 
-//Ueberprueft, welches Label in der Warenkorbanzeige frei ist
+//Ueberprueft, welches Label in der Warenkorbanzeige frei ist, damit ein Produkt, falls es zum Warenkorb hinzugefuegt
+// wird, nicht ganz unten steht, obwohl oben in der Anzeige noch Platz ist.
 	public Label freeLabel() {
 		if (label1.getText().equals("")) {
 			return label1;
@@ -711,8 +718,8 @@ public class SalesController implements Initializable {
 		}
 	}
 
-	private float currentprice = 0;
-
+	
+//holt sich f�r den Verkauf von Kraftstoff die Daten aus der Tanksimulation und zeigt sie an.
 	public void getPumpData(ActionEvent actionEvent) throws IOException {
 		ToggleButton t = (ToggleButton) actionEvent.getSource();
 
@@ -752,12 +759,11 @@ public class SalesController implements Initializable {
 			labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " " + eurosign);
 			Label freelabel = freeLabel();
 			currentprice = Float.valueOf(simulationModel.getReadPriceComp());
-			freelabel.setText("Zapfsäule " + pumpNumber.getText() + "         " + priceCompleteLabel.getText());
+			freelabel.setText("Zapfs"+ae+"ule " + pumpNumber.getText() + "         " + priceCompleteLabel.getText());
 		} else if (t.isSelected() == false) {
 			pumpPane.setVisible(false);
 			removeGas();
 			scart.decTotal(Float.valueOf(simulationModel.getReadPriceComp()));
-			labelTotal.setText("Gesamtpreis: " + scart.getTotal() + " " + eurosign);
 		}
 	}
 	

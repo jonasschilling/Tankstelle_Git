@@ -14,10 +14,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -38,6 +40,7 @@ public class FinancesController implements Initializable {
 	TableColumn<Receipt, String> path;
 	@FXML
 	DatePicker datepickerFrom, datepickerTo;
+	public static char ae = '\u00E4';
 	Stage popup = new Stage();
 	private static ObservableList<Receipt> receiptlist = FXCollections.observableArrayList();
 	ReceiptModel receiptModel = ReceiptModel.getInstance();
@@ -52,21 +55,29 @@ public class FinancesController implements Initializable {
 		datepickerFrom.setPromptText("von");
 		datepickerTo.setPromptText("bis");
 		tableView.setItems(receiptlist);
-		balanceLabel.setText("Bilanz:      " + String.valueOf(salesModel.getBalance()) + " " + salesModel.getEurosign());
+		balanceLabel
+				.setText("Bilanz:      " + String.valueOf(salesModel.getBalance()) + " " + salesModel.getEurosign());
 
 	}
-
+	//oeffnet den ausgewaehlten Beleg
 	public void openFile(ActionEvent actionEvent) throws IOException {
 		ObservableList<Receipt> selectedCells = tableView.getSelectionModel().getSelectedItems();
-		receiptModel.setPath(selectedCells.get(0).getPath());
-		Parent root = FXMLLoader.load(getClass().getResource("showReceipt.fxml"));
-		Scene scene = new Scene(root);
-		popup.setTitle("Beleg");
-		popup.setScene(scene);
-		popup.show();
-
+		if (selectedCells.size() == 0) {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Fehler");
+			alert.setHeaderText("Bitte w"+ae+"hlen Sie ein Beleg aus, der ausgegeben werden soll.");
+			alert.setContentText("");
+			alert.showAndWait();
+		} else {
+			receiptModel.setPath(selectedCells.get(0).getPath());
+			Parent root = FXMLLoader.load(getClass().getResource("showReceipt.fxml"));
+			Scene scene = new Scene(root);
+			popup.setTitle("Beleg");
+			popup.setScene(scene);
+			popup.show();
+		}
 	}
-
+//Diese Methode sorgt dafuer, dass man die Belege nachTagen filtern kann.
 	public void filter(ActionEvent actionEvent) {
 		ObservableList<Receipt> tempreceiptlist = FXCollections.observableArrayList();
 		LocalDate fromDate = datepickerFrom.getValue();
@@ -90,7 +101,8 @@ public class FinancesController implements Initializable {
 	}
 
 	public void setBalanceLabel() {
-		balanceLabel.setText("Bilanz:      " + String.valueOf(salesModel.getBalance()) + " " + salesModel.getEurosign());
+		balanceLabel
+				.setText("Bilanz:      " + String.valueOf(salesModel.getBalance()) + " " + salesModel.getEurosign());
 	}
 
 }

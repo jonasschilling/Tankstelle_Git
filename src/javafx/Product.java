@@ -86,6 +86,7 @@ public class Product {
      public void decAmount(int amount) {
           this.amount -= amount;
      }
+     //gibt alles Attribute eines Produkts in einem String zurueck, jeweils mit einem Semikolon getrennt.
      public String getAttributes() {
           
           String prodNumber = Integer.toString(getProdNumber());

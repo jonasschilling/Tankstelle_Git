@@ -5,7 +5,7 @@ package javafx;
  *
  */
 public class Shoppingcart {
-	
+
 	SalesModel salesModel = SalesModel.getInstance();
 
 	private int numWodka;
@@ -20,16 +20,16 @@ public class Shoppingcart {
 	Product bull;
 	Product pizza;
 
-	//Konstruktor
-	//test
+	// Konstruktor
+	// test
 	public Shoppingcart() {
-		
+
 		wodka = salesModel.getProduct("Wodka");
 		filip = salesModel.getProduct("Filip");
 		jupiter = salesModel.getProduct("Jupiter");
 		bull = salesModel.getProduct("Bull");
 		pizza = salesModel.getProduct("Pizza");
-		numWodka = 0;	
+		numWodka = 0;
 		numFilip = 0;
 		numJupiter = 0;
 		numBull = 0;
@@ -106,6 +106,7 @@ public class Shoppingcart {
 		numPizza--;
 		decTotal(Float.valueOf(salesModel.readPrice("Pizza")));
 	}
+
 	public float getTotal() {
 		return (float) ((float) Math.round(total * 100) / 100.0);
 	}
@@ -117,6 +118,8 @@ public class Shoppingcart {
 	public void decTotal(float price) {
 		this.total -= price;
 	}
+
+	// Der Bestand wird um die gekauften Produkte reduziert.
 	public void checkout() {
 		wodka.decAmount(numWodka);
 		filip.decAmount(numFilip);
@@ -129,8 +132,9 @@ public class Shoppingcart {
 		numBull = 0;
 		numPizza = 0;
 		total = 0;
-		
+
 	}
+
 	public void cancel() {
 		numWodka = 0;
 		numFilip = 0;
@@ -138,6 +142,6 @@ public class Shoppingcart {
 		numBull = 0;
 		numPizza = 0;
 		total = 0;
-		
+
 	}
 }

@@ -33,7 +33,7 @@ public class ChangePriceController implements Initializable {
 	TextField newBullPrice;
 	@FXML
 	TextField newPizzaPrice;
-
+	private static char ue = '\u00FC';
 	TankModel tankModel = TankModel.getInstance();
 	SalesModel salesModel = SalesModel.getInstance();
 
@@ -124,7 +124,7 @@ public class ChangePriceController implements Initializable {
 			}
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Information");
-			alert.setHeaderText("Ungültige Preiseingabe.");
+			alert.setHeaderText("Ung"+ue+"ltige Preiseingabe.");
 			alert.show();
 			check = false;
 		} else {

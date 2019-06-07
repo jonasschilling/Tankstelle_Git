@@ -52,13 +52,15 @@ public class AdministrationController implements Initializable {
 	Slider superSlider, dieselSlider;
 	@FXML
 	RadioButton wodkaOrder, filipOrder, jupiterOrder, bullOrder, pizzaOrder;
-
+	private static char ue = '\u00FC';
 	private static char eurosign = '\u20AC';
+	public static char ae = '\u00E4';
 
 	TankModel tankModel = TankModel.getInstance();
 	SalesModel salesModel = SalesModel.getInstance();
 	ReceiptModel receiptModel = ReceiptModel.getInstance();
-
+//initialisiert alle Werte nud setzt die Texte der Labels. Au�erdem werden hier die Silder so gesetzt, dass
+//man nicht mehr Kraftsoff bestellen kann, als in den Tank passt.
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		tankNameLabel1.setText(tankModel.getTank("Super").getDescription());
@@ -156,8 +158,8 @@ public class AdministrationController implements Initializable {
 			dieselBar.setStyle("-fx-accent: red");
 		}
 
-		superPriceLabel.setText(tankModel.readPrice("Super") + " €/L");
-		dieselPriceLabel.setText(tankModel.readPrice("Diesel") + " €/L");
+		superPriceLabel.setText(tankModel.readPrice("Super") + " "+eurosign+"/L");
+		dieselPriceLabel.setText(tankModel.readPrice("Diesel") + " "+eurosign+"/L");
 		wodkaPriceLabel.setText(salesModel.readPrice("Wodka") + " " + eurosign);
 		filipPriceLabel.setText(salesModel.readPrice("Filip") + " " + eurosign);
 		jupiterPriceLabel.setText(salesModel.readPrice("Jupiter") + " " + eurosign);
@@ -198,7 +200,7 @@ public class AdministrationController implements Initializable {
 		Scene scene = new Scene(root);
 		Stage popup = new Stage();
 		scene.getStylesheets().add(getClass().getResource("Stylesheet.css").toExternalForm());
-		popup.setTitle("Preise ändern");
+		popup.setTitle("Preise "+ae+"ndern");
 		popup.setScene(scene);
 		popup.show();
 	}
@@ -332,7 +334,7 @@ public class AdministrationController implements Initializable {
 		} else {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Information");
-			alert.setHeaderText("Kein aktueller Lieferschein für Waren vorhanden.");
+			alert.setHeaderText("Kein aktueller Lieferschein f"+ue+"r Waren vorhanden.");
 			alert.show();
 		}
 
@@ -397,7 +399,7 @@ public class AdministrationController implements Initializable {
 		} else {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Information");
-			alert.setHeaderText("Kein aktueller Lieferschein für Kraftstoff vorhanden.");
+			alert.setHeaderText("Kein aktueller Lieferschein f"+ue+"r Kraftstoff vorhanden.");
 			alert.show();
 		}
 

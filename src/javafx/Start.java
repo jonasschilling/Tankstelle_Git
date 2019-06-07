@@ -53,7 +53,7 @@ public class Start extends Application {
 
 	public void stop() {
 
-		// Aufräumarbeiten durchführen
+		// Aufraeumarbeiten durchfuehren
 
 	}
 

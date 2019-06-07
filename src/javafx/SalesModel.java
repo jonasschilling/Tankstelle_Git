@@ -30,12 +30,13 @@ public class SalesModel {
 	private AdministrationController administrationController;
 
 	private static char eurosign = '\u20AC';
+	private static char ue = '\u00FC';
 
 	Product wodka = new Product(421, "Wodka Jelzin", "Flasche", amountWodka, 30, 2.99f);
 	Product filip = new Product(871, "Filip Maurice", "Packung", amountFilip, 100, 2.77f);
-	Product jupiter = new Product(358, "Jupiter Schokoriegel", "Stück", amountJupiter, 150, 0.19f);
+	Product jupiter = new Product(358, "Jupiter Schokoriegel", "St"+ue+"ck", amountJupiter, 150, 0.19f);
 	Product bull = new Product(992, "Sitting Bull", "Dose", amountBull, 50, 0.29f);
-	Product pizza = new Product(101, "TK-Pizza Deluxe", "Stück", amountPizza, 20, 0.89f);
+	Product pizza = new Product(101, "TK-Pizza Deluxe", "St"+ue+"ck", amountPizza, 20, 0.89f);
 	ArrayList<Product> products = new ArrayList<>();
 	String orderNumber = null, deliveryNoteNumber = null;
 	FuelPump fuelPump1, fuelPump2, fuelPump3, fuelPump4, fuelPump5;
